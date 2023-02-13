@@ -5,3 +5,7 @@
 .testColor {
     background-color: #ff9696;
 }
+
+.hoverDiv:hover {
+    background-color: #ff9696;
+}
