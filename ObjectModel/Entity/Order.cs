@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ObjectModel.Entity
+namespace ObjectModel
 {
-    internal class Order
+    public class Order
     {
         public int OrderId { get; set; }
         public int ProductId { get; set; }
