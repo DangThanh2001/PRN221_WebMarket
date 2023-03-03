@@ -9,3 +9,9 @@
 .hoverDiv:hover {
     background-color: #ff9696;
 }
+
+.money {
+    font-size: x-large;
+    font-weight: bold;
+    color: red;
+}
