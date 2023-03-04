@@ -15,17 +15,17 @@ namespace ObjectModel
         public string FirstName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
-        public string PhoneNumber { get; set; }
-        public string Address { get; set; }
-        public string City { get; set; }
-        public DateTime DayCreated { get; set; }
-        public DateTime DayUpdated { get; set; }
-        public string AvatarImage { get; set; }
+        public string? PhoneNumber { get; set; }
+        public string? Address { get; set; }
+        public string? City { get; set; }
+        public DateTime? DayCreated { get; set; }
+        public DateTime? DayUpdated { get; set; }
+        public string? AvatarImage { get; set; }
         // 0 = admin, 1 = mod, 2 = normal
-        public int Type { get; set; }
+        public int Type { get; set; } = 2;
         // so du tai khoan
-        public Double Balance { get; set; } 
-        public bool IsActive { get; set; }
-        public bool IsDelete { get; set;}
+        public Double Balance { get; set; }
+        public bool IsActive { get; set; } = true;
+        public bool IsDelete { get; set;} = false;
     }
 }

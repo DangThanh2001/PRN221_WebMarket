@@ -13,7 +13,7 @@ namespace ObjectModel
         [Key]
         public int ProductId { get; set; }
         public string ProductName { get; set; }
-        public string ProductDescription { get; set; }
+        public string? ProductDescription { get; set; }
         public string ProductCategory { get; set; }
         public Double Price { get; set; }
         // con thua lai
@@ -23,7 +23,7 @@ namespace ObjectModel
         // so luong tren 1 don vi mua
         public int QuantityPerUnit { get; set;}
         public DateTime ImportDay { get; set; }
-        public bool IsActive { get; set; }
-        public bool IsDelete { get; set; }
+        public bool IsActive { get; set; } = true;
+        public bool IsDelete { get; set; } = false;
     }
 }

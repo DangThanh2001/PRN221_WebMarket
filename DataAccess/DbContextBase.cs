@@ -8,7 +8,6 @@ namespace DataAccess
         public DbContextBase(DbContextOptions<DbContextBase> options):base(options) 
         {
         }
-        public DbSet<UserDTO> Users { get; set; }
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Company> Companys { get; set; }

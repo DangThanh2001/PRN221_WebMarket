@@ -11,11 +11,11 @@ namespace Service
     {
         private const double EXPIRY_DURATION_MINUTES = 30;
         public string BuildToken(string key,
-        string issuer, UserDTO user)
+        string issuer, Account user)
         {
             var claims = new[] {
-                new Claim(ClaimTypes.Name, user.UserName),
-                new Claim(ClaimTypes.Role, user.Role),
+                //new Claim(ClaimTypes.Name, user.UserName),
+                //new Claim(ClaimTypes.Role, user.Role),
                 new Claim(ClaimTypes.NameIdentifier, Guid.NewGuid().ToString())
             };
 
