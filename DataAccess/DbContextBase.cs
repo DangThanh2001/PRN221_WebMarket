@@ -13,5 +13,6 @@ namespace DataAccess
         public DbSet<Company> Companys { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Card> Cards { get; set; }
     }
 }

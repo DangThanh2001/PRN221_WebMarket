@@ -1,0 +1,338 @@
+﻿@page
+@model Web_Market.Pages.PaymentsModel
+@{
+}
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>Payments | ClassiList Classified Ads Template</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="~/images/favicon.png" type="image/png">
+
+    <link rel="stylesheet" href="~/css/animate.css">
+
+    <link rel="stylesheet" href="~/css/tiny-slider.css">
+
+    <link rel="stylesheet" href="~/css/glightbox.min.css">
+
+    <link rel="stylesheet" href="~/css/LineIcons.2.0.css">
+
+    <link rel="stylesheet" href="~/css/selectr.css">
+
+    <link rel="stylesheet" href="~/css/nouislider.css">
+
+    <link rel="stylesheet" href="~/css/bootstrap-5.0.5-alpha.min.css">
+
+    <link rel="stylesheet" href="~/css/style.css">
+</head>
+<body>
+    <!--[if IE]>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+    <div class="preloader">
+        <div class="loader">
+            <div class="ytp-spinner">
+                <div class="ytp-spinner-container">
+                    <div class="ytp-spinner-rotator">
+                        <div class="ytp-spinner-left">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                        <div class="ytp-spinner-right">
+                            <div class="ytp-spinner-circle"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <section class="banner-area bg_cover">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="banner-content">
+                        <h1 class="text-white">Payments</h1>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Payments</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="dashboard-area pb-110">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3 col-lg-4">
+                    <div class="left-sidebar-wrapper box-style">
+                        <div class="sidebar-header">
+                            <div class="image">
+                                <img src="~/images/dashboard/profile-img.png" alt="">
+                            </div>
+                            <div class="info">
+                                <h3>Musharraf Karim</h3>
+                                <p class="mb-30">Director at Uideck.com</p>
+                            </div>
+                        </div>
+                        <div class="sidebar-menu">
+                            <nav>
+                                <ul>
+                                    <li>
+                                        <a href="dashboard.html"><i class="lni lni-dashboard"></i>Dashboard</a>
+                                    </li>
+                                    <li>
+                                        <a href="profile-settings.html"><i class="lni lni-cog"></i>Profile Settings</a>
+                                    </li>
+                                    <li>
+                                        <a href="add-adds.html"><i class="lni lni-cog"></i>Post Ad</a>
+                                    </li>
+                                    <li>
+                                        <a href="my-ads.html"><i class="lni lni-layers"></i>My Ads</a>
+                                    </li>
+                                    <li>
+                                        <a href="offers.html"><i class="lni lni-envelope"></i>Offers / Message</a>
+                                    </li>
+                                    <li>
+                                        <a href="payments.html" class="active"><i class="lni lni-paypal"></i>Payments</a>
+                                    </li>
+                                    <li>
+                                        <a href="favorites.html"><i class="lni lni-heart"></i>My Favorites</a>
+                                    </li>
+                                    <li>
+                                        <a href="privacy.html"><i class="lni lni-star"></i>Privacy Settings</a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)"><i class="lni lni-exit"></i>Sign Out</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-9 col-lg-8">
+                    <div class="dashboard-wrapper box-style">
+                        <div class="title">
+                            <h3>Payments</h3>
+                        </div>
+                        <div class="payments-wrapper">
+                            <form action="#">
+                                <div class="row">
+                                    <div class="col-xl-6">
+                                        <div class="left-wrapper box-style mb-30">
+                                            <h5 class="mb-25">Your Order</h5>
+                                            <ul class="checkout">
+                                                <li>
+                                                    <h6>Product</h6>
+                                                    <h6>Total</h6>
+                                                </li>
+                                                <li>
+                                                    <p>CCG tv Camera</p>
+                                                    <p>$340.00</p>
+                                                </li>
+                                                <li>
+                                                    <p>CCG tv Camera</p>
+                                                    <p>$340.00</p>
+                                                </li>
+                                                <li>
+                                                    <p>CCG tv Camera</p>
+                                                    <p>$340.00</p>
+                                                </li>
+                                                <li>
+                                                    <p>CCG tv Camera</p>
+                                                    <p>$340.00</p>
+                                                </li>
+                                                <li>
+                                                    <h6>SubTotal</h6>
+                                                    <p>$1220.00</p>
+                                                </li>
+                                                <li>
+                                                    <h6>Shipping</h6>
+                                                    <div class="right">
+                                                        <div class="mb-2 text-right d-block">
+                                                            <div class="form-check check-style">
+                                                                <input class="form-check-input" type="checkbox" value="none" id="flexCheckDefault1">
+                                                                <label for="flexCheckDefault1">Free Shipping</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="text-right d-block">
+                                                            <div class="form-check check-style">
+                                                                <input class="form-check-input" type="checkbox" value="none" id="flexCheckDefault2">
+                                                                <label for="flexCheckDefault2">Flat Shipping: $10.00</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <h6>Total</h6>
+                                                    <p>$1230.00</p>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <div class="right-wrapper box-style mb-30">
+                                            <h5 class="mb-25">Payment Method</h5>
+                                            <div class="single-form mb-15">
+                                                <label for="name" class="mb-1">Name on Card *</label>
+                                                <input type="text" id="name" name="name" placeholder="John Doe" class="px-3 py-2 border rounded">
+                                            </div>
+                                            <div class="single-form mb-15">
+                                                <label for="card" class="mb-1">Credit Card Type *</label>
+                                                <select name="card" id="card" class="px-3 py-2 border rounded w-100">
+                                                    <option value="none">Visa</option>
+                                                    <option value="none">Master</option>
+                                                    <option value="none">Paypal</option>
+                                                </select>
+                                            </div>
+                                            <div class="single-form mb-15">
+                                                <label for="number" class="mb-1">Credit Card Number *</label>
+                                                <input type="text" id="number" name="number" placeholder="123 456 789" class="px-3 py-2 border rounded">
+                                            </div>
+                                            <div class="single-form mb-15">
+                                                <label for="number2" class="mb-1">Card Verification Number*</label>
+                                                <input type="text" id="number2" name="number2" placeholder="* * * *" class="px-3 py-2 border rounded">
+                                            </div>
+                                        </div>
+                                        <div class="box-style">
+                                            <div class="mb-20 d-flex justify-content-between">
+                                                <h3>Grand Total: </h3>
+                                                <h3>$1254</h3>
+                                            </div>
+                                            <button class="main-btn btn-hover btn-block">Place Order</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <footer class="footer-area">
+        <div class="widget-wrapper">
+            <div class="map-img">
+                <img src="~/images/footer/map-img.svg" alt="">
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-4 col-md-7">
+                        <div class="footer-widget about">
+                            <a href="index.html" class="d-inline-block mb-30">
+                                <img src="~/images/logo/logo.svg" alt="">
+                            </a>
+                            <p class="text-white mb-25">Buy And Sell Everything From Used Cars To Mobile Phones And Computers, Search For Property, Jobs And More</p>
+                            <ul class="social">
+                                <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-twitter-filled"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-instagram-filled"></i></a></li>
+                                <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-4 order-md-2 order-xl-1 col-sm-6">
+                        <div class="footer-widget">
+                            <h4>Quick Link</h4>
+                            <ul class="link">
+                                <li><a href="javascript:void(0)">Home</a></li>
+                                <li><a href="javascript:void(0)">About</a></li>
+                                <li><a href="javascript:void(0)">Category</a></li>
+                                <li><a href="javascript:void(0)">Product details</a></li>
+                                <li><a href="javascript:void(0)">Contact</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-4 order-md-3 order-xl-2 col-sm-6">
+                        <div class="footer-widget">
+                            <h4>Support</h4>
+                            <ul class="link">
+                                <li><a href="javascript:void(0)">Live Chat</a></li>
+                                <li><a href="javascript:void(0)">Privacy Policy</a></li>
+                                <li><a href="javascript:void(0)">Purchase</a></li>
+                                <li><a href="javascript:void(0)">Protection</a></li>
+                                <li><a href="javascript:void(0)">Support</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-4 order-md-4 order-xl-3 col-sm-6">
+                        <div class="footer-widget">
+                            <h4>Information</h4>
+                            <ul class="link">
+                                <li><a href="javascript:void(0)">Company</a></li>
+                                <li><a href="javascript:void(0)">Contact Info</a></li>
+                                <li><a href="javascript:void(0)">Blog & Articles</a></li>
+                                <li><a href="javascript:void(0)">Terms of Service</a></li>
+                                <li><a href="javascript:void(0)">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-md-5 order-md-1 order-xl-4 col-sm-6">
+                        <div class="footer-widget">
+                            <h4>Contact Us</h4>
+                            <ul>
+                                <li>
+                                    <span>Phone:</span>
+                                    0345983672937
+                                </li>
+                                <li>
+                                    <span>Email:</span>
+                                    <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0c7563797e616d65604c6b616d6560226f6361">[email&#160;protected]</a>
+                                </li>
+                                <li>
+                                    <span>Location:</span>
+                                    United State of America
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copy-right">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="text-center">
+                            <p>Designed & Developed By <a href="https://graygrids.com/" rel="nofollow" target="_blank">GrayGrids</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <a href="#" class="back-to-top btn-hover"><i class="lni lni-chevron-up"></i></a>
+
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="~/js/bootstrap.bundle-5.0.0.alpha-min.js"></script>
+
+    <script src="~/js/tiny-slider.js"></script>
+
+    <script src="~/js/wow.min.js"></script>
+
+    <script src="~/js/glightbox.min.js"></script>
+
+    <script src="~/js/selectr.min.js"></script>
+
+    <script src="~/js/nouislider.js"></script>
+
+    <script src="~/js/main.js"></script>
+</body>
+</html>

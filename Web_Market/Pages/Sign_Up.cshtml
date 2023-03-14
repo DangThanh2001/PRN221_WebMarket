@@ -1,5 +1,5 @@
 ﻿@page
-@model Web_Market.Pages.Login.LoginModel
+@model Web_Market.Pages.Sign_UpModel
 @{
 }
 <!doctype html>
@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Login Page | ClassiList Classified Ads Template</title>
+    <title>Sign up Page | ClassiList Classified Ads Template</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -57,11 +57,11 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="banner-content">
-                        <h1 class="text-white">Login Page</h1>
+                        <h1 class="text-white">Sign Up Page</h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Login Page</li>
+                                <li class="breadcrumb-item active" aria-current="page">Sign up Page</li>
                             </ol>
                         </nav>
                     </div>
@@ -76,13 +76,19 @@
             <div class="row justify-content-center">
                 <div class="col-lg-6 col-md-10">
                     <div class="login-wrapper box-style">
-                        <h3 class="mb-20">Login</h3>
+                        <h3 class="mb-20">Sign Up</h3>
                         <form action="#">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="single-form mb-20">
-                                        <label for="email" class="mb-2">Email Or Username</label>
-                                        <input type="text" id="email" name="email" placeholder="Email Or Username" class="py-2 px-3 mb-0 rounded border">
+                                        <label for="email" class="mb-2">Email</label>
+                                        <input type="text" id="email" name="email" placeholder="Email" class="py-2 px-3 mb-0 rounded border">
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="single-form mb-20">
+                                        <label for="name" class="mb-2">Name</label>
+                                        <input type="text" id="name" name="name" placeholder="Name" class="py-2 px-3 mb-0 rounded border">
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -93,17 +99,12 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="single-form mb-30">
-                                        <button class="main-btn btn-hover py-2 px-5 rounded">Login</button>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="single-form mb-20">
-                                        <p>Forget Password? <a href="javascript:void(0)">Reset Now</a></p>
+                                        <button class="main-btn btn-hover py-2 px-5 rounded">Sign Up</button>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="single-form mb-30">
-                                        <p>Don't have an Account? <a href="signup.html">Sing up</a></p>
+                                        <p>Have an Account? <a href="login.html">Login</a></p>
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -113,7 +114,7 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="single-form">
-                                        <p class="mb-20">Login with </p>
+                                        <p class="mb-20">Sign up with </p>
                                         <div class="row">
                                             <div class="col-6">
                                                 <a href="javascript:void(0)" class="main-btn btn-hover py-2 px-4">
@@ -271,7 +272,7 @@
                                 </li>
                                 <li>
                                     <span>Email:</span>
-                                    <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="d3aabca6a1beb2babf93b4beb2babffdb0bcbe">[email&#160;protected]</a>
+                                    <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cdb4a2b8bfa0aca4a18daaa0aca4a1e3aea2a0">[email&#160;protected]</a>
                                 </li>
                                 <li>
                                     <span>Location:</span>
