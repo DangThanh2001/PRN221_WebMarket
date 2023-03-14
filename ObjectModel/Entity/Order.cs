@@ -18,7 +18,9 @@ namespace ObjectModel
         public DateTime? ModifiedDate { get; set;}
         // so luong san pham trong don hang
         public int Quantity { get; set; }
-        // 404 = false, 200 = ok, 100 = on process
+        // 0 = process, 1 = , 2 = Vanchuye, 3= done 
+        public DateTime DaySend { get; set; }
+        public DateTime DayRecive { get; set; }
         public int Success { get; set; }
         // tong tien 
         public double TotalPrice { get; set; }

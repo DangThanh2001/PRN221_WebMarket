@@ -5,11 +5,11 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Web_Market", "Web_Market\Web_Market.csproj", "{E38A084A-E46B-4133-BEF4-83DE580DC818}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObjectModel", "ObjectModel\ObjectModel.csproj", "{B608BE9B-898D-4F8E-A7CB-9823CE32655F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ObjectModel", "ObjectModel\ObjectModel.csproj", "{B608BE9B-898D-4F8E-A7CB-9823CE32655F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{AD5E2F01-5153-4493-A5B4-1F013AAD5959}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{AD5E2F01-5153-4493-A5B4-1F013AAD5959}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{85810BC7-F470-45BB-88BB-19F869647F82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "Service\Service.csproj", "{85810BC7-F470-45BB-88BB-19F869647F82}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
