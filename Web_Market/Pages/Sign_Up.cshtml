@@ -77,24 +77,28 @@
                 <div class="col-lg-6 col-md-10">
                     <div class="login-wrapper box-style">
                         <h3 class="mb-20">Sign Up</h3>
-                        <form action="#">
+                        <form asp-page-handler="register" method="post">
+                            <div class="text-danger" asp-validation-summary="ModelOnly"></div>
                             <div class="row">
                                 <div class="col-12">
                                     <div class="single-form mb-20">
-                                        <label for="email" class="mb-2">Email</label>
-                                        <input type="text" id="email" name="email" placeholder="Email" class="py-2 px-3 mb-0 rounded border">
+                                        <label asp-for="account.Email" class="mb-2">Email</label>
+                                        <input type="text" id="email" name="email" placeholder="Email" class="py-2 px-3 mb-0 rounded border" class="form-control">
+                                        @Html.ValidationMessage("Email")
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="single-form mb-20">
-                                        <label for="name" class="mb-2">Name</label>
-                                        <input type="text" id="name" name="name" placeholder="Name" class="py-2 px-3 mb-0 rounded border">
+                                        <label asp-for="account.LastName" class="mb-2">Name</label>
+                                        <input type="text" id="lastName" name="lastName" placeholder="Name" class="py-2 px-3 mb-0 rounded border">
+                                        @Html.ValidationMessage("Name")
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="single-form mb-20">
-                                        <label for="password" class="mb-2">Password</label>
+                                        <label asp-for="account.Password" class="mb-2">Password</label>
                                         <input type="password" id="password" name="password" placeholder="Password" class="py-2 px-3 mb-0 rounded border">
+                                        @Html.ValidationMessage("Password")
                                     </div>
                                 </div>
                                 <div class="col-12">
@@ -104,7 +108,7 @@
                                 </div>
                                 <div class="col-12">
                                     <div class="single-form mb-30">
-                                        <p>Have an Account? <a href="login.html">Login</a></p>
+                                        <p>Have an Account? <a asp-page="login">Login</a></p>
                                     </div>
                                 </div>
                                 <div class="col-12">

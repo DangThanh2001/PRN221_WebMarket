@@ -3,42 +3,45 @@ using Microsoft.IdentityModel.Tokens;
 using ObjectModel;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace Service
 {
     public class TokenService : ITokenService
     {
-        private const double EXPIRY_DURATION_MINUTES = 30;
-        public string BuildToken(string key,
-        string issuer, Account user)
+        private readonly IConfiguration _configuration;
+
+        public TokenService(IConfiguration configuration)
         {
+            _configuration = configuration;
+        }
+        private const double EXPIRY_DURATION_MINUTES = 30;
+        public string BuildToken(Account user)
+        {
+            var key =  new byte[16]; // tạo khóa có độ dài 128 bit (16 byte)
+            using (var generator = RandomNumberGenerator.Create())
+            {
+                generator.GetBytes(key); // tạo giá trị ngẫu nhiên cho khóa
+            }
+            
+            var issuer = _configuration["Jwt:Issuer"];
             var claims = new[] {
-                //new Claim(ClaimTypes.Name, user.UserName),
-                //new Claim(ClaimTypes.Role, user.Role),
+                new Claim(ClaimTypes.Name, user.LastName),
+                new Claim(ClaimTypes.Role, user.Type == 0 ? "Admin" : user.Type == 1? "Mod" : "Normal"),
                 new Claim(ClaimTypes.NameIdentifier, Guid.NewGuid().ToString())
             };
 
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
+            var securityKey = new SymmetricSecurityKey(key);
             var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);
             var tokenDescriptor = new JwtSecurityToken(issuer, issuer, claims,
                 expires: DateTime.Now.AddMinutes(EXPIRY_DURATION_MINUTES), signingCredentials: credentials);
             return new JwtSecurityTokenHandler().WriteToken(tokenDescriptor);
         }
-        //public string GenerateJSONWebToken(string key, string issuer, UserDTO user)
-        //{
-        //    var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));
-        //    var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-
-        //    var token = new JwtSecurityToken(issuer, issuer,
-        //      null,
-        //      expires: DateTime.Now.AddMinutes(120),
-        //      signingCredentials: credentials);
-
-        //    return new JwtSecurityTokenHandler().WriteToken(token);
-        //}
-        public bool IsTokenValid(string key, string issuer, string token)
+        public bool IsTokenValid(string token)
         {
+            var key = _configuration["Jwt:Key"];
+            var issuer = _configuration["Jwt:Issuer"];
             var mySecret = Encoding.UTF8.GetBytes(key);
             var mySecurityKey = new SymmetricSecurityKey(mySecret);
 
