@@ -5,7 +5,7 @@ namespace DataAccess
 {
     public class DbContextBase : DbContext
     {
-        public DbContextBase(DbContextOptions<DbContextBase> options):base(options) 
+		public DbContextBase(DbContextOptions<DbContextBase> options):base(options) 
         {
         }
         public DbSet<Account> Accounts { get; set; }
