@@ -2,15 +2,20 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using ObjectModel;
+using DataAccess;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddDbContext<DbContext>(options => options.UseSqlServer(
+builder.Services.AddDbContext<DbContextBase>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("Default")
-    
-    ));
+
+    ).EnableSensitiveDataLogging(true)
+           .EnableDetailedErrors(true)
+           .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
+           .LogTo(Console.WriteLine, LogLevel.Information));
 //builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 //        .AddJwtBearer(options =>
 //        {
@@ -29,13 +34,19 @@ builder.Services.AddDbContext<DbContext>(options => options.UseSqlServer(
 //        });
 builder.Services.AddRazorPages();
 var app = builder.Build();
-
+using (var scope = app.Services.CreateScope())
+{
+    var serviceProvider = scope.ServiceProvider;
+    var dbContext = serviceProvider.GetRequiredService<DbContextBase>();
+    dbContext.Database.Migrate();
+}
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
 }
-app.UseAuthentication();
+
+//app.UseAuthentication();
 //app.UseAuthorization();
 //app.UseEndpoints(endpoints =>
 //{
