@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using ObjectModel;
 using System.IdentityModel.Tokens.Jwt;
@@ -17,14 +18,15 @@ namespace Service
             _configuration = configuration;
         }
         private const double EXPIRY_DURATION_MINUTES = 30;
+        private byte[] key; 
         public string BuildToken(Account user)
         {
-            var key =  new byte[16]; // tạo khóa có độ dài 128 bit (16 byte)
+            key =  new byte[16]; // tạo khóa có độ dài 128 bit (16 byte)
             using (var generator = RandomNumberGenerator.Create())
             {
                 generator.GetBytes(key); // tạo giá trị ngẫu nhiên cho khóa
             }
-            
+
             var issuer = _configuration["Jwt:Issuer"];
             var claims = new[] {
                 new Claim(ClaimTypes.Name, user.LastName),
@@ -63,6 +65,29 @@ namespace Service
                 return false;
             }
             return true;
+        }
+
+        public int DeserializeToken(string jwt)
+        {
+            var issuer = _configuration["Jwt:Issuer"];
+            var mySecret = key;
+            var mySecurityKey = new SymmetricSecurityKey(mySecret);
+            JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
+            ClaimsPrincipal claims = handler.ValidateToken(jwt, 
+                new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidIssuer = issuer,
+                    ValidAudience = issuer,
+                    IssuerSigningKey = mySecurityKey,
+                }, 
+                out SecurityToken validatedToken);
+
+            var claimsList = claims.Claims.Skip(1).First();
+            var a = claimsList.Value;
+            return a == "Admin" ? 0 : a == "Mod" ? 1 : 2;
         }
     }
 }
