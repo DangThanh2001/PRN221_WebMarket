@@ -13,8 +13,12 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddScoped<IAcountRepository, AcountRepository>();
+builder.Services.AddScoped<IProduct_DetailRepository, Product_DetailRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 builder.Services.AddScoped<AccountService>();
+builder.Services.AddScoped<CategoryService>();
+builder.Services.AddScoped<Product_DetailService>();
 builder.Services.AddScoped<ITokenService,TokenService>();
 
 builder.Services.AddDbContext<DbContextBase>(options => options.UseSqlServer(
