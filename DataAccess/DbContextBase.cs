@@ -5,7 +5,7 @@ namespace DataAccess
 {
     public class DbContextBase : DbContext
     {
-        public DbContextBase(DbContextOptions<DbContextBase> options):base(options) 
+		public DbContextBase(DbContextOptions<DbContextBase> options):base(options) 
         {
         }
         public DbSet<Account> Accounts { get; set; }
@@ -13,5 +13,6 @@ namespace DataAccess
         public DbSet<Company> Companys { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Card> Cards { get; set; }
     }
 }

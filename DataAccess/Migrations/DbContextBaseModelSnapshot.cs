@@ -81,6 +81,23 @@ namespace DataAccess.Migrations
                     b.ToTable("Accounts");
                 });
 
+            modelBuilder.Entity("ObjectModel.Card", b =>
+                {
+                    b.Property<int>("UserID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserID"));
+
+                    b.Property<string>("ProductIdAndQuantity")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserID");
+
+                    b.ToTable("Cards");
+                });
+
             modelBuilder.Entity("ObjectModel.Category", b =>
                 {
                     b.Property<int>("CategoryId")
@@ -159,6 +176,12 @@ namespace DataAccess.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DayPayedDone")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DayRecive")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("DaySend")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsDelete")
