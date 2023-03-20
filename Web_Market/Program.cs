@@ -7,6 +7,7 @@ using DataAccess.Repository;
 using Service;
 using Microsoft.Extensions.Caching.Memory;
 using ObjectModel;
+using Web_Market.MiddleWare;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,7 @@ builder.Services.AddScoped<IProduct_DetailRepository, Product_DetailRepository>(
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 builder.Services.AddScoped<AccountService>();
+builder.Services.AddSingleton<ITokenService,TokenService>();
 builder.Services.AddScoped<CategoryService>();
 builder.Services.AddScoped<Product_DetailService>();
 builder.Services.AddScoped<ITokenService,TokenService>();
@@ -59,6 +61,8 @@ if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
 }
+app.UseMiddleware<AuthenticationMiddleware>();
+
 app.UseRouting();
 
 app.UseAuthentication();
@@ -76,20 +80,20 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
-app.Use(async (context, next) =>
-{
-    // Check if token exists in cache
-    if (context.Request.Path != "/login" && context.Request.Path != "/register")
-    {
-        var cache = context.RequestServices.GetService<IMemoryCache>();
-        var token = cache.Get<string>("Token");
-        if (!string.IsNullOrEmpty(token))
-        {
-            context.Request.Headers.Add("Authorization", "Bearer " + token);
-        }
-    }
+//app.Use(async (context, next) =>
+//{
+//    // Check if token exists in cache
+//    if (context.Request.Path != "/login" && context.Request.Path != "/register")
+//    {
+//        var cache = context.RequestServices.GetService<IMemoryCache>();
+//        var token = cache.Get<string>("Token");
+//        if (!string.IsNullOrEmpty(token))
+//        {
+//            context.Request.Headers.Add("Authorization", "Bearer " + token);
+//        }
+//    }
 
-    await next();
-});
+//    await next();
+//});
 
 app.Run();
