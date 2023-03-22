@@ -42,5 +42,10 @@ namespace Service
 			var add = _repository.Register(account);
 			return add;
 		}
+		public bool SignOut()
+		{
+			_memoryCache.Remove("Token");
+			return true;
+        }
 	}
 }
