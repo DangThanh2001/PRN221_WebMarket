@@ -24,5 +24,10 @@ namespace Web_Market.Pages.Login
                 return Redirect("Index");
             return Page();
         }
+        public IActionResult OnGetSignOut()
+        {
+            _accountService.SignOut();
+            return Redirect("Index");
+        }
     }
 }

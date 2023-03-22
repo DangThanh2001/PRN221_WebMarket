@@ -1,6 +1,7 @@
-﻿@page
+﻿@page "page404"
 @model Web_Market.Pages._404Model
 @{
+    ViewData["Title"] = "404";
 }
 <!doctype html>
 <html class="no-js" lang="en">
@@ -62,7 +63,7 @@
                         <h1 class="text-white">404 Page</h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a asp-page="Index">Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">404 Page</li>
                             </ol>
                         </nav>
