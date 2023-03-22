@@ -1,9 +1,12 @@
-﻿using DataAccess.IRepositotry;
+
+using DataAccess.IRepositotry;
 using Microsoft.EntityFrameworkCore;
 using ObjectModel;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Metrics;
+using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -84,5 +87,10 @@ namespace DataAccess.Repository
                 throw new Exception("The category doesn't exist");
             }
         }
+        public string GetCategoryNameWithCategoryId(int CategoryId)
+        {
+            return _dbContext.Categories.Where(x => x.CategoryId == CategoryId).FirstOrDefault().CategoryName;
+        }
+
     }
 }

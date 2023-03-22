@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+<<<<<<< HEAD
 namespace DataAccess.IRepositotry
 {
     public interface ICategoryRepository
@@ -14,6 +15,7 @@ namespace DataAccess.IRepositotry
         public void AddCategory(Category category);
         public void UpdateCategory(Category category);
         public void DeleteCategory(int id);
+        public string GetCategoryNameWithCategoryId(int CategoryId);
 
     }
 }
