@@ -1,4 +1,5 @@
 ﻿using DataAccess;
+using DataAccess.Repository;
 using Microsoft.Extensions.Caching.Memory;
 using ObjectModel;
 using System;
@@ -13,10 +14,12 @@ namespace Service
     {
         private IProduct_DetailRepository _product_detail;
         private ICategoryRepository _categoryRepository;
-        public Product_DetailService(IProduct_DetailRepository product_detail, ICategoryRepository categoryRepository)
+        private ICompanyRepository _companyRepository;
+        public Product_DetailService(IProduct_DetailRepository product_detail, ICategoryRepository categoryRepository, ICompanyRepository companyRepository)
         {
             _product_detail = product_detail;
             _categoryRepository = categoryRepository;
+            _companyRepository = companyRepository;
         }
         public Product GetProductById(int id)
         {
@@ -32,6 +35,16 @@ namespace Service
 
             }
             return name;
+
+        }
+        public string GetCompanyName(int companyId)
+        {
+            string companyname = "";
+
+            companyname = _companyRepository.GetCompanyNameWithCompanyId(companyId);
+
+
+            return companyname;
 
         }
     }

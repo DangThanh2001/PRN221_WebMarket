@@ -16,10 +16,14 @@ builder.Services.AddRazorPages();
 builder.Services.AddScoped<IAcountRepository, AcountRepository>();
 builder.Services.AddScoped<IProduct_DetailRepository, Product_DetailRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
+
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 builder.Services.AddScoped<AccountService>();
 builder.Services.AddScoped<CategoryService>();
 builder.Services.AddScoped<Product_DetailService>();
+builder.Services.AddScoped<CompanyService>();
+
 builder.Services.AddSingleton<ITokenService,TokenService>();
 
 builder.Services.AddDbContext<DbContextBase>(options => options.UseSqlServer(
