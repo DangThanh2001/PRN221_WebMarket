@@ -8,6 +8,7 @@ using Service;
 using Microsoft.Extensions.Caching.Memory;
 using ObjectModel;
 using Web_Market.MiddleWare;
+using DataAccess.IRepositotry;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +29,7 @@ builder.Services.AddSingleton<ITokenService,TokenService>();
 
 builder.Services.AddDbContext<DbContextBase>(options => options.UseSqlServer(
     builder.Configuration.GetConnectionString("Default")
+
     ).EnableSensitiveDataLogging(true)
            .EnableDetailedErrors(true)
            .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking)
