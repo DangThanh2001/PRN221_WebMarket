@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-<<<<<<< HEAD
 namespace DataAccess.IRepositotry
 {
     public interface ICategoryRepository
