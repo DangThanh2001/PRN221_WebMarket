@@ -17,7 +17,10 @@ namespace DataAccess.Repository
             _dbContext = dbContext;
         }
         public string GetCompanyNameWithCompanyId(int companyId)
-        { }
+        {
+            return _dbContext.Companys.Where(x => x.CompanyId == companyId).FirstOrDefault().Name;
+
+        }
         public List<Company> GetAllCompany()
         {
         
