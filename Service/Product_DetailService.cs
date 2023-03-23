@@ -37,15 +37,16 @@ namespace Service
             return name;
 
         }
-        public string GetCompanyName(int companyId)
+
+        public List<Category> getAllCategory()
         {
-            string companyname = "";
+            return _categoryRepository.GetAllCategory();
+		}
 
-            companyname = _companyRepository.GetCompanyNameWithCompanyId(companyId);
-
-
-            return companyname;
-
+        public Company getCompanyById(int id)
+        {
+            var c = _companyRepository.GetCompanyWithId(id);
+            return c;
         }
     }
 }

@@ -3,30 +3,7 @@
 @{
 	ViewData["Title"] = "Home";
 }
-<!doctype html>
-<html class="no-js" lang="en">
-<head>
-	<meta charset="utf-8">
 
-	<link rel="shortcut icon" href="~/images/favicon.png" type="image/png">
-
-	<link rel="stylesheet" href="~/css/animate.css">
-
-	<link rel="stylesheet" href="~/css/tiny-slider.css">
-
-	<link rel="stylesheet" href="~/css/glightbox.min.css">
-
-	<link rel="stylesheet" href="~/css/LineIcons.2.0.css">
-
-	<link rel="stylesheet" href="~/css/selectr.css">
-
-	<link rel="stylesheet" href="~/css/nouislider.css">
-
-	<link rel="stylesheet" href="~/css/bootstrap-5.0.5-alpha.min.css">
-
-	<link rel="stylesheet" href="~/css/style.css">
-</head>
-<body>
 	<!--[if IE]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 		<![endif]-->
@@ -55,7 +32,7 @@
 			<div class="row">
 				<div class="mx-auto col-lg-7 col-xl-6 col-md-10">
 					<div class="text-center hero-content">
-						<h1 class="mb-30 wow fadeInUp" data-wow-delay=".2s">Welcome to ClassList</h1>
+						<h1 class="mb-30 wow fadeInUp" data-wow-delay=".2s">Welcome to GENEZ MARKET</h1>
 						<p class="wow fadeInUp" data-wow-delay=".4s">Buy and sell everything from used cars to mobile phones and computer or search for property, job and more</p>
 					</div>
 				</div>
@@ -67,12 +44,13 @@
 	<div class="search-area">
 		<div class="container">
 			<div class="search-wrapper">
-				<form action="#">
+				<form method="get">
 					<div class="row justify-content-center">
 						<div class="col-lg-3 col-sm-5 col-10">
 							<div class="search-input">
 								<label for="keyword"><i class="lni lni-search-alt theme-color"></i></label>
-								<input type="text" name="keyword" id="keyword" placeholder="Product keyword">
+								<input type="text" name="keyword" id="keyword" placeholder="Product keyword"
+									value="@ViewBag.keyword">
 							</div>
 						</div>
 						<div class="col-lg-3 col-sm-5 col-10">
@@ -97,7 +75,7 @@
 							<div class="search-input">
 								<label for="location"><i class="lni lni-map-marker theme-color"></i></label>
 								<select name="location" id="location">
-									<option value="none" selected disabled>Locations</option>
+									<option value="none" selected disabled>Brand</option>
 									<option value="none">New York</option>
 									<option value="none">California</option>
 									<option value="none">Washington</option>
@@ -123,7 +101,7 @@
 		<div class="container">
 			<div class="category-list-wrapper">
 				<div class="category-list-item">
-					<a href="category.html">
+					<a asp-page="Category_List">
 						<div class="icon">
 							<i class="lni lni-car"></i>
 						</div>
@@ -131,7 +109,7 @@
 					</a>
 				</div>
 				<div class="category-list-item">
-					<a href="category.html">
+					<a asp-page="Category_List">
 						<div class="icon">
 							<i class="lni lni-display"></i>
 						</div>
@@ -139,7 +117,7 @@
 					</a>
 				</div>
 				<div class="category-list-item">
-					<a href="category.html">
+					<a asp-page="Category_List">
 						<div class="icon">
 							<i class="lni lni-mobile"></i>
 						</div>
@@ -147,7 +125,7 @@
 					</a>
 				</div>
 				<div class="category-list-item">
-					<a href="category.html">
+					<a asp-page="Category_List">
 						<div class="icon">
 							<i class="lni lni-leaf"></i>
 						</div>
@@ -155,7 +133,7 @@
 					</a>
 				</div>
 				<div class="category-list-item">
-					<a href="category.html">
+					<a asp-page="Category_List">
 						<div class="icon">
 							<i class="lni lni-tshirt"></i>
 						</div>
@@ -163,7 +141,7 @@
 					</a>
 				</div>
 				<div class="category-list-item">
-					<a href="category.html">
+					<a asp-page="Category_List">
 						<div class="icon">
 							<i class="lni lni-briefcase"></i>
 						</div>
@@ -171,7 +149,7 @@
 					</a>
 				</div>
 				<div class="category-list-item">
-					<a href="category.html">
+					<a asp-page="Category_List">
 						<div class="icon">
 							<i class="lni lni-apartment"></i>
 						</div>
@@ -179,7 +157,7 @@
 					</a>
 				</div>
 				<div class="category-list-item">
-					<a href="category.html">
+					<a asp-page="Category_List">
 						<div class="icon">
 							<i class="lni lni-book"></i>
 						</div>
@@ -187,7 +165,7 @@
 					</a>
 				</div>
 				<div class="category-list-item">
-					<a href="category.html">
+				<a asp-page="Category_List">
 						<div class="icon">
 							<i class="lni lni-users"></i>
 						</div>
@@ -195,7 +173,7 @@
 					</a>
 				</div>
 				<div class="category-list-item">
-					<a href="category.html">
+					<a asp-page="Category_List">
 						<div class="icon">
 							<i class="lni lni-heart"></i>
 						</div>
@@ -212,220 +190,70 @@
 			<div class="row">
 				<div class="mx-auto col-xl-6 col-lg-7 col-md-10">
 					<div class="text-center section-title mb-60">
-						<h1>Latest Products</h1>
-						<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt dolore magna.</p>
+						<h1>Every Products</h1>
+						<p>Looking for the best deals on your favorite products? Look no further than our website market! With a wide range of products from top brands, we have everything you need to make your shopping experience easy and enjoyable. Our user-friendly website makes it simple to find what you're looking for, and with competitive prices and fast shipping, you'll never have to go anywhere else. So why wait? Visit our website market today and start shopping!</p>
 					</div>
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xl-4 col-lg-6 col-md-6">
-					<div class="single-product">
-						<div class="product-img">
-							<a href="product-details.html">
-								<img src="~/images/product/l-product-1.jpg" alt="">
-							</a>
-							<div class="product-action">
-								<a href="javascript:void(0)"><i class="lni lni-heart"></i></a>
-								<a href="javascript:void(0)" class="share"><i class="lni lni-share"></i></a>
+				
+				@foreach(var o in Model.listProduct)
+				{
+					<div class="col-xl-4 col-lg-6 col-md-6">
+						<div class="single-product">
+							<div class="product-img">
+								<a asp-page="product_detail" asp-route-productid="@o.ProductId">
+									<img src="@o.Image" alt="">
+								</a>
+								<div class="product-action">
+									<a href="javascript:void(0)"><i class="lni lni-heart"></i></a>
+									<a href="javascript:void(0)" class="share"><i class="lni lni-share"></i></a>
+								</div>
 							</div>
-						</div>
-						<div class="product-content">
-							<h3 class="name"><a href="/Product_Details?productId=2">Apple iPhone x</a></h3>
-							<span class="update">Last Update: 5 hours ago</span>
-							<ul class="address">
-								<li>
-									<a href="javascript:void(0)"><i class="lni lni-calendar"></i> 20 June, 2023</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)"><i class="lni lni-map-marker"></i> Canada</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)"><i class="lni lni-user"></i> Stifen Jon</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)"><i class="lni lni-package"></i> Used</a>
-								</li>
-							</ul>
-							<div class="product-bottom">
-								<h3 class="price">$120.99</h3>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-4 col-lg-6 col-md-6">
-					<div class="single-product">
-						<div class="product-img">
-							<a href="product-details.html">
-								<img src="~/images/product/l-product-2.jpg" alt="">
-							</a>
-							<div class="product-action">
-								<a href="javascript:void(0)"><i class="lni lni-heart"></i></a>
-								<a href="javascript:void(0)" class="share"><i class="lni lni-share"></i></a>
-							</div>
-						</div>
-						<div class="product-content">
-							<h3 class="name"><a href="product-details.html">Apple MacBook Air</a></h3>
-							<span class="update">Last Update: 5 hours ago</span>
-							<ul class="address">
-								<li>
-									<a href="javascript:void(0)"><i class="lni lni-calendar"></i> 20 June, 2023</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)"><i class="lni lni-map-marker"></i> Canada</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)"><i class="lni lni-user"></i> Stifen Jon</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)"><i class="lni lni-package"></i> Used</a>
-								</li>
-							</ul>
-							<div class="product-bottom">
-								<h3 class="price">$420.99</h3>
-								<a href="javascript:void(0)" class="link-ad"><i class="lni lni-checkmark-circle"></i> Verified Ad</a>
+							<div class="product-content">
+								<h3 class="name"><a asp-page="product_detail" asp-route-productid="@o.ProductId">@o.ProductName</a></h3>
+								<span class="update">Last Update: 5 hours ago</span><br>
+								<span class="update">Quantity left: <span class="fw-bold">@o.Quantity</span></span>
+								<ul class="address">
+									<li>
+										<a href="javascript:void(0)"><i class="lni lni-calendar"></i> @o.ImportDay.ToString("dd/MMM/yyyy")</a>
+									</li>
+									<li>
+										<a href="javascript:void(0)"><i class="lni lni-map-marker"></i> Canada</a>
+									</li>
+									<li>
+										<a href="javascript:void(0)"><i class="lni lni-user"></i> Stifen Jon</a>
+									</li>
+									<li>
+										<a href="javascript:void(0)"><i class="lni lni-package"></i> Used</a>
+									</li>
+								</ul>
+								<div class="product-bottom">
+									<h3 class="price">$@o.Price</h3>
+								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				<div class="col-xl-4 col-lg-6 col-md-6">
-					<div class="single-product">
-						<div class="product-img">
-							<a href="product-details.html">
-								<img src="~/images/product/l-product-3.jpg" alt="">
-							</a>
-							<div class="product-action">
-								<a href="javascript:void(0)"><i class="lni lni-heart"></i></a>
-								<a href="javascript:void(0)" class="share"><i class="lni lni-share"></i></a>
-							</div>
-						</div>
-						<div class="product-content">
-							<h3 class="name"><a href="product-details.html">Cctv camera</a></h3>
-							<span class="update">Last Update: 5 hours ago</span>
-							<ul class="address">
-								<li>
-									<a href="javascript:void(0)"><i class="lni lni-calendar"></i> 20 June, 2023</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)"><i class="lni lni-map-marker"></i> Canada</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)"><i class="lni lni-user"></i> Stifen Jon</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)"><i class="lni lni-package"></i> Used</a>
-								</li>
-							</ul>
-							<div class="product-bottom">
-								<h3 class="price">$80.99</h3>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-4 col-lg-6 col-md-6">
-					<div class="single-product">
-						<div class="product-img">
-							<a href="product-details.html">
-								<img src="~/images/product/l-product-4.jpg" alt="">
-							</a>
-							<div class="product-action">
-								<a href="javascript:void(0)"><i class="lni lni-heart"></i></a>
-								<a href="javascript:void(0)" class="share"><i class="lni lni-share"></i></a>
-							</div>
-						</div>
-						<div class="product-content">
-							<h3 class="name"><a href="product-details.html">Apple's new iMac</a></h3>
-							<span class="update">Last Update: 5 hours ago</span>
-							<ul class="address">
-								<li>
-									<a href="javascript:void(0)"><i class="lni lni-calendar"></i> 20 June, 2023</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)"><i class="lni lni-map-marker"></i> Canada</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)"><i class="lni lni-user"></i> Stifen Jon</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)"><i class="lni lni-package"></i> Used</a>
-								</li>
-							</ul>
-							<div class="product-bottom">
-								<h3 class="price">$3000.99</h3>
-								<a href="javascript:void(0)" class="link-ad"><i class="lni lni-checkmark-circle"></i> Verified Ad</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-4 col-lg-6 col-md-6">
-					<div class="single-product">
-						<div class="product-img">
-							<a href="product-details.html">
-								<img src="~/images/product/l-product-5.jpg" alt="">
-							</a>
-							<div class="product-action">
-								<a href="javascript:void(0)"><i class="lni lni-heart"></i></a>
-								<a href="javascript:void(0)" class="share"><i class="lni lni-share"></i></a>
-							</div>
-						</div>
-						<div class="product-content">
-							<h3 class="name"><a href="product-details.html">Best Compact DSLR</a></h3>
-							<span class="update">Last Update: 5 hours ago</span>
-							<ul class="address">
-								<li>
-									<a href="javascript:void(0)"><i class="lni lni-calendar"></i> 20 June, 2023</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)"><i class="lni lni-map-marker"></i> Canada</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)"><i class="lni lni-user"></i> Stifen Jon</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)"><i class="lni lni-package"></i> Used</a>
-								</li>
-							</ul>
-							<div class="product-bottom">
-								<h3 class="price">$290.99</h3>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xl-4 col-lg-6 col-md-6">
-					<div class="single-product">
-						<div class="product-img">
-							<a href="product-details.html">
-								<img src="~/images/product/l-product-6.jpg" alt="">
-							</a>
-							<div class="product-action">
-								<a href="javascript:void(0)"><i class="lni lni-heart"></i></a>
-								<a href="javascript:void(0)" class="share"><i class="lni lni-share"></i></a>
-							</div>
-						</div>
-						<div class="product-content">
-							<h3 class="name"><a href="product-details.html">10 Future Concept Cars</a></h3>
-							<span class="update">Last Update: 5 hours ago</span>
-							<ul class="address">
-								<li>
-									<a href="javascript:void(0)"><i class="lni lni-calendar"></i> 20 June, 2023</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)"><i class="lni lni-map-marker"></i> Canada</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)"><i class="lni lni-user"></i> Stifen Jon</a>
-								</li>
-								<li>
-									<a href="javascript:void(0)"><i class="lni lni-package"></i> Used</a>
-								</li>
-							</ul>
-							<div class="product-bottom">
-								<h3 class="price">$4520.99</h3>
-								<a href="javascript:void(0)" class="link-ad"><i class="lni lni-checkmark-circle"></i> Verified Ad</a>
-							</div>
-						</div>
-					</div>
-				</div>
+				}
+
 			</div>
+		</div>
+		<div>
+		<nav aria-label="Page navigation example">
+			<ul class="pagination justify-content-center">
+				@for(var i = 0; i < Model.maxPage; i++)
+				{
+				<li class="page-item">
+					<a asp-page="/Index" asp-route-currentpage="@i" asp-route-keyword="@ViewBag.keyword"
+						class="page-link @(Model.curPage == i ? "text-white active-2" : "text-dark")">@(i+1)</a></li>
+				}
+				<style>
+					.active-2{
+						background-color:#FF6B6B !important;
+					}
+				</style>
+			</ul>
+		</nav>
 		</div>
 	</section>
 
@@ -940,7 +768,7 @@
 				<div class="row">
 					<div class="col-xl-4 col-md-7">
 						<div class="footer-widget about">
-							<a href="index.html" class="d-inline-block mb-30">
+							<a asp-page="Index" class="d-inline-block mb-30">
 								<img src="~/images/logo/logo.svg" alt="">
 							</a>
 							<p class="text-white mb-25">Buy And Sell Everything From Used Cars To Mobile Phones And Computers, Search For Property, Jobs And More</p>
@@ -1015,7 +843,7 @@
 				<div class="row">
 					<div class="col-sm-12">
 						<div class="text-center">
-							<p>Designed & Developed By <a href="https://graygrids.com/" rel="nofollow" target="_blank">GrayGrids</a></p>
+						
 						</div>
 					</div>
 				</div>
@@ -1110,5 +938,4 @@
 			}
 		});
 	</script>
-</body>
-</html>
+

@@ -1,35 +1,9 @@
 ﻿@page
 @model Web_Market.Pages.OfferModel
 @{
+    ViewData["Title"] = "Offer";
 }
-<!doctype html>
-<html class="no-js" lang="en">
-<head>
-    <meta charset="utf-8">
 
-    <title>Offers and Messages | ClassiList Classified Ads Template</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <link rel="shortcut icon" href="~/images/favicon.png" type="image/png">
-
-    <link rel="stylesheet" href="~/css/animate.css">
-
-    <link rel="stylesheet" href="~/css/tiny-slider.css">
-
-    <link rel="stylesheet" href="~/css/glightbox.min.css">
-
-    <link rel="stylesheet" href="~/css/LineIcons.2.0.css">
-
-    <link rel="stylesheet" href="~/css/selectr.css">
-
-    <link rel="stylesheet" href="~/css/nouislider.css">
-
-    <link rel="stylesheet" href="~/css/bootstrap-5.0.5-alpha.min.css">
-
-    <link rel="stylesheet" href="~/css/style.css">
-</head>
-<body>
     <!--[if IE]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
         <![endif]-->
@@ -86,39 +60,39 @@
                                 <p class="mb-30">Director at Uideck.com</p>
                             </div>
                         </div>
-                        <div class="sidebar-menu">
-                            <nav>
-                                <ul>
-                                    <li>
-                                        <a href="dashboard.html"><i class="lni lni-dashboard"></i>Dashboard</a>
-                                    </li>
-                                    <li>
-                                        <a href="profile-settings.html"><i class="lni lni-cog"></i>Profile Settings</a>
-                                    </li>
-                                    <li>
-                                        <a href="post-ad.html"><i class="lni lni-cog"></i>Post Ad</a>
-                                    </li>
-                                    <li>
-                                        <a href="my-ads.html"><i class="lni lni-layers"></i>My Ads</a>
-                                    </li>
-                                    <li>
-                                        <a href="offers.html" class="active"><i class="lni lni-envelope"></i>Offers / Message</a>
-                                    </li>
-                                    <li>
-                                        <a href="payments.html"><i class="lni lni-paypal"></i>Payments</a>
-                                    </li>
-                                    <li>
-                                        <a href="favorites.html"><i class="lni lni-heart"></i>My Favorites</a>
-                                    </li>
-                                    <li>
-                                        <a href="privacy.html"><i class="lni lni-star"></i>Privacy Settings</a>
-                                    </li>
-                                    <li>
-                                        <a href="javascript:void(0)"><i class="lni lni-exit"></i>Sign Out</a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
+                    <div class="sidebar-menu">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a asp-page="/admin/dashboard"><i class="lni lni-dashboard"></i>Dashboard</a>
+                                </li>
+                                <li>
+                                    <a asp-page="profile_settings"><i class="lni lni-cog"></i>Profile Settings</a>
+                                </li>
+                                <li>
+                                    <a asp-page="post_ads"><i class="lni lni-cog"></i>Post Ad</a>
+                                </li>
+                                <li>
+                                    <a asp-page="my_ads"><i class="lni lni-layers"></i>My Ads</a>
+                                </li>
+                                <li>
+                                    <a asp-page="offer"class="active"><i class="lni lni-envelope"></i>Offers / Message</a>
+                                </li>
+                                <li>
+                                    <a asp-page="payments"><i class="lni lni-paypal"></i>Payments</a>
+                                </li>
+                                <li>
+                                    <a asp-page="favorites"><i class="lni lni-heart"></i>My Favorites</a>
+                                </li>
+                                <li>
+                                    <a asp-page="privacy"><i class="lni lni-star"></i>Privacy Settings</a>
+                                </li>
+                                <li>
+                                    <a asp-page="login" asp-page-handler="signout"><i class="lni lni-exit"></i>Sign Out</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
                     </div>
                 </div>
                 <div class="col-xl-9 col-lg-8">
@@ -448,7 +422,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="text-center">
-                            <p>Designed & Developed By <a href="https://graygrids.com/" rel="nofollow" target="_blank">GrayGrids</a></p>
+                          
                         </div>
                     </div>
                 </div>
@@ -458,21 +432,3 @@
 
 
     <a href="#" class="back-to-top btn-hover"><i class="lni lni-chevron-up"></i></a>
-
-
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script src="~/js/bootstrap.bundle-5.0.0.alpha-min.js"></script>
-
-    <script src="~/js/tiny-slider.js"></script>
-
-    <script src="~/js/wow.min.js"></script>
-
-    <script src="~/js/glightbox.min.js"></script>
-
-    <script src="~/js/selectr.min.js"></script>
-
-    <script src="~/js/nouislider.js"></script>
-
-    <script src="~/js/main.js"></script>
-</body>
-</html>

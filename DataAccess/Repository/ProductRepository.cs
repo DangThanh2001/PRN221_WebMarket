@@ -19,7 +19,9 @@ namespace DataAccess.Repository
 
         public List<Product> GetAllProduct()
         {
-            return _dbContext.Products.ToList();
+            return _dbContext.Products
+                .Where(x => x.IsActive == true && x.IsDelete == false)
+                .ToList();
         }
         public Product GetProductWithId(int id)
         {

@@ -1,35 +1,9 @@
 ﻿@page
 @model Web_Market.Pages.Category_ListModel
 @{
+	ViewData["Title"] = "Category";
 }
-<!doctype html>
-<html class="no-js" lang="en">
-<head>
-	<meta charset="utf-8">
 
-	<title>Category List | ClassiList Classified Ads Template</title>
-	<meta name="description" content="">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<link rel="shortcut icon" href="~/images/favicon.png" type="image/png">
-
-	<link rel="stylesheet" href="~/css/animate.css">
-
-	<link rel="stylesheet" href="~/css/tiny-slider.css">
-
-	<link rel="stylesheet" href="~/css/glightbox.min.css">
-
-	<link rel="stylesheet" href="~/css/LineIcons.2.0.css">
-
-	<link rel="stylesheet" href="~/css/selectr.css">
-
-	<link rel="stylesheet" href="~/css/nouislider.css">
-
-	<link rel="stylesheet" href="~/css/bootstrap-5.0.5-alpha.min.css">
-
-	<link rel="stylesheet" href="~/css/style.css">
-</head>
-<body>
 	<!--[if IE]>
 		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
 		<![endif]-->
@@ -61,7 +35,7 @@
 						<h1 class="text-white">All Categories</h1>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+								<li class="breadcrumb-item"><a asp-page="/index">Home</a></li>
 								<li class="breadcrumb-item active" aria-current="page">Category</li>
 							</ol>
 						</nav>
@@ -581,15 +555,6 @@
 								</ul>
 							</div>
 
-							<div class="box-style add-box">
-								<h3 class="mb-30">Advertisement</h3>
-								<div class="image">
-									<a href="javascript:void(0)" class="d-block">
-										<img src="~/images/product/ad-img.jpg" alt="" class="w-100">
-									</a>
-								</div>
-							</div>
-
 							<div class="box-style social-box">
 								<h3 class="mb-30">Follow Us</h3>
 								<ul class="social">
@@ -691,7 +656,7 @@
 				<div class="row">
 					<div class="col-sm-12">
 						<div class="text-center">
-							<p>Designed & Developed By <a href="https://graygrids.com/" rel="nofollow" target="_blank">GrayGrids</a></p>
+						
 						</div>
 					</div>
 				</div>
@@ -745,5 +710,3 @@
 			snapValues[handle].innerHTML = values[handle]
 		});
 	</script>
-</body>
-</html>
