@@ -12,6 +12,7 @@ namespace Web_Market.Pages
         [BindProperty]
         public Product product { get; set; }
         public string categoryname = "";
+        public List<Category> listCategory { get; set; }
 
         public Product_DetailModel(Product_DetailService product_Detail)
         {
@@ -24,7 +25,13 @@ namespace Web_Market.Pages
 
             string cate_notcut = product.ProductCategory;
             var cate_cut = cate_notcut.Split(';').ToList();
-
+            listCategory = new List<Category>();
+            foreach(var o in cate_cut)
+            {
+                Category c = _product_DetailService.getAllCategory()
+                    .FirstOrDefault(x => x.CategoryId == int.Parse(o));
+                listCategory.Add(c);
+			}
             categoryname = String.Join("; ", _product_DetailService.GetCategoryName(cate_cut));
 
         }

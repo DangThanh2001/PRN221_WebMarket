@@ -35,5 +35,10 @@ namespace Service
             return name;
 
         }
+
+        public List<Category> getAllCategory()
+        {
+            return _categoryRepository.GetAllCategory();
+		}
     }
 }

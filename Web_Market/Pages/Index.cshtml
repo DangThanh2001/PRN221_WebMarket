@@ -211,10 +211,11 @@
 							</div>
 							<div class="product-content">
 								<h3 class="name"><a asp-page="product_detail" asp-route-productid="@o.ProductId">@o.ProductName</a></h3>
-								<span class="update">Last Update: 5 hours ago</span>
+								<span class="update">Last Update: 5 hours ago</span><br>
+								<span class="update">Quantity left: <span class="fw-bold">@o.Quantity</span></span>
 								<ul class="address">
 									<li>
-										<a href="javascript:void(0)"><i class="lni lni-calendar"></i> 20 June, 2023</a>
+										<a href="javascript:void(0)"><i class="lni lni-calendar"></i> @o.ImportDay.ToString("dd/MMM/yyyy")</a>
 									</li>
 									<li>
 										<a href="javascript:void(0)"><i class="lni lni-map-marker"></i> Canada</a>
