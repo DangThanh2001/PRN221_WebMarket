@@ -1,6 +1,7 @@
 ﻿@page
 @model Web_Market.Pages.Product_DetailModel
 @{
+    ViewData["Title"] = "Product: " + Model.product.ProductName;
 }
 
 <!--[if IE]>
@@ -54,13 +55,13 @@
                         <div class="order-last col-lg-2 col-xl-2 order-lg-first">
                             <div class="nav flex-lg-column nav-pills thumb-img-wrapper" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                 <a class="thumb-img active" id="v-pills-tab-1" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">
-                                    <img src="https://static.8cache.com/cover/eJwFwcmyqjoAAMAvop7KEFi8BQkzqIDoATZWohAMQxBk_Prb3VTif02yj5_RPeOcpKqkzBcQ8kivWFJ5iOm6DMJMVctAHqV2KiTh735BqYv4l6j41ByBknute7Cwx3JPmHZpN2e3KQDfDsWqPpZBIhGNnY8-t_ExoorxpLePJQpNbqmckz6VYrhI9sHanpvgwM7NVM-UVDbluTOfbbD4hyzDSmTIUCD3JvPsRCHT64fyfJBzOE7wPJspDCjfLbMUM5rS9gRr8qndsMQp_CueHSPfetZsGxkPXJ3HsKOSILlg0hJn9KbagY2_r7O4saMDkjmLA7nCgnM0VOmd-gOoF-qt8858jBJfPwX0rdHkNi27ulTfNzACtSTcDmP9VTsgbR9oJhYxYx63FPY_Z5USuNt2T7J6kYeVXdE42UK1ZGwn8-BrPQM4kRNFZ0Z5BYohvbJvUTZ2wwvNAW6bD766Iuyi7CLz9CAp1gmm7Pvbowc4UaZ3o4Hu5ydqsH5kz_etnPoRnMzrhYe_Ugj-LtB3itY6YpL4IP_Cbn3BMM-OP1lrSU_fIOXVLoronm0mvM92WpHAr_vrMz237gWjPUnE295zv-rtpu0Au7bXLcIzrc0x-Al6CFascSgVqyFcOCO4sb7dixIfd5oyRLbjxGU0GgFaH32rI9Dmv314oKlidxLw1-nJg_4ef6rRcPDezeKMqbt9_IOmBoqvneH_4-EfCgTlIA==/hong-lau-mong.jpg" alt="">
+                                    <img src="@Model.product.Image" alt="">
                                 </a>
                                 <a class="thumb-img" id="v-pills-tab-2" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">
-                                    <img src="https://tinhhoa.net/wp-content/uploads/2019/05/0-1-e1564558569971.jpg" alt="">
+                                    <img src="@Model.product.Image" alt="">
                                 </a>
                                 <a class="thumb-img" id="v-pills-tab-3" data-toggle="pill" href="#v-pills-3" role="tab" aria-controls="v-pills-3" aria-selected="false">
-                                    <img src="https://znews-photo.zingcdn.me/w660/Uploaded/kbd_pilk/2022_05_03/hong_lau_mong5.jpeg" alt="">
+                                    <img src="@Model.product.Image" alt="">
                                 </a>
                             </div>
                         </div>
@@ -68,17 +69,17 @@
                             <div class="tab-content" id="v-pills-tabContent">
                                 <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-tab-1">
                                     <div class="showcase-img">
-                                        <img src="https://static.8cache.com/cover/eJwFwcmyqjoAAMAvop7KEFi8BQkzqIDoATZWohAMQxBk_Prb3VTif02yj5_RPeOcpKqkzBcQ8kivWFJ5iOm6DMJMVctAHqV2KiTh735BqYv4l6j41ByBknute7Cwx3JPmHZpN2e3KQDfDsWqPpZBIhGNnY8-t_ExoorxpLePJQpNbqmckz6VYrhI9sHanpvgwM7NVM-UVDbluTOfbbD4hyzDSmTIUCD3JvPsRCHT64fyfJBzOE7wPJspDCjfLbMUM5rS9gRr8qndsMQp_CueHSPfetZsGxkPXJ3HsKOSILlg0hJn9KbagY2_r7O4saMDkjmLA7nCgnM0VOmd-gOoF-qt8858jBJfPwX0rdHkNi27ulTfNzACtSTcDmP9VTsgbR9oJhYxYx63FPY_Z5USuNt2T7J6kYeVXdE42UK1ZGwn8-BrPQM4kRNFZ0Z5BYohvbJvUTZ2wwvNAW6bD766Iuyi7CLz9CAp1gmm7Pvbowc4UaZ3o4Hu5ydqsH5kz_etnPoRnMzrhYe_Ugj-LtB3itY6YpL4IP_Cbn3BMM-OP1lrSU_fIOXVLoronm0mvM92WpHAr_vrMz237gWjPUnE295zv-rtpu0Au7bXLcIzrc0x-Al6CFascSgVqyFcOCO4sb7dixIfd5oyRLbjxGU0GgFaH32rI9Dmv314oKlidxLw1-nJg_4ef6rRcPDezeKMqbt9_IOmBoqvneH_4-EfCgTlIA==/hong-lau-mong.jpg" alt="" width="100" height="500">
+                                        <img src="@Model.product.Image" alt="" width="100" height="500">
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-tab-2">
                                     <div class="showcase-img">
-                                        <img src="https://tinhhoa.net/wp-content/uploads/2019/05/0-1-e1564558569971.jpg" alt="">
+                                        <img src="@Model.product.Image" alt="">
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-tab-3">
                                     <div class="showcase-img">
-                                        <img src="https://znews-photo.zingcdn.me/w660/Uploaded/kbd_pilk/2022_05_03/hong_lau_mong5.jpeg" alt="">
+                                        <img src="@Model.product.Image" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -98,21 +99,18 @@
                     </div>
                     <h3 class="title mb-25">@Model.product.ProductName</h3>
                     <p class="description mb-30">
-                        @Model.product.ProductDescription
+                        
                     </p>
                     <h5 class="subtitle">Specification:</h5>
                     <div class="specification">
-                        <ul>
+                        <ul style="width: 100% !important;">
                             <li><i class="lni lni-dollar"></i>@Model.product.Price</li>
 
-                            <li><i class="lni lni-checkmark-circle"></i>@Model.product.CompanyId</li>
+                            <li>
+                                <i class="lni lni-comments-alt"></i>
+                                @Model.product.ProductDescription
+                            </li>
                         </ul>
-                        @*  <ul>
-                        <li><i class="lni lni-checkmark-circle"></i>2.7 GHz dual-core Intel Core i5</li>
-                        <li><i class="lni lni-checkmark-circle"></i>Iris Graphics 6100 8GB memory</li>
-                        <li><i class="lni lni-checkmark-circle"></i>8GB memory</li>
-                        <li><i class="lni lni-checkmark-circle"></i>1 Year international warranty</li>
-                        </ul>*@
                     </div>
                     <div class="meta-bottom">
                         <ul>
@@ -120,12 +118,15 @@
                                 <i class="lni lni-folder"></i> <span>Categories: </span> 
                                 @foreach (var o in Model.listCategory)
                                 {
-                                    <a class="badge bg-light rounded-pill fs-6" asp-page="category_list">@o.CategoryName</a>
+                                    <a class="badge bg-secondary text-white rounded-pill fs-6" asp-page="category_list">@o.CategoryName</a>
                                 }
                             </li>
                       
                             <li>
-                                <i class="lni lni-apple"></i> <span>Brand: </span> <a href="javascript:void(0)">Apple</a>
+                                <i class="lni lni-apple"></i> <span>Brand:</span> 
+                                <a asp-page="category_list">
+                                    @Model.companyName.Name
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -220,7 +221,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="text-center">
-                        <p>Designed & Developed By <a href="https://graygrids.com/" rel="nofollow" target="_blank">GrayGrids</a></p>
+                       
                     </div>
                 </div>
             </div>
