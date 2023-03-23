@@ -38,13 +38,13 @@ namespace Web_Market.MiddleWare
                 StaticURL.checkUrlNotAdminRole(path)
                 )
             {
-                context.Response.Redirect(StaticURL.INDEX);
+                context.Response.Redirect(StaticURL.ERROR_403);
             }
             else if (type == 2 &&
                 StaticURL.checkUrlNotModRole(path)
                 )
             {
-                context.Response.Redirect(StaticURL.INDEX);
+                context.Response.Redirect(StaticURL.ERROR_403);
             }
             else
             {
@@ -67,6 +67,7 @@ namespace Web_Market.MiddleWare
         public static readonly string POST_ADS = "/post_ads";
         public static readonly string PRODUCT_DETAIL = "/product_detail";
         public static readonly string PROFILE_SETTING = "/Profile_Settings";
+        public static readonly string ERROR_403 = "/Error403";
 
         private static string[] notLoginUrl =
         {
@@ -79,7 +80,6 @@ namespace Web_Market.MiddleWare
             OFFER,
             PAYMENTS,
             POST_ADS,
-            PRODUCT_DETAIL,
         };
 
         private static string[] notAdminRole =
