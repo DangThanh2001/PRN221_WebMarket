@@ -10,35 +10,42 @@ namespace Service
 {
     public class ProductService
     {
-        private IProductRepository _repository;
-        public ProductService(IProductRepository repository)
+
+        private IProductRepository productRepository;
+
+        public ProductService(IProductRepository productRepository)
         {
-            _repository = repository;
+            this.productRepository = productRepository;
         }
 
         public List<Product> GetAllProduct()
         {
-            return _repository.GetAllProduct();
+            return productRepository.GetAllProduct();
         }
 
         public Product GetProductWithId(int id)
         {
-            return _repository.GetProductWithId(id);
+            return productRepository.GetProductWithId(id);
         }
 
         public void AddProduct(Product product)
         {
-            _repository.AddProduct(product);
+            productRepository.AddProduct(product);
         }
 
         public void UpdateCategory(Product product)
         {
-            _repository.UpdateProduct(product);
+            productRepository.UpdateProduct(product);
         }
 
         public void DeleteCategory(int id)
         {
-            _repository.DeleteProduct(id);
+            productRepository.DeleteProduct(id);
+        }
+
+        public List<Product> listAllProduct()
+        {
+            return productRepository.GetAllProduct();
         }
     }
 }

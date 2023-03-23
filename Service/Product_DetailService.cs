@@ -14,10 +14,12 @@ namespace Service
     {
         private IProduct_DetailRepository _product_detail;
         private ICategoryRepository _categoryRepository;
-        public Product_DetailService(IProduct_DetailRepository product_detail, ICategoryRepository categoryRepository)
+        private ICompanyRepository _companyRepository;
+        public Product_DetailService(IProduct_DetailRepository product_detail, ICategoryRepository categoryRepository, ICompanyRepository companyRepository)
         {
             _product_detail = product_detail;
             _categoryRepository = categoryRepository;
+            _companyRepository = companyRepository;
         }
         public Product GetProductById(int id)
         {
@@ -34,6 +36,17 @@ namespace Service
             }
             return name;
 
+        }
+
+        public List<Category> getAllCategory()
+        {
+            return _categoryRepository.GetAllCategory();
+		}
+
+        public Company getCompanyById(int id)
+        {
+            var c = _companyRepository.GetCompanyWithId(id);
+            return c;
         }
     }
 }
