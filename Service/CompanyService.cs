@@ -10,16 +10,37 @@ namespace Service
 {
     public class CompanyService
     {
-        private ICompanyRepository _companyRepository;
-
-        public CompanyService(ICompanyRepository companyRepository)
+        private ICompanyRepository _repository;
+        public CompanyService(ICompanyRepository repository)
         {
-            _companyRepository = companyRepository;
+            _repository = repository;
         }
 
-        public Company getById(int id)
+        public List<Company> GetAllCompany()
         {
-            return _companyRepository.GetCompanyWithId(id);
+            return _repository.GetAllCompany();
         }
+
+        public Company GetCompanyWithId(int id)
+        {
+            return _repository.GetCompanyWithId(id);
+        }
+
+        public void AddCompany(Company company)
+        {
+            _repository.AddCompany(company);
+        }
+
+        public void UpdateCompany(Company company)
+        {
+            _repository.UpdateCompany(company);
+        }
+
+        public void DeleteCompany(int id)
+        {
+            _repository.DeleteCompany(id);
+        }
+
+
     }
 }
