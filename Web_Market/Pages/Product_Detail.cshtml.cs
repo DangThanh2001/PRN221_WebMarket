@@ -13,6 +13,7 @@ namespace Web_Market.Pages
         public Product product { get; set; }
         public Company companyName { get; set; }
         public List<Category> listCategory { get; set; }
+        public List<string> image_cut { get; set; }
 
         public Product_DetailModel(Product_DetailService product_Detail)
         {
@@ -34,6 +35,9 @@ namespace Web_Market.Pages
 			}
             companyName = _product_DetailService.getCompanyById(product.CompanyId);
 
+            string image_notcut = product.Image;
+            image_cut = image_notcut.Split(';').ToList();
+            Console.WriteLine(image_cut[0]);
         }
 
     }
