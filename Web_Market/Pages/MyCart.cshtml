@@ -1,0 +1,325 @@
+﻿@page
+@model Web_Market.Pages.MyCartModel
+@{
+}
+<div class="preloader">
+    <div class="loader">
+        <div class="ytp-spinner">
+            <div class="ytp-spinner-container">
+                <div class="ytp-spinner-rotator">
+                    <div class="ytp-spinner-left">
+                        <div class="ytp-spinner-circle"></div>
+                    </div>
+                    <div class="ytp-spinner-right">
+                        <div class="ytp-spinner-circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="banner-area bg_cover">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="banner-content">
+                    <h1 class="text-white">All Categories</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a asp-page="/index">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Category</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="dashboard-area pb-110">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-3 col-lg-4">
+                <div class="left-sidebar-wrapper box-style">
+                    <div class="sidebar-header">
+                        <div class="image">
+                            <img src="~/images/dashboard/profile-img.png" alt="">
+                        </div>
+                        <div class="info">
+                            <h3>Musharraf Karim</h3>
+                            <p class="mb-30">Director at Uideck.com</p>
+                        </div>
+                    </div>
+                    <div class="sidebar-menu">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a asp-page="/admin/dashboard"><i class="lni lni-dashboard"></i>Dashboard</a>
+                                </li>
+                                <li>
+                                    <a asp-page="profile_settings"><i class="lni lni-cog"></i>Profile Settings</a>
+                                </li>
+                                <li>
+                                    <a asp-page="post_ads"><i class="lni lni-cog"></i>Post Ad</a>
+                                </li>
+                                <li>
+                                    <a asp-page="my_ads"><i class="lni lni-layers"></i>My Ads</a>
+                                </li>
+                                <li>
+                                    <a asp-page="mycart" class="active"><i class="lni lni-layers"></i>My Cart</a>
+                                </li>
+                                <li>
+                                    <a asp-page="offer"><i class="lni lni-envelope"></i>Offers / Message</a>
+                                </li>
+                                <li>
+                                    <a asp-page="payments"><i class="lni lni-paypal"></i>Payments</a>
+                                </li>
+                                <li>
+                                    <a asp-page="favorites"><i class="lni lni-heart"></i>My Favorites</a>
+                                </li>
+                                <li>
+                                    <a asp-page="privacy"><i class="lni lni-star"></i>Privacy Settings</a>
+                                </li>
+                                <li>
+                                    <a asp-page="login" asp-page-handler="signout">
+                                        <i class="lni lni-exit"></i>Sign
+                                        Out
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-9 col-lg-8">
+                <div class="dashboard-wrapper box-style">
+                    <div class="title">
+                        <h3>My Cart</h3>
+                    </div>
+                    <div class="rtM2Xz">
+                        <span class="bXROAg">
+                            Nhấn vào mục Mã giảm giá ở cuối trang để hưởng miễn phí vận chuyển bạn
+                            nhé!
+                        </span>
+                    </div>
+                    <div class="BjIo5w">
+                        <div class="mcsiKT">
+                            <label class="stardust-checkbox">
+                                <input class="stardust-checkbox__input" type="checkbox" />
+                                <div class="stardust-checkbox__box"></div>
+                            </label>
+                        </div>
+                        <div class="yl931K">Sản Phẩm</div>
+                        <div class="pZMZa7">Đơn Giá</div>
+                        <div class="lKFOxX">Số Lượng</div>
+                        <div class="_5f317z">Số Tiền</div>
+                        <div class="+4E7yJ">Thao Tác</div>
+                    </div>
+                    <div class="_48e0yS">
+                        <div class="SFF7z2 dWLQTS">
+                            <div class="xP1eaK">
+                                <div class="_5sTIHk">
+                                    <label class="stardust-checkbox">
+                                        <input
+                                            class="stardust-checkbox__input" type="checkbox">
+                                        <div class="stardust-checkbox__box"></div>
+                                    </label>
+                                    </div>
+                                    <a class="wJCpl6"
+                                    href="/shopgc.vn?categoryId=100644&amp;entryPoint=cart&amp;itemId=18430241337">
+                                    <div class="_0RxYUS">
+                                    </div>
+                                    <span style="margin-left: 10px;">shopgc.vn</span>
+                                </a>
+                                <button class="p2B+nr">
+
+                                </button>
+                                <div class="O-c69N"></div>
+                            </div>
+                        </div>
+                        <div class="Eb+POp">
+                            <div class="VPZ9zs GODVSY">
+                                <div class="zoXdNN">
+                                    <div class="lgcEHJ">
+                                        <label class="stardust-checkbox">
+                                            <input class="stardust-checkbox__input" type="checkbox">
+                                            <div class="stardust-checkbox__box"></div>
+                                        </label>
+                                    </div>
+                                    <div class="eUrDQm">
+                                        <div class="LAQKxn">
+                                            <a title="Switch Gateron Milky Yellow Pro Switch 5 PIN Switch dùng cho bàn phím cơ"
+                                               href="/Switch-Gateron-Milky-Yellow-Pro-Switch-5-PIN-Switch-dùng-cho-bàn-phím-cơ-i.234040784.11496240910?xptdk=2a098b7c-e2f0-4d8c-b4ab-5acf036fb34f">
+                                                <div class="WanNdG"
+                                                     style="background-image: url(&quot;https://down-vn.img.susercontent.com/file/a07c49e6892efecb4fb8454180a69f05_tn&quot;);">
+                                                </div>
+                                            </a>
+                                            <div class="TyNN8t">
+                                                <a class="JB57cn"
+                                                   title="Switch Gateron Milky Yellow Pro Switch 5 PIN Switch dùng cho bàn phím cơ"
+                                                   href="/Switch-Gateron-Milky-Yellow-Pro-Switch-5-PIN-Switch-dùng-cho-bàn-phím-cơ-i.234040784.11496240910?xptdk=2a098b7c-e2f0-4d8c-b4ab-5acf036fb34f">
+                                                    Switch
+                                                    Gateron Milky Yellow Pro Switch 5 PIN Switch dùng cho bàn phím
+                                                    cơ
+                                                </a>
+                                                <div class="QRuJU-"><span></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="o7pJBk">
+                                        <div class="MBOFLv iuH9Re">
+                                            <div class="S-Rdfh" role="button" tabindex="0">
+                                                <div class="rcEQuz">Phân loại hàng:</div>
+                                                <div class="dcPz7Y">5 PIN</div>
+                                            </div>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                    <div class="G7E4B7">
+                                        <div><span class="M-AAFK">₫3.500</span></div>
+                                    </div>
+                                    <div class="MRh9G6">
+                                        <div class="mXmGu+ shopee-input-quantity">
+                                            <button class="mJX7hG">
+                                                <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0"
+                                                     y="0" class="shopee-svg-icon">
+                                                    <polygon points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5">
+                                                    </polygon>
+                                                </svg>
+                                            </button><input class="mJX7hG _8BP9GU" type="text"
+                                                            role="spinbutton" aria-valuenow="68" value="68"><button class="mJX7hG">
+                                                <svg enable-background="new 0 0 10 10"
+                                                     viewBox="0 0 10 10" x="0" y="0"
+                                                     class="shopee-svg-icon icon-plus-sign">
+                                                    <polygon points="10 4.5 5.5 4.5 5.5 0 4.5 0 4.5 4.5 0 4.5 0 5.5 4.5 5.5 4.5 10 5.5 10 5.5 5.5 10 5.5">
+                                                    </polygon>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="ofQLuG"><span>₫238.000</span></div>
+                                    <div class="mhcjog _0p-F-m">
+                                        <button class="fX1Y2g">Xóa</button>
+                                        <div class="tkUy0S">
+                                            <button class="shopee-button-no-outline y36pik">
+                                                <span class="i01b-H">Tìm sản phẩm tương tự</span><svg enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0"
+                                                                                                      y="0" class="shopee-svg-icon XHOHXQ icon-down-arrow-filled">
+                                                    <path d="m6.5 12.9-6-7.9s-1.4-1.5.5-1.5h13s1.8 0 .6 1.5l-6 7.9c-.1 0-.9 1.3-2.1 0z">
+                                                    </path>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="_2rzy4U"></div>
+                            <div class="VPZ9zs">
+                                <div class="zoXdNN">
+                                    <div class="lgcEHJ"><label class="stardust-checkbox"><input
+                                                class="stardust-checkbox__input" type="checkbox">
+                                            <div class="stardust-checkbox__box"></div>
+                                        </label></div>
+                                    <div class="eUrDQm">
+                                        <div class="LAQKxn"><a title="Keycap CORGI XDA 138 nút bàn phím cơ Thick PBT"
+                                                href="/Keycap-CORGI-XDA-138-nút-bàn-phím-cơ-Thick-PBT-i.234040784.18430241337?xptdk=e1ca09c7-fdbf-4c02-8999-31a3a817bc47">
+                                                <div class="WanNdG"
+                                                    style="background-image: url(&quot;https://down-vn.img.susercontent.com/file/a3cdf0b1c227498fa421f5785418e0be_tn&quot;);">
+                                                </div>
+                                            </a>
+                                            <div class="TyNN8t"><a class="JB57cn"
+                                                    title="Keycap CORGI XDA 138 nút bàn phím cơ Thick PBT"
+                                                    href="/Keycap-CORGI-XDA-138-nút-bàn-phím-cơ-Thick-PBT-i.234040784.18430241337?xptdk=e1ca09c7-fdbf-4c02-8999-31a3a817bc47">Keycap
+                                                    CORGI XDA 138 nút bàn phím cơ Thick PBT</a>
+                                                <div class="QRuJU-"><span></span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="o7pJBk">
+                                        <div class="MBOFLv">
+                                            <div class="S-Rdfh" role="button" tabindex="0">
+                                                <div class="rcEQuz">Phân loại hàng:<button class="_75YZdf"></button>
+                                                </div>
+                                                <div class="dcPz7Y">DORAEMON</div>
+                                            </div>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                    <div class="G7E4B7">
+                                        <div><span class="M-AAFK">₫299.000</span></div>
+                                    </div>
+                                    <div class="MRh9G6">
+                                        <div class="mXmGu+ shopee-input-quantity"><button class="mJX7hG"><svg
+                                                    enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
+                                                    class="shopee-svg-icon">
+                                                    <polygon
+                                                        points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5">
+                                                    </polygon>
+                                                </svg></button><input class="mJX7hG _8BP9GU" type="text"
+                                                role="spinbutton" aria-valuenow="1" value="1"><button
+                                                class="mJX7hG"><svg enable-background="new 0 0 10 10"
+                                                    viewBox="0 0 10 10" x="0" y="0"
+                                                    class="shopee-svg-icon icon-plus-sign">
+                                                    <polygon
+                                                        points="10 4.5 5.5 4.5 5.5 0 4.5 0 4.5 4.5 0 4.5 0 5.5 4.5 5.5 4.5 10 5.5 10 5.5 5.5 10 5.5">
+                                                    </polygon>
+                                                </svg></button></div>
+                                        <div class="OEPrn5">Còn 2 sản phẩm</div>
+                                    </div>
+                                    <div class="ofQLuG"><span>₫299.000</span></div>
+                                    <div class="mhcjog _0p-F-m"><button class="fX1Y2g">Xóa</button>
+                                        <div class="tkUy0S"><button class="shopee-button-no-outline y36pik"><span
+                                                    class="i01b-H">Tìm sản phẩm tương tự</span><svg
+                                                    enable-background="new 0 0 15 15" viewBox="0 0 15 15" x="0" y="0"
+                                                    class="shopee-svg-icon XHOHXQ icon-down-arrow-filled">
+                                                    <path
+                                                        d="m6.5 12.9-6-7.9s-1.4-1.5.5-1.5h13s1.8 0 .6 1.5l-6 7.9c-.1 0-.9 1.3-2.1 0z">
+                                                    </path>
+                                                </svg></button></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dT5fMv"><svg fill="none" viewBox="0 -2 23 22"
+                                class="shopee-svg-icon L-deCr icon-voucher-line">
+                                <g filter="url(#voucher-filter0_d)">
+                                    <mask id="a" fill="#fff">
+                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                            d="M1 2h18v2.32a1.5 1.5 0 000 2.75v.65a1.5 1.5 0 000 2.75v.65a1.5 1.5 0 000 2.75V16H1v-2.12a1.5 1.5 0 000-2.75v-.65a1.5 1.5 0 000-2.75v-.65a1.5 1.5 0 000-2.75V2z">
+                                        </path>
+                                    </mask>
+                                    <path
+                                        d="M19 2h1V1h-1v1zM1 2V1H0v1h1zm18 2.32l.4.92.6-.26v-.66h-1zm0 2.75h1v-.65l-.6-.26-.4.91zm0 .65l.4.92.6-.26v-.66h-1zm0 2.75h1v-.65l-.6-.26-.4.91zm0 .65l.4.92.6-.26v-.66h-1zm0 2.75h1v-.65l-.6-.26-.4.91zM19 16v1h1v-1h-1zM1 16H0v1h1v-1zm0-2.12l-.4-.92-.6.26v.66h1zm0-2.75H0v.65l.6.26.4-.91zm0-.65l-.4-.92-.6.26v.66h1zm0-2.75H0v.65l.6.26.4-.91zm0-.65l-.4-.92-.6.26v.66h1zm0-2.75H0v.65l.6.26.4-.91zM19 1H1v2h18V1zm1 3.32V2h-2v2.32h2zm-.9 1.38c0-.2.12-.38.3-.46l-.8-1.83a2.5 2.5 0 00-1.5 2.29h2zm.3.46a.5.5 0 01-.3-.46h-2c0 1.03.62 1.9 1.5 2.3l.8-1.84zm.6 1.56v-.65h-2v.65h2zm-.9 1.38c0-.2.12-.38.3-.46l-.8-1.83a2.5 2.5 0 00-1.5 2.29h2zm.3.46a.5.5 0 01-.3-.46h-2c0 1.03.62 1.9 1.5 2.3l.8-1.84zm.6 1.56v-.65h-2v.65h2zm-.9 1.38c0-.2.12-.38.3-.46l-.8-1.83a2.5 2.5 0 00-1.5 2.29h2zm.3.46a.5.5 0 01-.3-.46h-2c0 1.03.62 1.9 1.5 2.3l.8-1.84zM20 16v-2.13h-2V16h2zM1 17h18v-2H1v2zm-1-3.12V16h2v-2.12H0zm1.4.91a2.5 2.5 0 001.5-2.29h-2a.5.5 0 01-.3.46l.8 1.83zm1.5-2.29a2.5 2.5 0 00-1.5-2.3l-.8 1.84c.18.08.3.26.3.46h2zM0 10.48v.65h2v-.65H0zM.9 9.1a.5.5 0 01-.3.46l.8 1.83A2.5 2.5 0 002.9 9.1h-2zm-.3-.46c.18.08.3.26.3.46h2a2.5 2.5 0 00-1.5-2.3L.6 8.65zM0 7.08v.65h2v-.65H0zM.9 5.7a.5.5 0 01-.3.46l.8 1.83A2.5 2.5 0 002.9 5.7h-2zm-.3-.46c.18.08.3.26.3.46h2a2.5 2.5 0 00-1.5-2.3L.6 5.25zM0 2v2.33h2V2H0z"
+                                        mask="url(#a)"></path>
+                                </g>
+                                <path clip-rule="evenodd"
+                                    d="M6.49 14.18h.86v-1.6h-.86v1.6zM6.49 11.18h.86v-1.6h-.86v1.6zM6.49 8.18h.86v-1.6h-.86v1.6zM6.49 5.18h.86v-1.6h-.86v1.6z">
+                                </path>
+                                <defs>
+                                    <filter id="voucher-filter0_d" x="0" y="1" width="20" height="16"
+                                        filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                        <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+                                        <feColorMatrix in="SourceAlpha"
+                                            values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"></feColorMatrix>
+                                        <feOffset></feOffset>
+                                        <feGaussianBlur stdDeviation=".5"></feGaussianBlur>
+                                        <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.09 0">
+                                        </feColorMatrix>
+                                        <feBlend in2="BackgroundImageFix" result="effect1_dropShadow"></feBlend>
+                                        <feBlend in="SourceGraphic" in2="effect1_dropShadow" result="shape"></feBlend>
+                                    </filter>
+                                </defs>
+                            </svg>
+                            <div class="jxfDh3">
+                                <div>
+                                    <div class="">
+                                        <div class="kAocQv">Thêm mã giảm giá của Shop</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
