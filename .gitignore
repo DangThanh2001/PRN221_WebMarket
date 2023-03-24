@@ -363,4 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 Web_Market/appsettings.json
 /DataAccess/Migrations
-/Web_Market/appsettings.json
+/.vscode
