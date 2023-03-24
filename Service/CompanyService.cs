@@ -1,4 +1,5 @@
-﻿using DataAccess.IRepositotry;
+﻿using DataAccess;
+using DataAccess.IRepositotry;
 using ObjectModel;
 using System;
 using System.Collections.Generic;
