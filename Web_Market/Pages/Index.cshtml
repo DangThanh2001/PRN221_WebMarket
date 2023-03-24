@@ -1,933 +1,975 @@
 ﻿@page
 @model IndexModel
 @{
-	ViewData["Title"] = "Home";
+    ViewData["Title"] = "Home";
 }
 
-	<!--[if IE]>
-		<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-		<![endif]-->
+<!--[if IE]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
 
-	<div class="preloader">
-		<div class="loader">
-			<div class="ytp-spinner">
-				<div class="ytp-spinner-container">
-					<div class="ytp-spinner-rotator">
-						<div class="ytp-spinner-left">
-							<div class="ytp-spinner-circle"></div>
-						</div>
-						<div class="ytp-spinner-right">
-							<div class="ytp-spinner-circle"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
-
-	<section id="home" class="hero-area bg_cover">
-		<div class="container">
-			<div class="row">
-				<div class="mx-auto col-lg-7 col-xl-6 col-md-10">
-					<div class="text-center hero-content">
-						<h1 class="mb-30 wow fadeInUp" data-wow-delay=".2s">Welcome to GENEZ MARKET</h1>
-						<p class="wow fadeInUp" data-wow-delay=".4s">Buy and sell everything from used cars to mobile phones and computer or search for property, job and more</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+<div class="preloader">
+    <div class="loader">
+        <div class="ytp-spinner">
+            <div class="ytp-spinner-container">
+                <div class="ytp-spinner-rotator">
+                    <div class="ytp-spinner-left">
+                        <div class="ytp-spinner-circle"></div>
+                    </div>
+                    <div class="ytp-spinner-right">
+                        <div class="ytp-spinner-circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
-	<div class="search-area">
-		<div class="container">
-			<div class="search-wrapper">
-				<form method="get">
-					<div class="row justify-content-center">
-						<div class="col-lg-3 col-sm-5 col-10">
-							<div class="search-input">
-								<label for="keyword"><i class="lni lni-search-alt theme-color"></i></label>
-								<input type="text" name="keyword" id="keyword" placeholder="Product keyword"
-									value="@ViewBag.keyword">
-							</div>
-						</div>
-						<div class="col-lg-3 col-sm-5 col-10">
-							<div class="search-input">
-								<label for="category"><i class="lni lni-grid-alt theme-color"></i></label>
-								<select name="category" id="category">
-								<option value="none" selected disabled>Categories</option>
-								@foreach(var cate in Model.listCategories)
-								{
-									<option value="@cate.CategoryId">@cate.CategoryName</option>
-								}
-								</select>
-							</div>
-						</div>
-						<div class="col-lg-3 col-sm-5 col-10">
-							<div class="search-input">
-								<label for="company"><i class="lni lni-map-marker theme-color"></i></label>
-							<select name="company" id="company">
-									<option value="none" selected disabled>Company</option>
-								@foreach (var compan in Model.listCompanies)
-								{
-									<option value="@compan.CompanyId">@compan.Name</option>
-								}
-								</select>
-							</div>
-						</div>
-						<div class="col-lg-2 col-sm-5 col-10">
-							<div class="search-btn">
-								<button class="main-btn btn-hover">Search <i class="lni lni-search-alt"></i></button>
-							</div>
-						</div>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+
+<section id="home" class="hero-area bg_cover">
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto col-lg-7 col-xl-6 col-md-10">
+                <div class="text-center hero-content">
+                    <h1 class="mb-30 wow fadeInUp" data-wow-delay=".2s">Welcome to GENEZ MARKET</h1>
+                    <p class="wow fadeInUp" data-wow-delay=".4s">Buy and sell everything from used cars to mobile phones and computer or search for property, job and more</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
-	<section class="category-list-area pt-130">
-		<div class="container">
-			<div class="category-list-wrapper">
-				<div class="category-list-item">
-					<a asp-page="Category_List">
-						<div class="icon">
-							<i class="lni lni-car"></i>
-						</div>
-						<h3>Vehicles</h3>
-					</a>
-				</div>
-				<div class="category-list-item">
-					<a asp-page="Category_List">
-						<div class="icon">
-							<i class="lni lni-display"></i>
-						</div>
-						<h3>Electronics</h3>
-					</a>
-				</div>
-				<div class="category-list-item">
-					<a asp-page="Category_List">
-						<div class="icon">
-							<i class="lni lni-mobile"></i>
-						</div>
-						<h3>Mobiles</h3>
-					</a>
-				</div>
-				<div class="category-list-item">
-					<a asp-page="Category_List">
-						<div class="icon">
-							<i class="lni lni-leaf"></i>
-						</div>
-						<h3>Furnitures</h3>
-					</a>
-				</div>
-				<div class="category-list-item">
-					<a asp-page="Category_List">
-						<div class="icon">
-							<i class="lni lni-tshirt"></i>
-						</div>
-						<h3>Fashion</h3>
-					</a>
-				</div>
-				<div class="category-list-item">
-					<a asp-page="Category_List">
-						<div class="icon">
-							<i class="lni lni-briefcase"></i>
-						</div>
-						<h3>Jobs</h3>
-					</a>
-				</div>
-				<div class="category-list-item">
-					<a asp-page="Category_List">
-						<div class="icon">
-							<i class="lni lni-apartment"></i>
-						</div>
-						<h3>Real Estates</h3>
-					</a>
-				</div>
-				<div class="category-list-item">
-					<a asp-page="Category_List">
-						<div class="icon">
-							<i class="lni lni-book"></i>
-						</div>
-						<h3>Education</h3>
-					</a>
-				</div>
-				<div class="category-list-item">
-				<a asp-page="Category_List">
-						<div class="icon">
-							<i class="lni lni-users"></i>
-						</div>
-						<h3>Matrimony</h3>
-					</a>
-				</div>
-				<div class="category-list-item">
-					<a asp-page="Category_List">
-						<div class="icon">
-							<i class="lni lni-heart"></i>
-						</div>
-						<h3>Pets</h3>
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
+<div class="search-area">
+    <div class="container">
+        <div class="search-wrapper">
+            <form method="get">
+                <div class="row justify-content-center">
+                    <div class="col-lg-3 col-sm-5 col-10">
+                        <div class="search-input">
+                            <label for="keyword"><i class="lni lni-search-alt theme-color"></i></label>
+                            <input type="text" name="keyword" id="keyword" placeholder="Product keyword"
+                                   value="@ViewBag.keyword">
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-5 col-10">
+                        <div class="search-input">
+                            <label for="category"><i class="lni lni-grid-alt theme-color"></i></label>
+                            <select name="category" id="category">
+                                <option value="">Everything</option>
+                                @{
+                                    foreach (var cate in Model.listCategories)
+                                    {
+                                        bool checkedCate = ViewBag.category == cate.CategoryId;
+                                        if (checkedCate)
+                                        {
+                                            <option value="@cate.CategoryId" selected>@cate.CategoryName</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@cate.CategoryId">@cate.CategoryName</option>
+                                        }
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-sm-5 col-10">
+                        <div class="search-input">
+                            <label for="company"><i class="lni lni-map-marker theme-color"></i></label>
+                            <select name="company" id="company">
+                                <option value="">Every Company</option>
+                                @{
+                                    foreach (var compan in Model.listCompanies)
+                                    {
+                                        bool checkedC = compan.CompanyId == ViewBag.company;
+                                        if (checkedC)
+                                        {
+                                            <option value="@compan.CompanyId" selected>@compan.Name</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@compan.CompanyId">@compan.Name</option>
+                                        }
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-5 col-10">
+                        <div class="search-btn">
+                            <button class="main-btn btn-hover">Search <i class="lni lni-search-alt"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 
-	<section class="latest-product-area pt-130 pb-110">
-		<div class="container">
-			<div class="row">
-				<div class="mx-auto col-xl-6 col-lg-7 col-md-10">
-					<div class="text-center section-title mb-60">
-						<h1>Every Products</h1>
-						<p>Looking for the best deals on your favorite products? Look no further than our website market! With a wide range of products from top brands, we have everything you need to make your shopping experience easy and enjoyable. Our user-friendly website makes it simple to find what you're looking for, and with competitive prices and fast shipping, you'll never have to go anywhere else. So why wait? Visit our website market today and start shopping!</p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				
-				@foreach(var o in Model.listProduct)
-				{
-					<div class="col-xl-4 col-lg-6 col-md-6">
-						<div class="single-product">
-							<div class="product-img">
-								<a asp-page="product_detail" asp-route-productid="@o.ProductId">
-									<img src="@o.Image" alt="">
-								</a>
-								<div class="product-action">
-									<a href="javascript:void(0)"><i class="lni lni-heart"></i></a>
-									<a href="javascript:void(0)" class="share"><i class="lni lni-share"></i></a>
-								</div>
-							</div>
-							<div class="product-content">
-								<h3 class="name"><a asp-page="product_detail" asp-route-productid="@o.ProductId">@o.ProductName</a></h3>
-								<span class="update">Last Update: 5 hours ago</span><br>
-								<span class="update">Quantity left: <span class="fw-bold">@o.Quantity</span></span>
-								<ul class="address">
-									<li>
-										<a href="javascript:void(0)"><i class="lni lni-calendar"></i> @o.ImportDay.ToString("dd/MMM/yyyy")</a>
-									</li>
-									<li>
-										<a href="javascript:void(0)"><i class="lni lni-map-marker"></i> Canada</a>
-									</li>
-									<li>
-										<a href="javascript:void(0)"><i class="lni lni-user"></i> Stifen Jon</a>
-									</li>
-									<li>
-										<a href="javascript:void(0)"><i class="lni lni-package"></i> Used</a>
-									</li>
-								</ul>
-								<div class="product-bottom">
-									<h3 class="price">$@o.Price</h3>
-								</div>
-							</div>
-						</div>
-					</div>
-				}
-
-			</div>
-		</div>
-		<div>
-		<nav aria-label="Page navigation example">
-			<ul class="pagination justify-content-center">
-				@for(var i = 0; i < Model.maxPage; i++)
-				{
-				<li class="page-item">
-					<a asp-page="/Index" asp-route-currentpage="@i" asp-route-keyword="@ViewBag.keyword"
-						class="page-link @(Model.curPage == i ? "text-white active-2" : "text-dark")">@(i+1)</a></li>
-				}
-				<style>
-					.active-2{
-						background-color:#FF6B6B !important;
-					}
-				</style>
-			</ul>
-		</nav>
-		</div>
-	</section>
-
-
-	<section class="video-area">
-		<div class="video-wrapper img-bg">
-			<div class="container">
-				<div class="text-center video-content">
-					<h1 class="text-white mb-60">Learn More About ClassiList</h1>
-					<a href="#" class="glightbox video-btn"><i class="lni lni-play"></i></a>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="count-up-wrapper">
-				<div class="row">
-					<div class="col-lg-3 col-sm-6">
-						<div class="single-counter">
-							<div class="icon">
-								<i class="lni lni-layers"></i>
-							</div>
-							<span class="count">34864</span>
-							<span>Regular Ads</span>
-						</div>
-					</div>
-					<div class="col-lg-3 col-sm-6">
-						<div class="single-counter">
-							<div class="icon">
-								<i class="lni lni-map-marker"></i>
-							</div>
-							<span class="count">867</span>
-							<span>Locations</span>
-						</div>
-					</div>
-					<div class="col-lg-3 col-sm-6">
-						<div class="single-counter">
-							<div class="icon">
-								<i class="lni lni-users"></i>
-							</div>
-							<span class="count">56743</span>
-							<span>Regular Members</span>
-						</div>
-					</div>
-					<div class="col-lg-3 col-sm-6">
-						<div class="single-counter">
-							<div class="icon">
-								<i class="lni lni-briefcase"></i>
-							</div>
-							<span class="count">4583</span>
-							<span>Premium Ads</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+<section class="category-list-area pt-130">
+    <div class="container">
+        <div class="category-list-wrapper">
+            <div class="category-list-item">
+                <a asp-page="Category_List">
+                    <div class="icon">
+                        <i class="lni lni-car"></i>
+                    </div>
+                    <h3>Vehicles</h3>
+                </a>
+            </div>
+            <div class="category-list-item">
+                <a asp-page="Category_List">
+                    <div class="icon">
+                        <i class="lni lni-display"></i>
+                    </div>
+                    <h3>Electronics</h3>
+                </a>
+            </div>
+            <div class="category-list-item">
+                <a asp-page="Category_List">
+                    <div class="icon">
+                        <i class="lni lni-mobile"></i>
+                    </div>
+                    <h3>Mobiles</h3>
+                </a>
+            </div>
+            <div class="category-list-item">
+                <a asp-page="Category_List">
+                    <div class="icon">
+                        <i class="lni lni-leaf"></i>
+                    </div>
+                    <h3>Furnitures</h3>
+                </a>
+            </div>
+            <div class="category-list-item">
+                <a asp-page="Category_List">
+                    <div class="icon">
+                        <i class="lni lni-tshirt"></i>
+                    </div>
+                    <h3>Fashion</h3>
+                </a>
+            </div>
+            <div class="category-list-item">
+                <a asp-page="Category_List">
+                    <div class="icon">
+                        <i class="lni lni-briefcase"></i>
+                    </div>
+                    <h3>Jobs</h3>
+                </a>
+            </div>
+            <div class="category-list-item">
+                <a asp-page="Category_List">
+                    <div class="icon">
+                        <i class="lni lni-apartment"></i>
+                    </div>
+                    <h3>Real Estates</h3>
+                </a>
+            </div>
+            <div class="category-list-item">
+                <a asp-page="Category_List">
+                    <div class="icon">
+                        <i class="lni lni-book"></i>
+                    </div>
+                    <h3>Education</h3>
+                </a>
+            </div>
+            <div class="category-list-item">
+                <a asp-page="Category_List">
+                    <div class="icon">
+                        <i class="lni lni-users"></i>
+                    </div>
+                    <h3>Matrimony</h3>
+                </a>
+            </div>
+            <div class="category-list-item">
+                <a asp-page="Category_List">
+                    <div class="icon">
+                        <i class="lni lni-heart"></i>
+                    </div>
+                    <h3>Pets</h3>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 
 
-	<section class="service-area pt-140 pb-110">
-		<div class="container">
-			<div class="row">
-				<div class="mx-auto col-xl-6 col-lg-7 col-md-10">
-					<div class="text-center section-title mb-60">
-						<h1>Why Choose Us</h1>
-						<p>
-							Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore
-							magna.
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-lg-4 col-md-6 col-sm-8 col-11">
-					<div class="single-service">
-						<div class="icon">
-							<i class="lni lni-book"></i>
-						</div>
-						<div class="service-content">
-							<h3>FULLY DOCUMENTED</h3>
-							<p>Buy and sell everything from used cars to mobile phones and computer or search for property.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-8 col-11">
-					<div class="single-service">
-						<div class="icon">
-							<i class="lni lni-leaf"></i>
-						</div>
-						<div class="service-content">
-							<h3>CLEAN & MODERN DESIGN</h3>
-							<p>Buy and sell everything from used cars to mobile phones and computer or search for property.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-8 col-11">
-					<div class="single-service">
-						<div class="icon">
-							<i class="lni lni-map"></i>
-						</div>
-						<div class="service-content">
-							<h3>GREAT FEATURES</h3>
-							<p>Buy and sell everything from used cars to mobile phones and computer or search for property.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-8 col-11">
-					<div class="single-service">
-						<div class="icon">
-							<i class="lni lni-cog"></i>
-						</div>
-						<div class="service-content">
-							<h3>COMPLETELY CUSTOMIZABLE</h3>
-							<p>Buy and sell everything from used cars to mobile phones and computer or search for property.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-8 col-11">
-					<div class="single-service">
-						<div class="icon">
-							<i class="lni lni-pointer-up"></i>
-						</div>
-						<div class="service-content">
-							<h3>USER FRIENDLY</h3>
-							<p>Buy and sell everything from used cars to mobile phones and computer or search for property.</p>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-6 col-sm-8 col-11">
-					<div class="single-service">
-						<div class="icon">
-							<i class="lni lni-laptop-phone"></i>
-						</div>
-						<div class="service-content">
-							<h3>FULLY RESPONSIVE</h3>
-							<p>Buy and sell everything from used cars to mobile phones and computer or search for property.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+<section class="latest-product-area pt-130 pb-110">
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto col-xl-6 col-lg-7 col-md-10">
+                <div class="text-center section-title mb-60">
+                    <h1>Every Products</h1>
+                    <p>Looking for the best deals on your favorite products? Look no further than our website market! With a wide range of products from top brands, we have everything you need to make your shopping experience easy and enjoyable. Our user-friendly website makes it simple to find what you're looking for, and with competitive prices and fast shipping, you'll never have to go anywhere else. So why wait? Visit our website market today and start shopping!</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <style>
+                .overflow-ellip {
+                    width: 100% !important; /* Set the width of the container */
+                    overflow: hidden; /* Hide any content that overflows the container */
+                    white-space: nowrap; /* Prevent line breaks within the text */
+                    text-overflow: ellipsis; /* Display an ellipsis at the end of the truncated text */
+                }
+
+                .fixed-img {
+                    width: 100% !important;
+                    height: 500px;
+                }
+            </style>
+            @if (Model.listProduct.Count == 0)
+            {
+                <div class="col-xl-12 col-lg-12 col-md-12 text-center">
+                    <span class="fs-1">sorry, not found any product about this :'(</span>
+                </div>
+            }
+            @foreach (var o in Model.listProduct)
+            {
+                <div class="col-xl-4 col-lg-6 col-md-6">
+                    <div class="single-product">
+                        <div class="product-img">
+                            <a asp-page="product_detail" asp-route-productid="@o.ProductId">
+                                @{
+                                    var img = o.Image.Split(';');
+                                }
+                                <img class="fixed-img" src="@img[0]" alt="">
+                            </a>
+                            <div class="product-action">
+                                <a href="javascript:void(0)"><i class="lni lni-heart"></i></a>
+                                <a href="javascript:void(0)" class="share"><i class="lni lni-share"></i></a>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="name"><a class="overflow-ellip" title="@o.ProductName" asp-page="product_detail" asp-route-productid="@o.ProductId">@o.ProductName</a></h3>
+                            <span class="update">Last Update: 5 hours ago</span><br>
+                            <span class="update">Quantity left: <span class="fw-bold">@o.Quantity</span></span>
+                            <ul class="address">
+                                <li>
+                                    <a href="javascript:void(0)"><i class="lni lni-calendar"></i> @o.ImportDay.ToString("dd/MMM/yyyy")</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><i class="lni lni-map-marker"></i> Canada</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><i class="lni lni-user"></i> Stifen Jon</a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)"><i class="lni lni-package"></i> Used</a>
+                                </li>
+                            </ul>
+                            <div class="product-bottom">
+                                <h3 class="price">$@o.Price</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+    <div>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                @for (var i = 0; i < Model.maxPage; i++)
+                {
+                    <li class="page-item">
+                        <a asp-page="/Index" asp-route-currentpage="@i" asp-route-keyword="@ViewBag.keyword"
+                       asp-route-category="@ViewBag.category" asp-route-company="@ViewBag.company"
+                       class="page-link @(Model.curPage == i ? "text-white active-2" : "text-dark")">@(i + 1)</a>
+                    </li>
+                }
+                <style>
+                    .active-2 {
+                        background-color: #FF6B6B !important;
+                    }
+                </style>
+            </ul>
+        </nav>
+    </div>
+</section>
 
 
-	<section class="feature-product-area bg_cover">
-		<div class="container">
-			<div class="row">
-				<div class="mx-auto col-lg-6 col-md-10">
-					<div class="text-center section-title mb-60">
-						<h1>Featured Products</h1>
-						<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna.</p>
-					</div>
-				</div>
-			</div>
-			<div class="product-carousel-wrapper">
-				<div class="row feature-product-carousel">
-					<div class="col-lg-4 col-md-6">
-						<div class="single-product">
-							<div class="product-img">
-								<img src="~/images/product/l-product-1.jpg" alt="">
-							</div>
-							<div class="product-content">
-								<div class="rating-wrapper">
-									<h5 class="price theme-color">$120.99</h5>
-									<div class="rating">
-										<span>2 Review</span>
-										<i class="lni lni-star-filled"></i>
-										<i class="lni lni-star-filled"></i>
-										<i class="lni lni-star-filled"></i>
-										<i class="lni lni-star-filled"></i>
-										<i class="lni lni-star"></i>
-									</div>
-								</div>
-								<h3 class="name"><a href="product-details.html">Apple iPhone x</a></h3>
-								<p class="sort-des">Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed diam.</p>
-								<div class="product-bottom">
-									<a href="javascript:void(0)" class="address-link"><i class="lni lni-map-marker"></i> United State of America</a>
-									<span class="theme-color"><i class="lni lni-heart"></i></span>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6">
-						<div class="single-product">
-							<div class="product-img">
-								<a href="javascript:void(0)" class="badge">New</a>
-								<img src="~/images/product/l-product-2.jpg" alt="">
-							</div>
-							<div class="product-content">
-								<div class="rating-wrapper">
-									<h5 class="price theme-color">$320.99</h5>
-									<div class="rating">
-										<span>2 Review</span>
-										<i class="lni lni-star-filled"></i>
-										<i class="lni lni-star-filled"></i>
-										<i class="lni lni-star-filled"></i>
-										<i class="lni lni-star-filled"></i>
-										<i class="lni lni-star"></i>
-									</div>
-								</div>
-								<h3 class="name"><a href="product-details.html">Best Compact DSLR</a></h3>
-								<p class="sort-des">Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed diam.</p>
-								<div class="product-bottom">
-									<a href="javascript:void(0)" class="address-link"><i class="lni lni-map-marker"></i> United State of America</a>
-									<span class="theme-color"><i class="lni lni-heart"></i></span>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6">
-						<div class="single-product">
-							<div class="product-img">
-								<a href="javascript:void(0)" class="badge bottom">25% Discount</a>
-								<img src="~/images/product/l-product-3.jpg" alt="">
-							</div>
-							<div class="product-content">
-								<div class="rating-wrapper">
-									<h5 class="price theme-color">$90 <del>$120</del></h5>
-									<div class="rating">
-										<span>2 Review</span>
-										<i class="lni lni-star-filled"></i>
-										<i class="lni lni-star-filled"></i>
-										<i class="lni lni-star-filled"></i>
-										<i class="lni lni-star-filled"></i>
-										<i class="lni lni-star"></i>
-									</div>
-								</div>
-								<h3 class="name"><a href="product-details.html">Cctv camera</a></h3>
-								<p class="sort-des">Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed diam.</p>
-								<div class="product-bottom">
-									<a href="javascript:void(0)" class="address-link"><i class="lni lni-map-marker"></i> United State of America</a>
-									<span class="theme-color"><i class="lni lni-heart"></i></span>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4 col-md-6">
-						<div class="single-product">
-							<div class="product-img">
-								<img src="~/images/product/l-product-4.jpg" alt="">
-							</div>
-							<div class="product-content">
-								<div class="rating-wrapper">
-									<h5 class="price theme-color">$1120.99</h5>
-									<div class="rating">
-										<span>2 Review</span>
-										<i class="lni lni-star-filled"></i>
-										<i class="lni lni-star-filled"></i>
-										<i class="lni lni-star-filled"></i>
-										<i class="lni lni-star-filled"></i>
-										<i class="lni lni-star"></i>
-									</div>
-								</div>
-								<h3 class="name"><a href="product-details.html">Apple's new iMac</a></h3>
-								<p class="sort-des">Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed diam.</p>
-								<div class="product-bottom">
-									<a href="javascript:void(0)" class="address-link"><i class="lni lni-map-marker"></i> United State of America</a>
-									<span class="theme-color"><i class="lni lni-heart"></i></span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+<section class="video-area">
+    <div class="video-wrapper img-bg">
+        <div class="container">
+            <div class="text-center video-content">
+                <h1 class="text-white mb-60">Learn More About ClassiList</h1>
+                <a href="#" class="glightbox video-btn"><i class="lni lni-play"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="count-up-wrapper">
+            <div class="row">
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-counter">
+                        <div class="icon">
+                            <i class="lni lni-layers"></i>
+                        </div>
+                        <span class="count">34864</span>
+                        <span>Regular Ads</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-counter">
+                        <div class="icon">
+                            <i class="lni lni-map-marker"></i>
+                        </div>
+                        <span class="count">867</span>
+                        <span>Locations</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-counter">
+                        <div class="icon">
+                            <i class="lni lni-users"></i>
+                        </div>
+                        <span class="count">56743</span>
+                        <span>Regular Members</span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="single-counter">
+                        <div class="icon">
+                            <i class="lni lni-briefcase"></i>
+                        </div>
+                        <span class="count">4583</span>
+                        <span>Premium Ads</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
-	<section class="pricing-area pt-140 pb-140">
-		<div class="container">
-			<div class="row">
-				<div class="mx-auto col-xl-6 col-lg-7 col-md-10">
-					<div class="text-center section-title mb-90">
-						<h1>Select a Package</h1>
-						<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna.</p>
-					</div>
-				</div>
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-lg-4 col-md-8 col-sm-10 col-11">
-					<div class="single-pricing">
-						<div class="icon">
-							<i class="lni lni-layers"></i>
-						</div>
-						<h3 class="name">Basic Pack</h3>
-						<ul>
-							<li>Free ad posting</li>
-							<li>6 Featured ads availability</li>
-							<li>For 30 days</li>
-							<li>100% Secure!</li>
-						</ul>
-						<h2 class="price"> <sup>$</sup> 20.00</h2>
-						<span class="time">Monthly</span>
-						<a href="javascript:void(0)" class="main-btn btn-hover">Buy Now</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-8 col-sm-10 col-11">
-					<div class="single-pricing standard">
-						<div class="icon">
-							<i class="lni lni-leaf"></i>
-						</div>
-						<h3 class="name">Standard Pack</h3>
-						<ul>
-							<li>Free ad posting</li>
-							<li>9 Featured ads availability</li>
-							<li>For 30 days</li>
-							<li>100% Secure!</li>
-						</ul>
-						<h2 class="price"> <sup>$</sup> 29.00</h2>
-						<span class="time">Monthly</span>
-						<a href="javascript:void(0)" class="main-btn btn-hover">Buy Now</a>
-					</div>
-				</div>
-				<div class="col-lg-4 col-md-8 col-sm-10 col-11">
-					<div class="single-pricing">
-						<div class="icon">
-							<i class="lni lni-diamond-alt"></i>
-						</div>
-						<h3 class="name">Premium Pack</h3>
-						<ul>
-							<li>Free ad posting</li>
-							<li>20 Featured ads availability</li>
-							<li>For 30 days</li>
-							<li>100% Secure!</li>
-						</ul>
-						<h2 class="price"> <sup>$</sup> 49.00</h2>
-						<span class="time">Monthly</span>
-						<a href="javascript:void(0)" class="main-btn btn-hover">Buy Now</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+<section class="service-area pt-140 pb-110">
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto col-xl-6 col-lg-7 col-md-10">
+                <div class="text-center section-title mb-60">
+                    <h1>Why Choose Us</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore
+                        magna.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-6 col-sm-8 col-11">
+                <div class="single-service">
+                    <div class="icon">
+                        <i class="lni lni-book"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>FULLY DOCUMENTED</h3>
+                        <p>Buy and sell everything from used cars to mobile phones and computer or search for property.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-8 col-11">
+                <div class="single-service">
+                    <div class="icon">
+                        <i class="lni lni-leaf"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>CLEAN & MODERN DESIGN</h3>
+                        <p>Buy and sell everything from used cars to mobile phones and computer or search for property.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-8 col-11">
+                <div class="single-service">
+                    <div class="icon">
+                        <i class="lni lni-map"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>GREAT FEATURES</h3>
+                        <p>Buy and sell everything from used cars to mobile phones and computer or search for property.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-8 col-11">
+                <div class="single-service">
+                    <div class="icon">
+                        <i class="lni lni-cog"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>COMPLETELY CUSTOMIZABLE</h3>
+                        <p>Buy and sell everything from used cars to mobile phones and computer or search for property.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-8 col-11">
+                <div class="single-service">
+                    <div class="icon">
+                        <i class="lni lni-pointer-up"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>USER FRIENDLY</h3>
+                        <p>Buy and sell everything from used cars to mobile phones and computer or search for property.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-sm-8 col-11">
+                <div class="single-service">
+                    <div class="icon">
+                        <i class="lni lni-laptop-phone"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>FULLY RESPONSIVE</h3>
+                        <p>Buy and sell everything from used cars to mobile phones and computer or search for property.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
-	<section class="subscribe-area">
-		<div class="container">
-			<div class="subscribe-wrapper bg_cover">
-				<div class="row align-items-center">
-					<div class="col-lg-7">
-						<div class="subscribe-content section-title">
-							<h1 class="text-white">Subscribe Our Newsletter</h1>
-							<p class="text-white">Buy and sell everything from used cars to mobile phones and computer or search for property.</p>
-						</div>
-					</div>
-					<div class="col-lg-5">
-						<div class="subscribe-form-wrapper">
-							<form action="#" class="subscribe-form">
-								<input type="email" name="sub-email" placeholder="Enter your Email">
-								<button><i class="lni lni-telegram-original"></i></button>
-							</form>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+<section class="feature-product-area bg_cover">
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto col-lg-6 col-md-10">
+                <div class="text-center section-title mb-60">
+                    <h1>Featured Products</h1>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna.</p>
+                </div>
+            </div>
+        </div>
+        <div class="product-carousel-wrapper">
+            <div class="row feature-product-carousel">
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-product">
+                        <div class="product-img">
+                            <img src="~/images/product/l-product-1.jpg" alt="">
+                        </div>
+                        <div class="product-content">
+                            <div class="rating-wrapper">
+                                <h5 class="price theme-color">$120.99</h5>
+                                <div class="rating">
+                                    <span>2 Review</span>
+                                    <i class="lni lni-star-filled"></i>
+                                    <i class="lni lni-star-filled"></i>
+                                    <i class="lni lni-star-filled"></i>
+                                    <i class="lni lni-star-filled"></i>
+                                    <i class="lni lni-star"></i>
+                                </div>
+                            </div>
+                            <h3 class="name"><a href="product-details.html">Apple iPhone x</a></h3>
+                            <p class="sort-des">Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed diam.</p>
+                            <div class="product-bottom">
+                                <a href="javascript:void(0)" class="address-link"><i class="lni lni-map-marker"></i> United State of America</a>
+                                <span class="theme-color"><i class="lni lni-heart"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-product">
+                        <div class="product-img">
+                            <a href="javascript:void(0)" class="badge">New</a>
+                            <img src="~/images/product/l-product-2.jpg" alt="">
+                        </div>
+                        <div class="product-content">
+                            <div class="rating-wrapper">
+                                <h5 class="price theme-color">$320.99</h5>
+                                <div class="rating">
+                                    <span>2 Review</span>
+                                    <i class="lni lni-star-filled"></i>
+                                    <i class="lni lni-star-filled"></i>
+                                    <i class="lni lni-star-filled"></i>
+                                    <i class="lni lni-star-filled"></i>
+                                    <i class="lni lni-star"></i>
+                                </div>
+                            </div>
+                            <h3 class="name"><a href="product-details.html">Best Compact DSLR</a></h3>
+                            <p class="sort-des">Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed diam.</p>
+                            <div class="product-bottom">
+                                <a href="javascript:void(0)" class="address-link"><i class="lni lni-map-marker"></i> United State of America</a>
+                                <span class="theme-color"><i class="lni lni-heart"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-product">
+                        <div class="product-img">
+                            <a href="javascript:void(0)" class="badge bottom">25% Discount</a>
+                            <img src="~/images/product/l-product-3.jpg" alt="">
+                        </div>
+                        <div class="product-content">
+                            <div class="rating-wrapper">
+                                <h5 class="price theme-color">$90 <del>$120</del></h5>
+                                <div class="rating">
+                                    <span>2 Review</span>
+                                    <i class="lni lni-star-filled"></i>
+                                    <i class="lni lni-star-filled"></i>
+                                    <i class="lni lni-star-filled"></i>
+                                    <i class="lni lni-star-filled"></i>
+                                    <i class="lni lni-star"></i>
+                                </div>
+                            </div>
+                            <h3 class="name"><a href="product-details.html">Cctv camera</a></h3>
+                            <p class="sort-des">Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed diam.</p>
+                            <div class="product-bottom">
+                                <a href="javascript:void(0)" class="address-link"><i class="lni lni-map-marker"></i> United State of America</a>
+                                <span class="theme-color"><i class="lni lni-heart"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="single-product">
+                        <div class="product-img">
+                            <img src="~/images/product/l-product-4.jpg" alt="">
+                        </div>
+                        <div class="product-content">
+                            <div class="rating-wrapper">
+                                <h5 class="price theme-color">$1120.99</h5>
+                                <div class="rating">
+                                    <span>2 Review</span>
+                                    <i class="lni lni-star-filled"></i>
+                                    <i class="lni lni-star-filled"></i>
+                                    <i class="lni lni-star-filled"></i>
+                                    <i class="lni lni-star-filled"></i>
+                                    <i class="lni lni-star"></i>
+                                </div>
+                            </div>
+                            <h3 class="name"><a href="product-details.html">Apple's new iMac</a></h3>
+                            <p class="sort-des">Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed diam.</p>
+                            <div class="product-bottom">
+                                <a href="javascript:void(0)" class="address-link"><i class="lni lni-map-marker"></i> United State of America</a>
+                                <span class="theme-color"><i class="lni lni-heart"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
-	<section class="testimonial-area pt-140 pb-140">
-		<div class="container">
-			<div class="row">
-				<div class="mx-auto col-xl-6 col-lg-7 col-md-10">
-					<div class="text-center section-title mb-60">
-						<h1>What Our Users Says</h1>
-						<p>
-							Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et
-							dolore magna.
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="testimonial-wrapper">
-				<div class="row testimonial-carousel">
-					<div class="col-lg-4">
-						<div class="single-testimonial">
-							<div class="testimonial-top">
-								<div class="testimonial-info">
-									<div class="image">
-										<img src="~/images/testimonial/testimonial-1.png" alt="">
-									</div>
-									<div class="meta">
-										<h6>Ena Shah</h6>
-										<p>Creative Designer</p>
-									</div>
-								</div>
-								<div class="quote">
-									<img src="~/images/testimonial/quote.svg" alt="">
-								</div>
-							</div>
-							<div class="content">
-								<p>Lorem ipsum dolor sit amet,consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4">
-						<div class="single-testimonial">
-							<div class="testimonial-top">
-								<div class="testimonial-info">
-									<div class="image">
-										<img src="~/images/testimonial/testimonial-2.png" alt="">
-									</div>
-									<div class="meta">
-										<h6>Michel Smith</h6>
-										<p>Product Designer</p>
-									</div>
-								</div>
-								<div class="quote">
-									<img src="~/images/testimonial/quote.svg" alt="">
-								</div>
-							</div>
-							<div class="content">
-								<p>Lorem ipsum dolor sit amet,consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4">
-						<div class="single-testimonial">
-							<div class="testimonial-top">
-								<div class="testimonial-info">
-									<div class="image">
-										<img src="~/images/testimonial/testimonial-3.png" alt="">
-									</div>
-									<div class="meta">
-										<h6>Sarah A. K.</h6>
-										<p>Graphic Designer</p>
-									</div>
-								</div>
-								<div class="quote">
-									<img src="~/images/testimonial/quote.svg" alt="">
-								</div>
-							</div>
-							<div class="content">
-								<p>Lorem ipsum dolor sit amet,consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4">
-						<div class="single-testimonial">
-							<div class="testimonial-top">
-								<div class="testimonial-info">
-									<div class="image">
-										<img src="~/images/testimonial/testimonial-2.png" alt="">
-									</div>
-									<div class="meta">
-										<h6>Michel Smith</h6>
-										<p>Product Designer</p>
-									</div>
-								</div>
-								<div class="quote">
-									<img src="~/images/testimonial/quote.svg" alt="">
-								</div>
-							</div>
-							<div class="content">
-								<p>Lorem ipsum dolor sit amet,consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4">
-						<div class="single-testimonial">
-							<div class="testimonial-top">
-								<div class="testimonial-info">
-									<div class="image">
-										<img src="~/images/testimonial/testimonial-1.png" alt="">
-									</div>
-									<div class="meta">
-										<h6>Ena Shah</h6>
-										<p>Creative Designer</p>
-									</div>
-								</div>
-								<div class="quote">
-									<img src="~/images/testimonial/quote.svg" alt="">
-								</div>
-							</div>
-							<div class="content">
-								<p>Lorem ipsum dolor sit amet,consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-4">
-						<div class="single-testimonial">
-							<div class="testimonial-top">
-								<div class="testimonial-info">
-									<div class="image">
-										<img src="~/images/testimonial/testimonial-1.png" alt="">
-									</div>
-									<div class="meta">
-										<h6>Ena Shah</h6>
-										<p>Creative Designer</p>
-									</div>
-								</div>
-								<div class="quote">
-									<img src="~/images/testimonial/quote.svg" alt="">
-								</div>
-							</div>
-							<div class="content">
-								<p>Lorem ipsum dolor sit amet,consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+<section class="pricing-area pt-140 pb-140">
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto col-xl-6 col-lg-7 col-md-10">
+                <div class="text-center section-title mb-90">
+                    <h1>Select a Package</h1>
+                    <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et dolore magna.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-4 col-md-8 col-sm-10 col-11">
+                <div class="single-pricing">
+                    <div class="icon">
+                        <i class="lni lni-layers"></i>
+                    </div>
+                    <h3 class="name">Basic Pack</h3>
+                    <ul>
+                        <li>Free ad posting</li>
+                        <li>6 Featured ads availability</li>
+                        <li>For 30 days</li>
+                        <li>100% Secure!</li>
+                    </ul>
+                    <h2 class="price"> <sup>$</sup> 20.00</h2>
+                    <span class="time">Monthly</span>
+                    <a href="javascript:void(0)" class="main-btn btn-hover">Buy Now</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-8 col-sm-10 col-11">
+                <div class="single-pricing standard">
+                    <div class="icon">
+                        <i class="lni lni-leaf"></i>
+                    </div>
+                    <h3 class="name">Standard Pack</h3>
+                    <ul>
+                        <li>Free ad posting</li>
+                        <li>9 Featured ads availability</li>
+                        <li>For 30 days</li>
+                        <li>100% Secure!</li>
+                    </ul>
+                    <h2 class="price"> <sup>$</sup> 29.00</h2>
+                    <span class="time">Monthly</span>
+                    <a href="javascript:void(0)" class="main-btn btn-hover">Buy Now</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-8 col-sm-10 col-11">
+                <div class="single-pricing">
+                    <div class="icon">
+                        <i class="lni lni-diamond-alt"></i>
+                    </div>
+                    <h3 class="name">Premium Pack</h3>
+                    <ul>
+                        <li>Free ad posting</li>
+                        <li>20 Featured ads availability</li>
+                        <li>For 30 days</li>
+                        <li>100% Secure!</li>
+                    </ul>
+                    <h2 class="price"> <sup>$</sup> 49.00</h2>
+                    <span class="time">Monthly</span>
+                    <a href="javascript:void(0)" class="main-btn btn-hover">Buy Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
-	<footer class="footer-area">
-		<div class="widget-wrapper">
-			<div class="map-img">
-				<img src="~/images/footer/map-img.svg" alt="">
-			</div>
-			<div class="container">
-				<div class="row">
-					<div class="col-xl-4 col-md-7">
-						<div class="footer-widget about">
-							<a asp-page="Index" class="d-inline-block mb-30">
-								<img src="~/images/logo/logo.svg" alt="">
-							</a>
-							<p class="text-white mb-25">Buy And Sell Everything From Used Cars To Mobile Phones And Computers, Search For Property, Jobs And More</p>
-							<ul class="social">
-								<li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
-								<li><a href="javascript:void(0)"><i class="lni lni-twitter-filled"></i></a></li>
-								<li><a href="javascript:void(0)"><i class="lni lni-instagram-filled"></i></a></li>
-								<li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-xl-2 col-md-4 order-md-2 order-xl-1 col-sm-6">
-						<div class="footer-widget">
-							<h4>Quick Link</h4>
-							<ul class="link">
-								<li><a href="javascript:void(0)">Home</a></li>
-								<li><a href="javascript:void(0)">About</a></li>
-								<li><a href="javascript:void(0)">Category</a></li>
-								<li><a href="javascript:void(0)">Product details</a></li>
-								<li><a href="javascript:void(0)">Contact</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-xl-2 col-md-4 order-md-3 order-xl-2 col-sm-6">
-						<div class="footer-widget">
-							<h4>Support</h4>
-							<ul class="link">
-								<li><a href="javascript:void(0)">Live Chat</a></li>
-								<li><a href="javascript:void(0)">Privacy Policy</a></li>
-								<li><a href="javascript:void(0)">Purchase</a></li>
-								<li><a href="javascript:void(0)">Protection</a></li>
-								<li><a href="javascript:void(0)">Support</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-xl-2 col-md-4 order-md-4 order-xl-3 col-sm-6">
-						<div class="footer-widget">
-							<h4>Information</h4>
-							<ul class="link">
-								<li><a href="javascript:void(0)">Company</a></li>
-								<li><a href="javascript:void(0)">Contact Info</a></li>
-								<li><a href="javascript:void(0)">Blog & Articles</a></li>
-								<li><a href="javascript:void(0)">Terms of Service</a></li>
-								<li><a href="javascript:void(0)">Privacy Policy</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-xl-2 col-md-5 order-md-1 order-xl-4 col-sm-6">
-						<div class="footer-widget">
-							<h4>Contact Us</h4>
-							<ul>
-								<li>
-									<span>Phone:</span>
-									0345983672937
-								</li>
-								<li>
-									<span>Email:</span>
-									<a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a5dccad0d7c8c4ccc9e5c2c8c4ccc98bc6cac8">[email&#160;protected]</a>
-								</li>
-								<li>
-									<span>Location:</span>
-									United State of America
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="copy-right">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-12">
-						<div class="text-center">
-						
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</footer>
+<section class="subscribe-area">
+    <div class="container">
+        <div class="subscribe-wrapper bg_cover">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="subscribe-content section-title">
+                        <h1 class="text-white">Subscribe Our Newsletter</h1>
+                        <p class="text-white">Buy and sell everything from used cars to mobile phones and computer or search for property.</p>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="subscribe-form-wrapper">
+                        <form action="#" class="subscribe-form">
+                            <input type="email" name="sub-email" placeholder="Enter your Email">
+                            <button><i class="lni lni-telegram-original"></i></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
-	<a href="#" class="back-to-top btn-hover"><i class="lni lni-chevron-up"></i></a>
+<section class="testimonial-area pt-140 pb-140">
+    <div class="container">
+        <div class="row">
+            <div class="mx-auto col-xl-6 col-lg-7 col-md-10">
+                <div class="text-center section-title mb-60">
+                    <h1>What Our Users Says</h1>
+                    <p>
+                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr sed diam nonumy eirmod tempor invidunt ut labore et
+                        dolore magna.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-wrapper">
+            <div class="row testimonial-carousel">
+                <div class="col-lg-4">
+                    <div class="single-testimonial">
+                        <div class="testimonial-top">
+                            <div class="testimonial-info">
+                                <div class="image">
+                                    <img src="~/images/testimonial/testimonial-1.png" alt="">
+                                </div>
+                                <div class="meta">
+                                    <h6>Ena Shah</h6>
+                                    <p>Creative Designer</p>
+                                </div>
+                            </div>
+                            <div class="quote">
+                                <img src="~/images/testimonial/quote.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="content">
+                            <p>Lorem ipsum dolor sit amet,consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-testimonial">
+                        <div class="testimonial-top">
+                            <div class="testimonial-info">
+                                <div class="image">
+                                    <img src="~/images/testimonial/testimonial-2.png" alt="">
+                                </div>
+                                <div class="meta">
+                                    <h6>Michel Smith</h6>
+                                    <p>Product Designer</p>
+                                </div>
+                            </div>
+                            <div class="quote">
+                                <img src="~/images/testimonial/quote.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="content">
+                            <p>Lorem ipsum dolor sit amet,consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-testimonial">
+                        <div class="testimonial-top">
+                            <div class="testimonial-info">
+                                <div class="image">
+                                    <img src="~/images/testimonial/testimonial-3.png" alt="">
+                                </div>
+                                <div class="meta">
+                                    <h6>Sarah A. K.</h6>
+                                    <p>Graphic Designer</p>
+                                </div>
+                            </div>
+                            <div class="quote">
+                                <img src="~/images/testimonial/quote.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="content">
+                            <p>Lorem ipsum dolor sit amet,consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-testimonial">
+                        <div class="testimonial-top">
+                            <div class="testimonial-info">
+                                <div class="image">
+                                    <img src="~/images/testimonial/testimonial-2.png" alt="">
+                                </div>
+                                <div class="meta">
+                                    <h6>Michel Smith</h6>
+                                    <p>Product Designer</p>
+                                </div>
+                            </div>
+                            <div class="quote">
+                                <img src="~/images/testimonial/quote.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="content">
+                            <p>Lorem ipsum dolor sit amet,consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-testimonial">
+                        <div class="testimonial-top">
+                            <div class="testimonial-info">
+                                <div class="image">
+                                    <img src="~/images/testimonial/testimonial-1.png" alt="">
+                                </div>
+                                <div class="meta">
+                                    <h6>Ena Shah</h6>
+                                    <p>Creative Designer</p>
+                                </div>
+                            </div>
+                            <div class="quote">
+                                <img src="~/images/testimonial/quote.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="content">
+                            <p>Lorem ipsum dolor sit amet,consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="single-testimonial">
+                        <div class="testimonial-top">
+                            <div class="testimonial-info">
+                                <div class="image">
+                                    <img src="~/images/testimonial/testimonial-1.png" alt="">
+                                </div>
+                                <div class="meta">
+                                    <h6>Ena Shah</h6>
+                                    <p>Creative Designer</p>
+                                </div>
+                            </div>
+                            <div class="quote">
+                                <img src="~/images/testimonial/quote.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="content">
+                            <p>Lorem ipsum dolor sit amet,consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
-	<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-	<script src="~/js/bootstrap.bundle-5.0.0.alpha-min.js"></script>
+<footer class="footer-area">
+    <div class="widget-wrapper">
+        <div class="map-img">
+            <img src="~/images/footer/map-img.svg" alt="">
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-4 col-md-7">
+                    <div class="footer-widget about">
+                        <a asp-page="Index" class="d-inline-block mb-30">
+                            <img src="~/images/logo/logo.svg" alt="">
+                        </a>
+                        <p class="text-white mb-25">Buy And Sell Everything From Used Cars To Mobile Phones And Computers, Search For Property, Jobs And More</p>
+                        <ul class="social">
+                            <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
+                            <li><a href="javascript:void(0)"><i class="lni lni-twitter-filled"></i></a></li>
+                            <li><a href="javascript:void(0)"><i class="lni lni-instagram-filled"></i></a></li>
+                            <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-md-4 order-md-2 order-xl-1 col-sm-6">
+                    <div class="footer-widget">
+                        <h4>Quick Link</h4>
+                        <ul class="link">
+                            <li><a href="javascript:void(0)">Home</a></li>
+                            <li><a href="javascript:void(0)">About</a></li>
+                            <li><a href="javascript:void(0)">Category</a></li>
+                            <li><a href="javascript:void(0)">Product details</a></li>
+                            <li><a href="javascript:void(0)">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-md-4 order-md-3 order-xl-2 col-sm-6">
+                    <div class="footer-widget">
+                        <h4>Support</h4>
+                        <ul class="link">
+                            <li><a href="javascript:void(0)">Live Chat</a></li>
+                            <li><a href="javascript:void(0)">Privacy Policy</a></li>
+                            <li><a href="javascript:void(0)">Purchase</a></li>
+                            <li><a href="javascript:void(0)">Protection</a></li>
+                            <li><a href="javascript:void(0)">Support</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-md-4 order-md-4 order-xl-3 col-sm-6">
+                    <div class="footer-widget">
+                        <h4>Information</h4>
+                        <ul class="link">
+                            <li><a href="javascript:void(0)">Company</a></li>
+                            <li><a href="javascript:void(0)">Contact Info</a></li>
+                            <li><a href="javascript:void(0)">Blog & Articles</a></li>
+                            <li><a href="javascript:void(0)">Terms of Service</a></li>
+                            <li><a href="javascript:void(0)">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-md-5 order-md-1 order-xl-4 col-sm-6">
+                    <div class="footer-widget">
+                        <h4>Contact Us</h4>
+                        <ul>
+                            <li>
+                                <span>Phone:</span>
+                                0345983672937
+                            </li>
+                            <li>
+                                <span>Email:</span>
+                                <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a5dccad0d7c8c4ccc9e5c2c8c4ccc98bc6cac8">[email&#160;protected]</a>
+                            </li>
+                            <li>
+                                <span>Location:</span>
+                                United State of America
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="copy-right">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="text-center">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
 
-	<script src="~/js/tiny-slider.js"></script>
 
-	<script src="~/js/wow.min.js"></script>
+<a href="#" class="back-to-top btn-hover"><i class="lni lni-chevron-up"></i></a>
 
-	<script src="~/js/glightbox.min.js"></script>
 
-	<script src="~/js/selectr.min.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+<script src="~/js/bootstrap.bundle-5.0.0.alpha-min.js"></script>
 
-	<script src="~/js/nouislider.js"></script>
+<script src="~/js/tiny-slider.js"></script>
 
-	<script src="~/js/main.js"></script>
-	<script>
+<script src="~/js/wow.min.js"></script>
 
-		//========= glightbox
-		const myGallery = GLightbox({
-			'href': '~/video/Free App Landing Page Template - AppLand.mp4',
-			'type': 'video',
-			'source': 'youtube', //vimeo, youtube or local
-			'width': 900,
-			'autoplayVideos': true,
-		});
+<script src="~/js/glightbox.min.js"></script>
 
-		//======== tiny slider for feature-product-carousel
-		tns({
-			slideBy: 'page',
-			autoplay: false,
-			mouseDrag: true,
-			gutter: 20,
-			nav: false,
-			controls: true,
-			controlsPosition: 'bottom',
-			controlsText: [
-				'<span class="prev"><i class="lni lni-chevron-left"></i></span>',
-				'<span class="next"><i class="lni lni-chevron-right"></i></span>'
-			],
-			container: ".feature-product-carousel",
-			items: 1,
-			center: false,
-			autoplayTimeout: 5000,
-			swipeAngle: false,
-			speed: 400,
-			responsive: {
-				768: {
-					items: 2,
-				},
+<script src="~/js/selectr.min.js"></script>
 
-				992: {
-					items: 2,
-				},
+<script src="~/js/nouislider.js"></script>
 
-				1200: {
-					items: 3,
-				}
-			}
-		});
+<script src="~/js/main.js"></script>
+<script>
 
-		//======== tiny slider for testimonial
-		tns({
-			slideBy: 'page',
-			autoplay: false,
-			mouseDrag: true,
-			gutter: 20,
-			nav: true,
-			controls: false,
-			container: ".testimonial-carousel",
-			items: 1,
-			center: false,
-			autoplayTimeout: 5000,
-			swipeAngle: false,
-			speed: 400,
-			responsive: {
-				768: {
-					items: 2,
-				},
-				1200: {
-					items: 3,
-				}
-			}
-		});
-	</script>
+    //========= glightbox
+    const myGallery = GLightbox({
+        'href': '~/video/Free App Landing Page Template - AppLand.mp4',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+
+    //======== tiny slider for feature-product-carousel
+    tns({
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 20,
+        nav: false,
+        controls: true,
+        controlsPosition: 'bottom',
+        controlsText: [
+            '<span class="prev"><i class="lni lni-chevron-left"></i></span>',
+            '<span class="next"><i class="lni lni-chevron-right"></i></span>'
+        ],
+        container: ".feature-product-carousel",
+        items: 1,
+        center: false,
+        autoplayTimeout: 5000,
+        swipeAngle: false,
+        speed: 400,
+        responsive: {
+            768: {
+                items: 2,
+            },
+
+            992: {
+                items: 2,
+            },
+
+            1200: {
+                items: 3,
+            }
+        }
+    });
+
+    //======== tiny slider for testimonial
+    tns({
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 20,
+        nav: true,
+        controls: false,
+        container: ".testimonial-carousel",
+        items: 1,
+        center: false,
+        autoplayTimeout: 5000,
+        swipeAngle: false,
+        speed: 400,
+        responsive: {
+            768: {
+                items: 2,
+            },
+            1200: {
+                items: 3,
+            }
+        }
+    });
+</script>
 
