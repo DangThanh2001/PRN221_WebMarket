@@ -35,10 +35,10 @@ namespace Web_Market.Pages
 				.ToLower().Contains(product_name_key.ToLower().Trim())
 				).ToList();
 			}
-			if (!string.IsNullOrWhiteSpace("3") && !string.IsNullOrEmpty("3"))
+			if (!string.IsNullOrWhiteSpace(category_id_key) && !string.IsNullOrEmpty(category_id_key))
 			{
 				listProduct = listProduct.Where(x => x.ProductCategory
-				.ToLower().Contains("3".ToLower().Trim())
+				.ToLower().Contains(category_id_key.ToLower().Trim())
 				).ToList();
 			}
 
