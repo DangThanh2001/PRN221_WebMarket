@@ -15,9 +15,12 @@ namespace Web_Market.Pages
 		public Category _category { get; set; }
 		public Product? product { get; set; }
 		public List<Product> listProduct { get; set; }
+        public double? minPrice { get; set; }
+        public double? maxPrice { get; set; }
+		public List<int> quanCategory { get; set; }
 
 
-		[BindProperty]
+        [BindProperty]
 		public List<Category>? listCategories { get; set; }
 		public Category_ListModel(CategoryService category, ProductService productService)
 		{
@@ -29,7 +32,15 @@ namespace Web_Market.Pages
 		{
 			listCategories = _categoryService.GetAllCategory();
 			listProduct = _productService.GetAllProduct();
-			if (!string.IsNullOrWhiteSpace(product_name_key) && !string.IsNullOrEmpty(product_name_key))
+			ViewData["allP"] = listProduct.Count;
+			quanCategory = new List<int>();
+            foreach (var o in listCategories)
+            {
+                int count = listProduct.Where(x => x.ProductCategory
+				.Contains(o.CategoryId + "")).ToList().Count;
+                quanCategory.Add(count);
+            }
+            if (!string.IsNullOrWhiteSpace(product_name_key) && !string.IsNullOrEmpty(product_name_key))
 			{
 				listProduct = listProduct.Where(x => x.ProductName
 				.ToLower().Contains(product_name_key.ToLower().Trim())
@@ -41,8 +52,17 @@ namespace Web_Market.Pages
 				.ToLower().Contains(category_id_key.ToLower().Trim())
 				).ToList();
 			}
-
-			ViewData["search"] = product_name_key;
+			if (listProduct.Count > 0)
+			{
+				minPrice = listProduct.MinBy(x => x.Price).Price;
+				maxPrice = listProduct.MaxBy(x => x.Price).Price;
+			}
+			else
+			{
+				minPrice = 0;
+				maxPrice = 0;
+			}
+            ViewData["search"] = product_name_key;
 
 		}
 	}

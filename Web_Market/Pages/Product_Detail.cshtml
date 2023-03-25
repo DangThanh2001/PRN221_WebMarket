@@ -171,8 +171,8 @@
                                 <i class="lni lni-folder"></i> <span>Categories: </span>
                                 @foreach (var o in Model.listCategory)
                                 {
-                                    <a class="badge bg-secondary text-white rounded-pill fs-6" asp-page="index"
-                                   asp-route-category="@o.CategoryId">@o.CategoryName</a>
+                                    <a class="badge bg-secondary text-white rounded-pill fs-6" asp-page="category_list"
+                                   asp-route-category_id_key="@o.CategoryId">@o.CategoryName</a>
                                 }
                             </li>
 
