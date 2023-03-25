@@ -50,7 +50,7 @@ namespace Web_Market.Pages
                 });
             }
         }
-        public IActionResult OnPostAddToCart(int id, int quan)
+        public void OnPostAddToCart(int id, int quan =1)
         {
             UserId = int.Parse(_accountService.GetAccountId());
             var stringId = id + "@" + 1;
@@ -69,7 +69,7 @@ namespace Web_Market.Pages
                 {
                     if (x.Split("@")[0].Equals(id.ToString()))
                     {
-                        int quatiy = int.Parse(x.Split("@")[1]) + 1;
+                        int quatiy = int.Parse(x.Split("@")[1]) + quan;
                         card.ProductIdAndQuantity.Split(";").ToList().Remove(x);
                         stringId = id + "@" + quatiy;
                         listproduct.Add(stringId);
@@ -80,14 +80,13 @@ namespace Web_Market.Pages
                         listproduct.Add(stringId);
                     }
                 });
-                card.ProductIdAndQuantity = String.Join(";", listproduct);
+                card.ProductIdAndQuantity = String.Join(";", listproduct.Distinct());
             }
             else
             {
                 card.ProductIdAndQuantity += stringId;
             }
-            var message = _cartService.Update(card);
-            return new JsonResult(message);
+             _cartService.Update(card);
         }
     }
 }
