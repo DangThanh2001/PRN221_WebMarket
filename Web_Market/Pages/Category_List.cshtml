@@ -187,12 +187,12 @@
                                                     xhr.setRequestHeader("XSRF-TOKEN",
                                                         $('input:hidden[name="__RequestVerificationToken"]').val());
                                                 }, 
-                                                data: { productId: idProduct}, // dữ liệu gửi đi
+                                                data: { id: idProduct}, // dữ liệu gửi đi
                                                 success: function (response) {
                                                     swal("Thank you alot!", "Your cart has been updated!", "success");
                                                 },
                                                 error: function (xhr, status, error) {
-                                                    swal("Thank you alot!", "But buy false", "fasle");
+                                                    swal("Thank you alot!", "But buy false", "false");
                                                 }
                                             });
                                         }

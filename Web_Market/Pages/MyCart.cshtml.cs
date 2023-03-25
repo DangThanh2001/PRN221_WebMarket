@@ -28,6 +28,7 @@ namespace Web_Market.Pages
 
         public void OnGet()
         {
+            product = new List<Product>();
             UserId = int.Parse(_accountService.GetAccountId());
             card = _cartService.GetCard(UserId);
             if(card == null)
@@ -49,20 +50,44 @@ namespace Web_Market.Pages
                 });
             }
         }
-        public IActionResult OnPostAddToCart(int id)
+        public IActionResult OnPostAddToCart(int id, int quan)
         {
-            var stringId = ";" + id + "@" + 1;
-
+            UserId = int.Parse(_accountService.GetAccountId());
+            var stringId = id + "@" + 1;
+            card = _cartService.GetCard(UserId);
+            if (card == null)
+            {
+                card = new Card();
+                card.UserID = UserId;
+                _cartService.AddToCart(card);
+            }
             if (card.ProductIdAndQuantity != null)
             {
-                card.ProductIdAndQuantity += stringId;
+                List<string> listproduct = new List<string>();
+                var checkCotain = card.ProductIdAndQuantity.Split(";").ToList();
+                checkCotain.ForEach(x =>
+                {
+                    if (x.Split("@")[0].Equals(id.ToString()))
+                    {
+                        int quatiy = int.Parse(x.Split("@")[1]) + 1;
+                        card.ProductIdAndQuantity.Split(";").ToList().Remove(x);
+                        stringId = id + "@" + quatiy;
+                        listproduct.Add(stringId);
+                    }
+                    else
+                    {
+                        listproduct.Add(x);
+                        listproduct.Add(stringId);
+                    }
+                });
+                card.ProductIdAndQuantity = String.Join(";", listproduct);
             }
             else
             {
-                card.ProductIdAndQuantity += stringId.Trim(';');
+                card.ProductIdAndQuantity += stringId;
             }
-            
-            return new JsonResult(card);
+            var message = _cartService.Update(card);
+            return new JsonResult(message);
         }
     }
 }

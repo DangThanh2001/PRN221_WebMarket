@@ -19,6 +19,10 @@ namespace Service
         {
            return _cardRepository.AddCard(card);
         }
+        public string Update(Card card)
+        {
+            return _cardRepository.UpdateCard(card);
+        }
         public Card GetCard(int id)
         {
             return _cardRepository.GetCardWithUserId(id);

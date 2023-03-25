@@ -88,20 +88,4 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
-//app.Use(async (context, next) =>
-//{
-//    // Check if token exists in cache
-//    if (context.Request.Path != "/login" && context.Request.Path != "/register")
-//    {
-//        var cache = context.RequestServices.GetService<IMemoryCache>();
-//        var token = cache.Get<string>("Token");
-//        if (!string.IsNullOrEmpty(token))
-//        {
-//            context.Request.Headers.Add("Authorization", "Bearer " + token);
-//        }
-//    }
-
-//    await next();
-//});
-
 app.Run();

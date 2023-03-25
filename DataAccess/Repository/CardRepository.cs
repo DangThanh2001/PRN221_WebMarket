@@ -37,9 +37,19 @@ namespace DataAccess.Repository
                 return "False";
             }
         }
-        public void UpdateCard(Card card)
+        public string UpdateCard(Card card)
         {
-
+            try
+            {
+                _dbContext.Cards.Update(card);
+                _dbContext.SaveChanges();
+                return "Success";
+            }
+            catch (Exception ex)
+            {
+                return "False";
+            }
+            
         }
         public void DeleteCard(int id)
         {

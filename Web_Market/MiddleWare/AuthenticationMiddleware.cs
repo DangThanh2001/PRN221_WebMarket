@@ -88,7 +88,6 @@ namespace Web_Market.MiddleWare
             ADMIN_DASHBOARD,
             ADMIN_POSTADS,
             OFFER,
-            PRODUCT_DETAIL,
         };
 
         private static string[] notModRole =
@@ -97,7 +96,6 @@ namespace Web_Market.MiddleWare
             ADMIN_DASHBOARD,
             ADMIN_POSTADS,
             OFFER,
-            PRODUCT_DETAIL,
         };
 
         public static bool checkUrlNotLogin(string path)

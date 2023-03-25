@@ -113,7 +113,7 @@
                             </li>
                         </ul>
                     </div>
-                    <form class="mb-3" name="quantityOrder" onsubmit="return validateForm()">
+                    <form class="mb-3" name="quantityOrder" onsubmit="return validateForm()" asp-page="mycart" method="post" asp-page-handler="addtocart">
                         <div class="d-flex flex-row">
                             <div class="p-2">
                                 <button onclick="btnQuan('minus')"
@@ -123,6 +123,7 @@
                             </div>
                             <div class="p-2">
                                 <input id="quan" name="quan" type="text" class="text-center" style="padding: 0px; width: 5em;" value="1" />
+                                <input name="id" type="hidden" class="text-center" style="padding: 0px; width: 5em;" value="@Model.product.ProductId" />
                             </div>
                             <div class="p-2">
                                 <button onclick="btnQuan('plus')"

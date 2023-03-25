@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(DbContextBase))]
-    [Migration("20230304181108_alert_column_Card")]
-    partial class alert_column_Card
+    [Migration("20230325142815_update cart")]
+    partial class updatecart
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -86,17 +86,19 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("ObjectModel.Card", b =>
                 {
-                    b.Property<int>("UserID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserID"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("ProductIdAndQuantity")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("UserID");
+                    b.Property<int>("UserID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
 
                     b.ToTable("Cards");
                 });
@@ -225,10 +227,9 @@ namespace DataAccess.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Image")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ImportDay")
+                    b.Property<DateTime?>("ImportDay")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsActive")
