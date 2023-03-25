@@ -9,6 +9,7 @@ using Microsoft.Extensions.Caching.Memory;
 using ObjectModel;
 using Web_Market.MiddleWare;
 using DataAccess.IRepositotry;
+using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,8 +20,10 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProduct_DetailRepository, Product_DetailRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
 builder.Services.AddScoped<ICompanyRepository, CompanyRepository>();
+builder.Services.AddScoped<ICardRepository, CardRepository>();
 builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
 builder.Services.AddScoped<AccountService>();
+builder.Services.AddScoped<CartService>();
 builder.Services.AddScoped<CategoryService>();
 builder.Services.AddScoped<Product_DetailService>();
 builder.Services.AddScoped<ProductService>();
@@ -52,7 +55,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 ClockSkew = TimeSpan.Zero
             };
         });
-
+builder.Services.AddAntiforgery(o => o.HeaderName = "XSRF-TOKEN");
 builder.Services.AddRazorPages();
 var app = builder.Build();
 using (var scope = app.Services.CreateScope())
