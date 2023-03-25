@@ -31,6 +31,8 @@
     <link rel="stylesheet" href="~/css/bootstrap-5.0.5-alpha.min.css">
 
     <link rel="stylesheet" href="~/css/style.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
 </head>
 <body>
     @{
@@ -65,26 +67,20 @@
                                         <ul class="sub-menu collapse" id="sub-nav1">
                                             <li><a asp-page="aboutme">About</a></li>
                                             <li><a asp-page="service">Service</a></li>
-                                            <li><a asp-page="category_list">Category List</a></li>
+                                            <li><a asp-page="category_list">Every Products</a></li>
                                             <li><a asp-page="pricing">Pricing</a></li>
                                             <li><a asp-page="accordions">Accordions</a></li>
-                                            <li><a asp-page="product_details">Product Details</a></li>
+                                            @*<li><a asp-page="product_details">Product Details</a></li>*@
                                         </ul>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="page-scroll" data-toggle="collapse" data-target="#sub-nav" aria-controls="sub-nav" aria-expanded="false" aria-label="Toggle navigation" href="javascript:void(0)">
-                                            Category
-                                            <div class="sub-nav-toggler">
-                                                <span></span>
-                                            </div>
+                                        <a class="page-scroll" asp-page="category_list">
+                                            Every Products
                                         </a>
-                                        <ul class="sub-menu collapse" id="sub-nav">
-                                            <li><a asp-page="category_list">Category List</a></li>
-                                        </ul>
                                     </li>
-                                    <li class="nav-item">
+                                   @* <li class="nav-item">
                                         <a class="page-scroll" asp-page="Index">Product Details</a>
-                                    </li>
+                                    </li>*@
                                 </ul>
                             </div>
                             <ul class="header-btn d-md-flex">
@@ -158,6 +154,7 @@
     <script src="~/js/nouislider.js"></script>
 
     <script src="~/js/main.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

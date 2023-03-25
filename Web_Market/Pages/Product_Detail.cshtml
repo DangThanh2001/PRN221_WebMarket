@@ -32,11 +32,12 @@
         <div class="row">
             <div class="col-lg-6">
                 <div class="banner-content">
-                    <h1 class="text-white">Product Details</h1>
+                    <h1 class="text-white">@Model.product.ProductName</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a asp-page="Index">Home</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Product</li>
+                            <li class="breadcrumb-item active" aria-current="page">@Model.product.ProductName</li>
                         </ol>
                     </nav>
                 </div>
@@ -55,13 +56,13 @@
                         <div class="order-last col-lg-2 col-xl-2 order-lg-first">
                             <div class="nav flex-lg-column nav-pills thumb-img-wrapper" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                                 <a class="thumb-img active" id="v-pills-tab-1" data-toggle="pill" href="#v-pills-1" role="tab" aria-controls="v-pills-1" aria-selected="true">
-                                    <img src="@Model.product.Image" alt="">
+                                    <img src="@Model.image_cut[0]" alt="">
                                 </a>
                                 <a class="thumb-img" id="v-pills-tab-2" data-toggle="pill" href="#v-pills-2" role="tab" aria-controls="v-pills-2" aria-selected="false">
-                                    <img src="@Model.product.Image" alt="">
+                                    <img src="@Model.image_cut[1]" alt="">
                                 </a>
                                 <a class="thumb-img" id="v-pills-tab-3" data-toggle="pill" href="#v-pills-3" role="tab" aria-controls="v-pills-3" aria-selected="false">
-                                    <img src="@Model.product.Image" alt="">
+                                    <img src="@Model.image_cut[2]" alt="">
                                 </a>
                             </div>
                         </div>
@@ -69,17 +70,17 @@
                             <div class="tab-content" id="v-pills-tabContent">
                                 <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-tab-1">
                                     <div class="showcase-img">
-                                        <img src="@Model.product.Image" alt="" width="100" height="500">
+                                        <img src="@Model.image_cut[0]" alt="" width="100" height="500">
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-tab-2">
                                     <div class="showcase-img">
-                                        <img src="@Model.product.Image" alt="">
+                                        <img src="@Model.image_cut[1]" alt="">
                                     </div>
                                 </div>
                                 <div class="tab-pane fade" id="v-pills-3" role="tabpanel" aria-labelledby="v-pills-tab-3">
                                     <div class="showcase-img">
-                                        <img src="@Model.product.Image" alt="">
+                                        <img src="@Model.image_cut[2]" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -99,12 +100,12 @@
                     </div>
                     <h3 class="title mb-25">@Model.product.ProductName</h3>
                     <p class="description mb-30">
-                        
+
                     </p>
                     <h5 class="subtitle">Specification:</h5>
                     <div class="specification">
                         <ul style="width: 100% !important;">
-                            <li><i class="lni lni-dollar"></i>@Model.product.Price</li>
+                            <li class="fs-5"><i class="lni lni-dollar"></i><span class="text-success font-weight-bold">@Model.product.Price</span></li>
 
                             <li>
                                 <i class="lni lni-comments-alt"></i>
@@ -112,19 +113,72 @@
                             </li>
                         </ul>
                     </div>
+                    <form class="mb-3" name="quantityOrder" onsubmit="return validateForm()">
+                        <div class="d-flex flex-row">
+                            <div class="p-2">
+                                <button onclick="btnQuan('minus')"
+                                        type="button" id="minus" class="main-btn btn-hover" style="padding: 0em 2em !important;">
+                                    -
+                                </button>
+                            </div>
+                            <div class="p-2">
+                                <input id="quan" name="quan" type="text" class="text-center" style="padding: 0px; width: 5em;" value="1" />
+                            </div>
+                            <div class="p-2">
+                                <button onclick="btnQuan('plus')"
+                                        type="button" id="plus" class="main-btn btn-hover" style="padding: 0em 2em !important;">
+                                    +
+                                </button>
+                            </div>
+                            <div class="p-2">
+                                <button class="main-btn btn-hover" style="padding: 0em 2em !important;" type="submit">
+                                    Order&nbsp;
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
+                                        <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                                        <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <p id="notok" class="text-danger"></p>
+                    </form>
+
+                    <script>
+                        function btnQuan(input) {
+                            let a = document.getElementById('quan');
+                            let b = a.value;
+                            if (input == 'minus' && b > 1) {
+                                b = b - 1;
+                                a.value = b;
+                            } if (input == 'plus' && b < @Model.product.Quantity) {
+                                b = parseInt(b) + 1;
+                                a.value = b;
+                            }
+                        }
+
+                        function validateForm() {
+                            let x = document.getElementById('quan').value;
+                            if (x > @Model.product.Quantity || x < 1) {
+                                document.getElementById('notok').textContent = 'Please check your order again';
+                                return false;
+                            }
+                        }
+                    </script>
+
                     <div class="meta-bottom">
                         <ul>
                             <li>
-                                <i class="lni lni-folder"></i> <span>Categories: </span> 
+                                <i class="lni lni-folder"></i> <span>Categories: </span>
                                 @foreach (var o in Model.listCategory)
                                 {
-                                    <a class="badge bg-secondary text-white rounded-pill fs-6" asp-page="category_list">@o.CategoryName</a>
+                                    <a class="badge bg-secondary text-white rounded-pill fs-6" asp-page="category_list"
+                                   asp-route-category_id_key="@o.CategoryId">@o.CategoryName</a>
                                 }
                             </li>
-                      
+
                             <li>
-                                <i class="lni lni-apple"></i> <span>Brand:</span> 
-                                <a asp-page="category_list">
+                                <i class="lni lni-apple"></i> <span>Brand:</span>
+                                <a class="badge bg-secondary text-white rounded-pill fs-6" asp-page="index" asp-route-company="@Model.companyName.CompanyId">
                                     @Model.companyName.Name
                                 </a>
                             </li>
