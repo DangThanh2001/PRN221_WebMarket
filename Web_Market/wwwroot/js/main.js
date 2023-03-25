@@ -1,12 +1,14 @@
-(function(){"use strict";window.onload=function(){window.setTimeout(fadeout,500);}
-function fadeout(){document.querySelector('.preloader').style.opacity='0';document.querySelector('.preloader').style.display='none';}
-window.onscroll=function(){var header_navbar=document.getElementById("header_navbar");var sticky=header_navbar.offsetTop;var logo=document.querySelector('.navbar-brand img')
-    if (window.pageYOffset > sticky) {
-        header_navbar.classList.add("sticky")
-    } else { header_navbar.classList.remove("sticky") };
+(function () {
+    "use strict"; window.onload = function () { window.setTimeout(fadeout, 500); }
+    function fadeout() { document.querySelector('.preloader').style.opacity = '0'; document.querySelector('.preloader').style.display = 'none'; }
+    window.onscroll = function () {
+        var header_navbar = document.getElementById("header_navbar"); var sticky = header_navbar.offsetTop; var logo = document.querySelector('.navbar-brand img')
+        if (window.pageYOffset > sticky) {
+            header_navbar.classList.add("sticky")
+        } else { header_navbar.classList.remove("sticky") };
         var backToTo = document.querySelector(".back-to-top");
-    if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) { backToTo.style.display = "block"; }
-    else { backToTo.style.display = "none"; }
+        if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) { backToTo.style.display = "block"; }
+        else { backToTo.style.display = "none"; }
     };
     let navbarToggler = document.querySelector(".navbar-toggler"); navbarToggler.addEventListener('click', function () { navbarToggler.classList.toggle("active"); })
     var wow = new WOW({ mobile: false }); wow.init();
@@ -17,24 +19,22 @@ function changeVal(el) {
     var qt = parseFloat(el.parent().children(".qt").html());
     var price = parseFloat(el.parent().children(".price").html());
     var eq = Math.round(price * qt * 100) / 100;
-
-    el.parent().children(".full-price").html(eq + "€");
-
+    el.parent().children(".full-price").html(eq + '$');
     changeTotal();
 }
 
 function changeTotal() {
-
     var price = 0;
-
-    $(".full-price").each(function (index) {
-        price += parseFloat($(".full-price").eq(index).html());
+    $(".cart-item:checked").each(function (index) {
+        $(".full-price").each(function (index) {
+            price += parseFloat($(".full-price").eq(index).html());
+        });
     });
+    
 
     price = Math.round(price * 100) / 100;
     var tax = Math.round(price * 0.05 * 100) / 100
-    var shipping = parseFloat($(".shipping span").html());
-    var fullPrice = Math.round((price + tax + shipping) * 100) / 100;
+    var fullPrice = Math.round((price + tax) * 100) / 100;
 
     if (price == 0) {
         fullPrice = 0;
@@ -44,7 +44,9 @@ function changeTotal() {
     $(".tax span").html(tax);
     $(".total span").html(fullPrice);
 }
-
+$(".cart-item").on("change", function () {
+    changeTotal();
+});
 $(document).ready(function () {
 
     $(".remove").click(function () {

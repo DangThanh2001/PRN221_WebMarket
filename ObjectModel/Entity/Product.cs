@@ -18,11 +18,11 @@ namespace ObjectModel
         public Double Price { get; set; }
         // con thua lai
         public int Quantity { get; set;}
-        public String Image { get; set; }
+        public String? Image { get; set; }
         public int CompanyId { get; set; }
         // so luong tren 1 don vi mua
         public int QuantityPerUnit { get; set;}
-        public DateTime ImportDay { get; set; }
+        public DateTime? ImportDay { get; set; } = DateTime.Now;
         public bool IsActive { get; set; } = true;
         public bool IsDelete { get; set; } = false;
     }
