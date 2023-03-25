@@ -88,15 +88,24 @@
                     <div class="title">
                         <h3>My Cart</h3>
                     </div>
+                    @{
+
+                        double sum = 0;
+                        double totalFinal = 0;
+                        double tax = 0;
+                    }
                     @if (Model.product != null)
                     {
+
                         @foreach (var p in Model.product)
                         {
+                           var img = p.Image.Split(';')[0];
+                            
                             <div class="product-container">
                                 <article class="product">
                                     <header>
                                         <a class="remove">
-                                            <img src="@p.Image" alt="@p.ProductName">
+                                            <img src="@img" alt="@p.ProductName">
 
                                             <h3>Remove</h3>
                                         </a>
@@ -111,8 +120,12 @@
                                         <span class="qt-minus">-</span>
                                         <span class="qt">@p.Quantity</span>
                                         <span class="qt-plus">+</span>
-
+                                        @{
+                                            var total = p.Quantity * p.Price;
+                                            sum += total;
+                                        }
                                         <h2 class="full-price">
+                                            @total$
                                         </h2>
 
                                         <h2 class="price">
@@ -122,6 +135,8 @@
                                 </article>
                             </div>
                         }
+                        tax = Math.Floor(sum * 0.05 * 100) / 100;
+                        totalFinal = Math.Floor((sum + tax) * 100) / 100;
                     }
                 </div>
                 <div class="dashboard-wrapper box-style">
@@ -129,12 +144,12 @@
                         <div class="container clearfix">
 
                             <div class="left">
-                                <h2 class="subtotal">Subtotal: <span>0</span>$</h2>
-                                <h3 class="tax">Taxes (5%): <span>0</span>$</h3>
+                                <h2 class="subtotal">Subtotal: <span>@sum</span>$</h2>
+                                <h3 class="tax">Taxes (5%): <span>@tax</span>$</h3>
                             </div>
 
                             <div class="right">
-                                <h1 class="total">Total: <span>0</span>$</h1>
+                                <h1 class="total">Total: <span>@totalFinal</span>$</h1>
                                 <a class="btn" asp-page="payments" asp-page-handler="">Checkout</a>
                             </div>
                         </div>
