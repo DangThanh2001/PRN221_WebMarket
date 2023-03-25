@@ -41,7 +41,7 @@
         <div class="row">
             <div class="col-xl-3 col-lg-4">
                 <div class="left-sidebar-wrapper box-style">
-                    
+
                     <div class="sidebar-menu">
                         <nav>
                             <ul>
@@ -88,74 +88,41 @@
                     <div class="title">
                         <h3>My Cart</h3>
                     </div>
-                    <div class="product-container">
-                        <div class="check-buy"><input type="checkbox" class="cart-item" /></div>
-                        <article class="product">
-                            <header>
-                                <a class="remove">
-                                    <img src="https://bucket.nhanh.vn/5c7368-24528/ps/20180321_8yifTA10WF2EV0KJA5kzjF68.png" alt="Gamming Mouse">
+                    @if (Model.product != null)
+                    {
+                        @foreach (var p in Model.product)
+                        {
+                            <div class="product-container">
+                                <article class="product">
+                                    <header>
+                                        <a class="remove">
+                                            <img src="@p.Image" alt="@p.ProductName">
 
-                                    <h3>Remove</h3>
-                                </a>
-                            </header>
+                                            <h3>Remove</h3>
+                                        </a>
+                                    </header>
 
-                            <div class="content">
+                                    <div class="content">
+                                        <h1>@p.ProductName</h1>
+                                        @p.ProductDescription
+                                    </div>
 
-                                <h1>Mouse</h1>
+                                    <footer class="content">
+                                        <span class="qt-minus">-</span>
+                                        <span class="qt">@p.Quantity</span>
+                                        <span class="qt-plus">+</span>
 
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, numquam quis perspiciatis ea ad omnis provident laborum dolore in atque.
+                                        <h2 class="full-price">
+                                        </h2>
 
+                                        <h2 class="price">
+                                            @p.Price $
+                                        </h2>
+                                    </footer>
+                                </article>
                             </div>
-
-                            <footer class="content">
-                                <span class="qt-minus">-</span>
-                                <span class="qt">2</span>
-                                <span class="qt-plus">+</span>
-
-                                <h2 class="full-price">
-                                    29.98$
-                                </h2>
-
-                                <h2 class="price">
-                                    14.99$
-                                </h2>
-                            </footer>
-                        </article>
-                    </div>
-                    <div class="product-container">
-                        <div class="check-buy"><input type="checkbox" class="cart-item" /></div>
-                        <article class="product">
-                            <header>
-                                <a class="remove">
-                                    <img src="https://bucket.nhanh.vn/5c7368-24528/ps/20180321_8yifTA10WF2EV0KJA5kzjF68.png" alt="Gamming Mouse">
-
-                                    <h3>Remove</h3>
-                                </a>
-                            </header>
-
-                            <div class="content">
-
-                                <h1>Mouse</h1>
-
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, numquam quis perspiciatis ea ad omnis provident laborum dolore in atque.
-
-                            </div>
-
-                            <footer class="content">
-                                <span class="qt-minus">-</span>
-                                <span class="qt">2</span>
-                                <span class="qt-plus">+</span>
-
-                                <h2 class="full-price">
-                                    29.98$
-                                </h2>
-
-                                <h2 class="price">
-                                    14.99$
-                                </h2>
-                            </footer>
-                        </article>
-                    </div>
+                        }
+                    }
                 </div>
                 <div class="dashboard-wrapper box-style">
                     <footer id="site-footer">
@@ -177,3 +144,35 @@
         </div>
     </div>
 </section>
+<script>
+    function changeVal(el) {
+        var qt = parseFloat(el.parent().children(".qt").html());
+        var price = parseFloat(el.parent().children(".price").html());
+        var eq = Math.round(price * qt * 100) / 100;
+
+        el.parent().children(".full-price").html(eq + "$");
+
+        changeTotal();
+    }
+
+    function changeTotal() {
+
+        var price = 0;
+
+        $(".full-price").each(function (index) {
+            price += parseFloat($(".full-price").eq(index).html());
+        });
+
+        price = Math.round(price * 100) / 100;
+        var tax = Math.round(price * 0.05 * 100) / 100
+        var fullPrice = Math.round((price + tax) * 100) / 100;
+
+        if (price == 0) {
+            fullPrice = 0;
+        }
+
+        $(".subtotal span").html(price);
+        $(".tax span").html(tax);
+        $(".total span").html(fullPrice);
+    }
+</script>

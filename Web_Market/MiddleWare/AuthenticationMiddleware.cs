@@ -23,7 +23,7 @@ namespace Web_Market.MiddleWare
             // 0 = admin, 1 = mod, 2 = normal
             if (token != null)
             {
-                context.Request.Headers.Add("Authorization", "Bearer " + token);
+                context.Request.Headers.Add("authorization", "bearer " + token);
                 type = _tokenService.DeserializeToken(token);
             }
             string path = context.Request.Path.ToString().ToLower();
@@ -88,7 +88,6 @@ namespace Web_Market.MiddleWare
             ADMIN_DASHBOARD,
             ADMIN_POSTADS,
             OFFER,
-            PRODUCT_DETAIL,
         };
 
         private static string[] notModRole =
@@ -97,7 +96,6 @@ namespace Web_Market.MiddleWare
             ADMIN_DASHBOARD,
             ADMIN_POSTADS,
             OFFER,
-            PRODUCT_DETAIL,
         };
 
         public static bool checkUrlNotLogin(string path)

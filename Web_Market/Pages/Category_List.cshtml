@@ -68,7 +68,7 @@
                                     <li class="page-item">
                                         <a asp-page="/category_list" asp-route-currentpage="@i" asp-route-product_name_key="@ViewBag.search"
                                        asp-route-category_id_key="@ViewBag.category"
-                                       class="page-link @(Model.curPage == i ? "text-white active-2" : "text-dark")">@(i + 1)</a>
+                                           class="page-link @(Model.curPage == i ? "text-white active-2" : "text-dark")">@(i + 1)</a>
                                     </li>
                                 }
                                 <style>
@@ -118,11 +118,10 @@
                     <div class="left-wrapper">
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade" id="grid" role="tabpanel" aria-labelledby="grid-tab">
-                                
                             </div>
                             <div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="list-tab">
                                 <div class="row">
-                                    @if(Model.listProduct.Count == 0)
+                                    @if (Model.listProduct.Count == 0)
                                     {
                                         <div class="col-lg-12 text-center">
                                             <p class="fs-2">
@@ -168,7 +167,7 @@
                                                     </ul>
                                                     <div class="product-bottom">
                                                         <h3 class="price">$@o.Price</h3>
-                                                        <a onclick="sayThankyou()" href="javascript:void(0)" class="link-ad main-btn btn-hover text-white" style="width: 5rem !important;">
+                                                        <a onclick="sayThankyou(@o.ProductId)" href="javascript:void(0)" class="link-ad main-btn btn-hover text-white" style="width: 5rem !important;">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-plus" viewBox="0 0 16 16">
                                                                 <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
                                                                 <path d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
@@ -180,8 +179,22 @@
                                         </div>
                                     }
                                     <script>
-                                        function sayThankyou(){
-                                            swal("Thank you alot!", "Your cart has been updated!", "success");
+                                        function sayThankyou(idProduct) {
+                                            $.ajax({
+                                                url: '/Mycart?handler=AddToCart', // URL của Razor Page handler
+                                                type: 'POST',  // phương thức gửi request
+                                                beforeSend: function (xhr) {
+                                                    xhr.setRequestHeader("XSRF-TOKEN",
+                                                        $('input:hidden[name="__RequestVerificationToken"]').val());
+                                                }, 
+                                                data: { id: idProduct}, // dữ liệu gửi đi
+                                                success: function (response) {
+                                                    swal("Thank you alot!", "Your cart has been updated!", "success");
+                                                },
+                                                error: function (xhr, status, error) {
+                                                    swal("Thank you alot!", "But buy false", "false");
+                                                }
+                                            });
                                         }
                                     </script>
                                 </div>
@@ -216,23 +229,25 @@
                             <h3 class="mb-30">All Categories</h3>
                             <ul>
                                 <li>
-                                        <a asp-page="category_list"
-                                        asp-route-category_id_key=""
-                                        asp-route-product_name_key=""
-                                        >
+                                    <a asp-page="category_list"
+                                       asp-route-category_id_key=""
+                                       asp-route-product_name_key="">
                                         <span>All category</span>
-                                        <span class="right">@ViewBag.allP</span></a>
+                                        <span class="right">@ViewBag.allP</span>
+                                    </a>
                                 </li>
-                                @for(var i = 0; i < Model.listCategories.Count; i ++)
+                                @for (var i = 0; i < Model.listCategories.Count; i++)
                                 {
                                     <li>
                                         <a asp-page="category_list"
-                                        asp-route-category_id_key="@Model.listCategories[i].CategoryId"
-                                        asp-route-product_name_key="@ViewBag.search">
+                                       asp-route-category_id_key="@Model.listCategories[i].CategoryId"
+                                       asp-route-product_name_key="@ViewBag.search">
                                             <span>@Model.listCategories[i].CategoryName</span>
-                                        <span class="right">@Model.quanCategory[i]</span></a></li>
+                                            <span class="right">@Model.quanCategory[i]</span>
+                                        </a>
+                                    </li>
                                 }
-                                
+
                             </ul>
                         </div>
 
@@ -251,98 +266,6 @@
         </div>
     </div>
 </section>
-
-
-<footer class="footer-area">
-    <div class="widget-wrapper">
-        <div class="map-img">
-            <img src="~/images/footer/map-img.svg" alt="">
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-4 col-md-7">
-                    <div class="footer-widget about">
-                        <a href="index.html" class="d-inline-block mb-30">
-                            <img src="~/images/logo/logo.svg" alt="">
-                        </a>
-                        <p class="text-white mb-25">Buy And Sell Everything From Used Cars To Mobile Phones And Computers, Search For Property, Jobs And More</p>
-                        <ul class="social">
-                            <li><a href="javascript:void(0)"><i class="lni lni-facebook-filled"></i></a></li>
-                            <li><a href="javascript:void(0)"><i class="lni lni-twitter-filled"></i></a></li>
-                            <li><a href="javascript:void(0)"><i class="lni lni-instagram-filled"></i></a></li>
-                            <li><a href="javascript:void(0)"><i class="lni lni-linkedin-original"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-md-4 order-md-2 order-xl-1 col-sm-6">
-                    <div class="footer-widget">
-                        <h4>Quick Link</h4>
-                        <ul class="link">
-                            <li><a href="javascript:void(0)">Home</a></li>
-                            <li><a href="javascript:void(0)">About</a></li>
-                            <li><a href="javascript:void(0)">Category</a></li>
-                            <li><a href="javascript:void(0)">Product details</a></li>
-                            <li><a href="javascript:void(0)">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-md-4 order-md-3 order-xl-2 col-sm-6">
-                    <div class="footer-widget">
-                        <h4>Support</h4>
-                        <ul class="link">
-                            <li><a href="javascript:void(0)">Live Chat</a></li>
-                            <li><a href="javascript:void(0)">Privacy Policy</a></li>
-                            <li><a href="javascript:void(0)">Purchase</a></li>
-                            <li><a href="javascript:void(0)">Protection</a></li>
-                            <li><a href="javascript:void(0)">Support</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-md-4 order-md-4 order-xl-3 col-sm-6">
-                    <div class="footer-widget">
-                        <h4>Information</h4>
-                        <ul class="link">
-                            <li><a href="javascript:void(0)">Company</a></li>
-                            <li><a href="javascript:void(0)">Contact Info</a></li>
-                            <li><a href="javascript:void(0)">Blog & Articles</a></li>
-                            <li><a href="javascript:void(0)">Terms of Service</a></li>
-                            <li><a href="javascript:void(0)">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-md-5 order-md-1 order-xl-4 col-sm-6">
-                    <div class="footer-widget">
-                        <h4>Contact Us</h4>
-                        <ul>
-                            <li>
-                                <span>Phone:</span>
-                                0345983672937
-                            </li>
-                            <li>
-                                <span>Email:</span>
-                                <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="bbc2d4cec9d6dad2d7fbdcd6dad2d795d8d4d6">[email&#160;protected]</a>
-                            </li>
-                            <li>
-                                <span>Location:</span>
-                                United State of America
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="copy-right">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="text-center">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
 
 
 <a href="#" class="back-to-top btn-hover"><i class="lni lni-chevron-up"></i></a>
@@ -380,8 +303,8 @@
         connect: true,
         range: {
             'min': @(Model.minPrice),
-            'max': @(Model.maxPrice+1)
-            }
+            'max': @(Model.maxPrice + 1)
+                    }
     });
 
     var snapValues = [

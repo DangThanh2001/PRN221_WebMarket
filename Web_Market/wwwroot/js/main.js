@@ -13,40 +13,10 @@
     let navbarToggler = document.querySelector(".navbar-toggler"); navbarToggler.addEventListener('click', function () { navbarToggler.classList.toggle("active"); })
     var wow = new WOW({ mobile: false }); wow.init();
 })();
+
 var check = false;
 
-function changeVal(el) {
-    var qt = parseFloat(el.parent().children(".qt").html());
-    var price = parseFloat(el.parent().children(".price").html());
-    var eq = Math.round(price * qt * 100) / 100;
-    el.parent().children(".full-price").html(eq + '$');
-    changeTotal();
-}
 
-function changeTotal() {
-    var price = 0;
-    $(".cart-item:checked").each(function (index) {
-        $(".full-price").each(function (index) {
-            price += parseFloat($(".full-price").eq(index).html());
-        });
-    });
-    
-
-    price = Math.round(price * 100) / 100;
-    var tax = Math.round(price * 0.05 * 100) / 100
-    var fullPrice = Math.round((price + tax) * 100) / 100;
-
-    if (price == 0) {
-        fullPrice = 0;
-    }
-
-    $(".subtotal span").html(price);
-    $(".tax span").html(tax);
-    $(".total span").html(fullPrice);
-}
-$(".cart-item").on("change", function () {
-    changeTotal();
-});
 $(document).ready(function () {
 
     $(".remove").click(function () {

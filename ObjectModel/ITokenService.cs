@@ -7,5 +7,6 @@
         bool IsTokenValid(string token);
 
         int DeserializeToken(string token);
+        string GetUserId(string token);
     }
 }

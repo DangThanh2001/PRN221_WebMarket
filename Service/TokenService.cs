@@ -29,6 +29,7 @@ namespace Service
 
             var issuer = _configuration["Jwt:Issuer"];
             var claims = new[] {
+                new Claim("uid",user.AccountId.ToString()),
                 new Claim(ClaimTypes.Name, user.LastName),
                 new Claim(ClaimTypes.Role, user.Type == 0 ? "Admin" : user.Type == 1? "Mod" : "Normal"),
                 new Claim(ClaimTypes.NameIdentifier, Guid.NewGuid().ToString())
@@ -88,6 +89,28 @@ namespace Service
             var claimsList = claims.Claims.Skip(1).First();
             var a = claimsList.Value;
             return a == "Admin" ? 0 : a == "Mod" ? 1 : 2;
+        }
+        public string GetUserId(string jwt)
+        {
+            var issuer = _configuration["Jwt:Issuer"];
+            var mySecret = key;
+            var mySecurityKey = new SymmetricSecurityKey(mySecret);
+            JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
+            ClaimsPrincipal claims = handler.ValidateToken(jwt,
+                new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidIssuer = issuer,
+                    ValidAudience = issuer,
+                    IssuerSigningKey = mySecurityKey,
+                },
+                out SecurityToken validatedToken);
+
+            var claimsList = claims.Claims.First();
+            var a = claimsList.Value;
+            return a;
         }
     }
 }

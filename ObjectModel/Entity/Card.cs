@@ -10,7 +10,8 @@ namespace ObjectModel
     public class Card
     {
         [Key]
+        public int Id { get; set; }
         public int UserID { get; set; }
-        public string ProductIdAndQuantity { get; set; } //8182@2;2323@2;2434@2;
+        public string? ProductIdAndQuantity { get; set; } //8182@2;2323@2;2434@2;
     }
 }

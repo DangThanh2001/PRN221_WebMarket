@@ -11,8 +11,8 @@ namespace DataAccess.IRepositotry
     {
         public List<Card> GetAllCard();
         public Card GetCardWithUserId(int id);
-        public void AddCard(Card card);
-        public void UpdateCard(Card card);
+        public string AddCard(Card card);
+        public string UpdateCard(Card card);
         public void DeleteCard(int id);
     }
 
