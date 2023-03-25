@@ -18,6 +18,9 @@ namespace Web_Market.Pages
         public double? minPrice { get; set; }
         public double? maxPrice { get; set; }
 		public List<int> quanCategory { get; set; }
+		public int maxPage { get; set; }
+        public int curPage { get; set; }
+        private int itemsInPage { get; set; } = 15;
 
 
         [BindProperty]
@@ -28,7 +31,7 @@ namespace Web_Market.Pages
 			_productService = productService;
 		}
 
-		public void OnGet(string? product_name_key, string? category_id_key)
+		public void OnGet(string? product_name_key, string? category_id_key, int currentpage)
 		{
 			listCategories = _categoryService.GetAllCategory();
 			listProduct = _productService.GetAllProduct();
@@ -56,13 +59,19 @@ namespace Web_Market.Pages
 			{
 				minPrice = listProduct.MinBy(x => x.Price).Price;
 				maxPrice = listProduct.MaxBy(x => x.Price).Price;
+				maxPage = listProduct.Count % itemsInPage == 0 ? 
+					listProduct.Count / itemsInPage : listProduct.Count / itemsInPage + 1;
 			}
 			else
 			{
+				maxPage = 0;
 				minPrice = 0;
 				maxPrice = 0;
 			}
+            listProduct = listProduct.Skip(currentpage * itemsInPage).Take(itemsInPage).ToList();
+            curPage = currentpage;
             ViewData["search"] = product_name_key;
+            ViewData["category"] = category_id_key;
 
 		}
 	}
