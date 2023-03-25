@@ -49,15 +49,7 @@
             <div class="row">
                 <div class="col-xl-3 col-lg-4">
                     <div class="left-sidebar-wrapper box-style">
-                        <div class="sidebar-header">
-                            <div class="image">
-                                <img src="~/images/dashboard/profile-img.png" alt="">
-                            </div>
-                            <div class="info">
-                                <h3>Musharraf Karim</h3>
-                                <p class="mb-30">Director at Uideck.com</p>
-                            </div>
-                        </div>
+                        
                         <div class="sidebar-menu">
                             <nav>
                                 <ul>
@@ -114,10 +106,10 @@
                                             <div class="single-form mb-15">
                                                 <label for="category" class="mb-1">Categories</label>
                                                 <select name="category" id="category" class="px-3 py-2 border rounded w-100">
-                                                    <option value="none">Select state</option>
-                                                    <option value="none">Select state</option>
-                                                    <option value="none">Select state</option>
-                                                    <option value="none">Select state</option>
+                                                @foreach(var o in Model.listCategory)
+                                                {
+                                                    <option value="@o.CategoryId">@o.CategoryName</option>
+                                                }
                                                 </select>
                                             </div>
                                             <div class="single-form mb-15">
@@ -151,66 +143,6 @@
                                     </div>
                                     <div class="col-xl-5">
                                         <div class="right-wrapper pt-50">
-                                            <h5 class="mb-25">Contact Details</h5>
-                                            <div class="single-form mb-15">
-                                                <div class="d-flex">
-                                                    <div class="form-check check-style">
-                                                        <input class="form-check-input" type="checkbox" value="none" id="flexCheckDefault2">
-                                                        <label for="flexCheckDefault2">Same User</label>
-                                                    </div>
-                                                    <div class="form-check check-style">
-                                                        <input class="form-check-input" type="checkbox" value="none" id="flexCheckDefault3">
-                                                        <label for="flexCheckDefault3">Someone Else</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="single-form mb-15">
-                                                <label for="f-name" class="mb-1">First Name*</label>
-                                                <input type="text" id="f-name" name="f-name" placeholder="First Name" class="px-3 py-2 mb-0 border rounded">
-                                            </div>
-                                            <div class="single-form mb-15">
-                                                <label for="l-name" class="mb-1">Last Name*</label>
-                                                <input type="text" id="l-name" name="l-name" placeholder="Last Name" class="px-3 py-2 mb-0 border rounded">
-                                            </div>
-                                            <div class="single-form mb-15">
-                                                <label for="phone" class="mb-1">Phone*</label>
-                                                <input type="text" id="phone" name="phone" placeholder="Phone" class="px-3 py-2 mb-0 border rounded">
-                                            </div>
-                                            <div class="single-form mb-15">
-                                                <label for="address1" class="mb-1">Enter Address (Line one)</label>
-                                                <input type="text" id="address1" name="address1" placeholder="Enter Address" class="px-3 py-2 mb-0 border rounded">
-                                            </div>
-                                            <div class="single-form mb-15">
-                                                <label for="address2" class="mb-1">Enter Address</label>
-                                                <input type="text" id="address2" name="address2" placeholder="Enter Address" class="px-3 py-2 mb-0 border rounded">
-                                            </div>
-                                            <div class="single-form mb-15">
-                                                <label for="country" class="mb-1">Country</label>
-                                                <select name="country" id="country" class="px-3 py-2 border rounded w-100">
-                                                    <option value="none">Select state</option>
-                                                    <option value="none">Select state</option>
-                                                    <option value="none">Select state</option>
-                                                    <option value="none">Select state</option>
-                                                </select>
-                                            </div>
-                                            <div class="single-form mb-15">
-                                                <label for="state" class="mb-1">State</label>
-                                                <select name="state" id="state" class="px-3 py-2 border rounded w-100">
-                                                    <option value="none">Select state</option>
-                                                    <option value="none">Select state</option>
-                                                    <option value="none">Select state</option>
-                                                    <option value="none">Select state</option>
-                                                </select>
-                                            </div>
-                                            <div class="single-form mb-15">
-                                                <label for="city" class="mb-1">City</label>
-                                                <select name="city" id="city" class="px-3 py-2 border rounded w-100">
-                                                    <option value="none">Select state</option>
-                                                    <option value="none">Select state</option>
-                                                    <option value="none">Select state</option>
-                                                    <option value="none">Select state</option>
-                                                </select>
-                                            </div>
                                             <div class="single-form mb-15">
                                                 <div class="form-check check-style">
                                                     <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">

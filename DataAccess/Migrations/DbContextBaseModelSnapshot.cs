@@ -222,10 +222,9 @@ namespace DataAccess.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Image")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("ImportDay")
+                    b.Property<DateTime?>("ImportDay")
                         .HasColumnType("datetime2");
 
                     b.Property<bool>("IsActive")

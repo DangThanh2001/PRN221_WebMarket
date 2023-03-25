@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Web_Market.Pages
 {
-    public class CheckoutCartModel : PageModel
+    public class EditProductModel : PageModel
     {
         public void OnGet()
         {
