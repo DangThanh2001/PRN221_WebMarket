@@ -2,3 +2,174 @@
 @model Web_Market.Pages.EditProductModel
 @{
 }
+<!--[if IE]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
+
+<div class="preloader">
+    <div class="loader">
+        <div class="ytp-spinner">
+            <div class="ytp-spinner-container">
+                <div class="ytp-spinner-rotator">
+                    <div class="ytp-spinner-left">
+                        <div class="ytp-spinner-circle"></div>
+                    </div>
+                    <div class="ytp-spinner-right">
+                        <div class="ytp-spinner-circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="banner-area bg_cover">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="banner-content">
+                    <h1 class="text-white">
+                        My Ads
+                    </h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Ads</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="dashboard-area pb-110">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-3 col-lg-4">
+                <div class="left-sidebar-wrapper box-style">
+                    <div class="sidebar-menu">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a asp-page="/admin/dashboard"><i class="lni lni-dashboard"></i>Dashboard</a>
+                                </li>
+                                <li>
+                                    <a asp-page="profile_settings"><i class="lni lni-cog"></i>Profile Settings</a>
+                                </li>
+                                <li>
+                                    <a asp-page="post_ads"><i class="lni lni-cog"></i>Post Ad</a>
+                                </li>
+                                <li>
+                                    <a asp-page="my_ads" class="active"><i class="lni lni-layers"></i>My Ads</a>
+                                </li>
+                                <li>
+                                    <a asp-page="mycart"><i class="lni lni-layers"></i>My Cart</a>
+                                </li>
+                                <li>
+                                    <a asp-page="offer"><i class="lni lni-envelope"></i>Offers / Message</a>
+                                </li>
+                                <li>
+                                    <a asp-page="payments"><i class="lni lni-paypal"></i>Payments</a>
+                                </li>
+                                <li>
+                                    <a asp-page="favorites"><i class="lni lni-heart"></i>My Favorites</a>
+                                </li>
+                                <li>
+                                    <a asp-page="privacy"><i class="lni lni-star"></i>Privacy Settings</a>
+                                </li>
+                                <li>
+                                    <a asp-page="login" asp-page-handler="signout"><i class="lni lni-exit"></i>Sign Out</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-9 col-lg-8">
+                <div class="dashboard-wrapper box-style">
+                    <form method="post">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="Product.ProductId" name="ProductId" />
+                        <div class="form-group">
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Product.ProductName" class="control-label"></label>
+                            <input asp-for="Product.ProductName" class="form-control" name="ProductName" />
+                            <span asp-validation-for="Product.ProductName" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Product.ProductDescription" class="control-label"></label>
+                            <input asp-for="Product.ProductDescription" class="form-control" name="ProductDescription" />
+                            <span asp-validation-for="Product.ProductDescription" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Product.ProductCategory" class="control-label"></label>
+                            @*  <input asp-for="Product.ProductCategory" class="form-control" name="ProductCategory" />*@
+                            <select asp-for="SelectedCategories" class="form-control" name="SelectedCategories" multiple>
+                                @foreach (var c in Model.categories)
+                                {
+                                    <option value="@c.CategoryId">@c.CategoryName</option>
+                                }
+                            </select>
+                            <span asp-validation-for="Product.ProductCategory" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Product.Price" class="control-label"></label>
+                            <input asp-for="Product.Price" class="form-control" name="Price"></input>
+                            <span asp-validation-for="Product.Price" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Product.Quantity" class="control-label"></label>
+                            <input asp-for="Product.Quantity" class="form-control" name="Quantity"></input>
+                            <span asp-validation-for="Product.Quantity" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Product.Image" class="control-label"></label>
+                            <input asp-for="Product.Image" class="form-control" name="Image"></input>
+                            <span asp-validation-for="Product.Image" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Product.CompanyId" class="control-label"></label>
+                            <select asp-for="Product.CompanyId" class="form-control" name="CompanyId">
+                                @foreach (var c in Model.companies)
+                                {
+                                    <option value="@c.CompanyId">@c.Name</option>
+                                }
+                            </select>
+                            <span asp-validation-for="Product.CompanyId" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Product.QuantityPerUnit" class="control-label"></label>
+                            <input asp-for="Product.QuantityPerUnit" class="form-control" name="QuantityPerUnit"></input>
+                            <span asp-validation-for="Product.QuantityPerUnit" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Product.ImportDay" class="control-label"></label>
+                            <input asp-for="Product.ImportDay" type="datetime-local" class="form-control" name="ImportDay" />
+                            <span asp-validation-for="Product.ImportDay" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Product.IsActive" class="control-label"></label>
+                            <select asp-for="Product.IsActive" class="form-control" name="IsActive">
+                                <option value="False">No</option>
+                                <option value="True">Yes</option>
+                            </select>
+                            <span asp-validation-for="Product.IsActive" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Product.IsDelete" class="control-label"></label>
+                            <select asp-for="Product.IsDelete" class="form-control" name="IsDelete">
+                                <option value="False">No</option>
+                                <option value="True">Yes</option>
+                            </select>
+                            <span asp-validation-for="Product.IsDelete" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Save" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

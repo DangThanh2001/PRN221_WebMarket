@@ -51,6 +51,7 @@ namespace DataAccess.Repository
                 if (p != null)
                 {
                     _dbContext.Entry<Product>(product).State = EntityState.Modified;
+                    //_dbContext.Update(product);
                     _dbContext.SaveChanges();
                 }
                 else
