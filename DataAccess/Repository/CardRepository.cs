@@ -24,9 +24,18 @@ namespace DataAccess.Repository
         {
             return _dbContext.Cards.Where(x => x.UserID == id).FirstOrDefault();
         }
-        public void AddCard(Card card)
+        public string AddCard(Card card)
         {
-
+            try
+            {
+                _dbContext.Cards.Add(card);
+                _dbContext.SaveChanges();
+                return "Success";
+            }
+            catch (Exception ex)
+            {
+                return "False";
+            }
         }
         public void UpdateCard(Card card)
         {

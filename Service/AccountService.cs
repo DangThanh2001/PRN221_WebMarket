@@ -14,6 +14,7 @@ namespace Service
 		private IAcountRepository _repository;
 		private ITokenService _tokenService;
 		private IMemoryCache _memoryCache;
+		private string _token;
         public AccountService(IAcountRepository repository, ITokenService tokenService, IMemoryCache memoryCache)
 		{
 			_repository = repository;
@@ -30,11 +31,21 @@ namespace Service
 			}
 			if(Common.VerifyPassword(password, account.Password))
 			{
-				var token = _tokenService.BuildToken(account);
-                _memoryCache.Set("Token", token);
+                _token = _tokenService.BuildToken(account);
+                _memoryCache.Set("Token", _token);
                 return true;
 			}
             return false;
+		}
+		public string GetAccountId()
+		{
+            var token = _memoryCache.Get<string>("Token");
+			if(token != null)
+			{
+				var id = _tokenService.GetUserId(token);
+				return id;
+            }
+			return null;
 		}
 		public int Register(Account account)
 		{
