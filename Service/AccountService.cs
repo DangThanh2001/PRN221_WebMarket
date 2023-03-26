@@ -1,4 +1,6 @@
 ﻿using DataAccess;
+using DataAccess.Repository;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using Microsoft.Extensions.Caching.Memory;
 using ObjectModel;
 using System;
@@ -37,6 +39,7 @@ namespace Service
 			}
             return false;
 		}
+		
 		public string GetAccountId()
 		{
             var token = _memoryCache.Get<string>("Token");

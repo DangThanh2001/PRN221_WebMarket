@@ -177,6 +177,10 @@ namespace DataAccess.Migrations
                     b.Property<int>("AccountId")
                         .HasColumnType("int");
 
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("DayCreated")
                         .HasColumnType("datetime2");
 

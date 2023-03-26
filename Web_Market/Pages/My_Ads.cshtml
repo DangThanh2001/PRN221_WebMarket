@@ -1,7 +1,7 @@
 ﻿@page
 @model Web_Market.Pages.My_AdsModel
 @{
-
+    ViewData["Title"] = "Product";
 }
 
 <!--[if IE]>
@@ -112,10 +112,10 @@
                                     <th>
                                         Photo
                                     </th>
-                                    <th>
-                                        Title
+                                    <th width="20%">
+                                        Name
                                     </th>
-                                    <th>
+                                    <th width="30%">
                                         Category
                                     </th>
                                     <th>
@@ -130,36 +130,51 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="image">
-                                            <div class="form-check check-style">
-                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault1">
+
+                                @foreach (var o in Model.listProduct)
+                                {
+                                    <tr>
+                                        <td>
+                                            <div class="image">
+                                                @{
+                                                    var img = o.Image.Split(';')[0];
+                                                }
+                                                
+                                                <img src="@img" width="100" alt="">
                                             </div>
-                                            <img src="~/images/product/product-thumb-1.jpg" width="100" alt="">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <h6>8 GB DDR4 Ram, 4th Gen</h6>
-                                        <span class="ad-id">Ad ID: ng3D5hAMHPajQrM</span>
-                                    </td>
-                                    <td>
-                                        <span class="category">Ram & Laptop</span>
-                                    </td>
-                                    <td>
-                                        <span class="status-btn">ACTIVE</span>
-                                    </td>
-                                    <td>
-                                        <p>$20.99</p>
-                                    </td>
-                                    <td>
-                                        <div class="action-btns">
-                                            <a asp-page="product_detail" class="eye-btn"><i class="lni lni-eye"></i></a>
-                                            <a asp-page="editproduct" class="edit-btn"><i class="lni lni-pencil"></i></a>
-                                            <a asp-page="product" asp-page-handler="delete" class="delete-btn"><i class="lni lni-trash"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
+                                        </td>
+                                        <td width="20%">
+                                            <h6>@o.ProductName</h6>
+                                        </td>
+                                        <td width="30%">
+                                            @{
+                                                var cate = o.ProductCategory.Split(";").ToList();
+                                                var name = "";
+                                                foreach(var c in cate)
+                                                {
+                                                    name += Model.listCategories
+                                                    .FirstOrDefault(x=> x.CategoryId == int.Parse(c))
+                                                    .CategoryName + "; ";
+                                                }
+                                            }
+                                            @name.Trim()
+                                        </td>
+                                        <td>
+                                            <span class="status-btn">@(o.IsActive ? "On sale" : "Off sale")</span>
+                                        </td>
+                                        <td>
+                                            <p>$@o.Price</p>
+                                        </td>
+                                        <td>
+                                            <div class="action-btns">
+                                                <a asp-page="product_detail" class="eye-btn"><i class="lni lni-eye"></i></a>
+                                                <a asp-page="editproduct" asp-route-id="@o.ProductId" class="edit-btn"><i class="lni lni-pencil"></i></a>
+                                                <a asp-page="product" asp-page-handler="delete" class="delete-btn"><i class="lni lni-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+
                             </tbody>
                         </table>
                     </div>
@@ -170,7 +185,46 @@
 </section>
 
 
-
-
 <a href="#" class="back-to-top btn-hover"><i class="lni lni-chevron-up"></i></a>
+
+
+
+
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Some text in the Modal..</p>
+    </div>
+
+</div>
+
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("editProduct");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function () {
+        modal.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
 

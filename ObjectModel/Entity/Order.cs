@@ -29,5 +29,7 @@ namespace ObjectModel
         // ngay thanh toan het
         public DateTime DayPayedDone { get; set; }
         public bool IsDelete { get; set; } = false;
+        public string Address { get; set; }
+
     }
 }

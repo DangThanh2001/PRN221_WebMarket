@@ -13,6 +13,7 @@ namespace Web_Market.Pages
         private readonly ProductService _product;
         private readonly CategoryService _category;
         private readonly CompanyService _company;
+        private readonly AccountService _accountService;
 
         private readonly ILogger<IndexModel> _logger;
 
