@@ -7,7 +7,17 @@
 <!--[if IE]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
     <![endif]-->
+<style>
+    .btn-send-otp {
+        width: 300px;
+    }
 
+    .form-otp {
+        position: absolute;
+        top: 470px;
+        right: 166px;
+    }
+</style>
 <div class="preloader">
     <div class="loader">
         <div class="ytp-spinner">
@@ -204,45 +214,25 @@
                                         </div>
 
                                         <div class="mb-3">
-                                            <label for="address">Email Otp</label>
-                                            <input type="text" class="form-control" id="address" name="checkEmail">
-                                            @if (ViewBag.error != null)
-                                            {
-                                                @ViewBag.error
-                                            }
-                                            <div class="justify-content-center">
-                                            <button class="main-btn btn-hover py-2 px-5 rounded">Verify Email</button>
-                                            </div>
+                                            <label for="address">OTP</label>
+                                            <input type="text" class="form-control" id="otpUserInput" name="otpUserInput" placeholder="1234" required="">
+                                            <div class="invalid-feedback"> Please enter your OTP. </div>
+                                            
                                         </div>
                                        
-                                       @* <div class="row">
-                                            <div class="col-md-5 mb-3">
-                                                <label for="country">Country</label>
-                                                <select class="form-select" id="country" required="">
-                                                    <option value="">Choose...</option>
-                                                    <option>United States</option>
-                                                </select>
-                                                <div class="invalid-feedback"> Please select a valid country. </div>
-                                            </div>
-                                            <div class="col-md-4 mb-3">
-                                                <label for="state">State</label>
-                                                <select class="form-select" id="state" required="">
-                                                    <option value="">Choose...</option>
-                                                    <option>California</option>
-                                                </select>
-                                                <div class="invalid-feedback"> Please provide a valid state. </div>
-                                            </div>
-                                            <div class="col-md-3 mb-3">
-                                                <label for="zip">Zip</label>
-                                                <input type="text" class="form-control" id="zip" placeholder="" required="">
-                                                <div class="invalid-feedback"> Zip code required. </div>
-                                            </div>
-                                        </div>*@
                                         <hr class="mb-4">
                                     </div>
                                 </div>
                             </div>
                         </form>
+                        <form method="post" class="form-otp">
+                            <input type="text" name="sendOTP" hidden value="true" />
+                            <input type="submit" class="form-control btn-send-otp" id="otpsubmit" name="otpsubmit" value="Verify mail"> 
+                        </form>
+                        @if (ViewBag.notifycationFailOtp != null)
+                        {
+                            <span style="color: red;"> @ViewBag.nonotifycationFailOtp</span>
+                        }
                     </div>
                 </div>
             </div>
@@ -252,35 +242,3 @@
 
 
 <a href="#" class="back-to-top btn-hover"><i class="lni lni-chevron-up"></i></a>
-<script>
-    //function validateForm() {
-    //    let x = document.forms["myForm"]["fname"].value;
-    //    let a = document.forms["myForm"]["lname"].value;
-    //    let b = document.forms["myForm"]["address"].value;
-    //    if (x == "" || a == "" || b == "") {
-    //        swal({
-    //            title: "No, my friend!",
-    //            text: "You need to fill all the field first!",
-    //            icon: "warning",
-    //            button: "OK!",
-    //        });
-    //        return false;
-    //    }
-    //}
-
-    function verifyEmail() {
-        swal({
-            text: 'Search for a movie. e.g. "La La Land".',
-            content: "input",
-            button: {
-                text: "Search!",
-                closeModal: false,
-            },
-        })
-            .then(name => {
-                if (!name) throw null;
-
-                return fetch(`/Payments`);
-            });
-    }
-</script>
