@@ -11,6 +11,7 @@ namespace DataAccess.IRepositotry
     {
         public List<Product> GetAllProduct();
         public Product GetProductWithId(int id);
+        public List<Product> GetProductWithUserId(int id);
         public void AddProduct(Product product);
         public void UpdateProduct(Product product);
         public void DeleteProduct(int id);

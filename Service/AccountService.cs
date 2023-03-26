@@ -58,5 +58,25 @@ namespace Service
 			_memoryCache.Remove("Token");
 			return true;
         }
-	}
+		public Account? GetAccountById(int id)
+		{
+			return _repository.GetAccountWithId(id).GetAwaiter().GetResult();
+		}
+		public int UpdateAccount(Account account)
+		{
+			return _repository.Update(account);
+        }
+		public Account GetAccountByEmail(string email)
+		{
+			return _repository.GetAccountByEmail(email).GetAwaiter().GetResult();
+		}
+        public int ChangePass(string email,string pass)
+        {
+			var acc = _repository.GetAccountByEmail(email).GetAwaiter().GetResult();
+            
+            acc.Password = Common.HashPassword(pass);
+            return _repository.Update(acc);
+        }
+
+    }
 }

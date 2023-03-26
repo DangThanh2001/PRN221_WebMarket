@@ -188,11 +188,15 @@
                                                         $('input:hidden[name="__RequestVerificationToken"]').val());
                                                 }, 
                                                 data: { id: idProduct}, // dữ liệu gửi đi
-                                                success: function (response) {
-                                                    swal("Thank you alot!", "Your cart has been updated!", "success");
+                                                success: function (result) {
+                                                    if (JSON.parse(result) == true) {
+                                                        swal("Thank you alot!", "Your cart has been updated!", "success");
+                                                    } else {
+                                                        swal("Thank you alot!", "But you must login first", "error");
+                                                    }
                                                 },
                                                 error: function (xhr, status, error) {
-                                                    swal("Thank you alot!", "But buy false", "false");
+                                                    swal("Thank you alot!", "But buy false", "error");
                                                 }
                                             });
                                         }

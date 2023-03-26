@@ -16,17 +16,30 @@ namespace Service
     {
 
         private IProductRepository productRepository;
+        private AccountService _accountService;
 
-        public ProductService(IProductRepository productRepository)
+        public ProductService(IProductRepository productRepository, AccountService accountService)
         {
             this.productRepository = productRepository;
+            _accountService = accountService;
         }
 
         public List<Product> GetAllProduct()
         {
             return productRepository.GetAllProduct();
         }
-
+        public List<Product> GetAllProducByUserId()
+        {
+            try
+            {
+                var userID = _accountService.GetAccountId();
+                return productRepository.GetProductWithUserId(int.Parse(userID));
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
         public Product GetProductWithId(int id)
         {
             return productRepository.GetProductWithId(id);
