@@ -82,5 +82,12 @@ namespace DataAccess.Repository
                 throw new Exception("The Product doesn't exist");
             }
         }
+
+        public List<Product> GetProductWithUserId(int id)
+        {
+            return _dbContext.Products
+                .Where(x => x.IsActive == true && x.IsDelete == false && x.AccountId == id)
+                .ToList();
+        }
     }
 }

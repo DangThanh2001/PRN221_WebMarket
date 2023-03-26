@@ -50,43 +50,52 @@ namespace Web_Market.Pages
                 });
             }
         }
-        public void OnPostAddToCart(int id, int quan =1)
+        public JsonResult OnPostAddToCart(int id, int quan =1)
         {
-            UserId = int.Parse(_accountService.GetAccountId());
-            var stringId = id + "@" + 1;
-            card = _cartService.GetCard(UserId);
-            if (card == null)
+            try
             {
-                card = new Card();
-                card.UserID = UserId;
-                _cartService.AddToCart(card);
-            }
-            if (card.ProductIdAndQuantity != null)
-            {
-                List<string> listproduct = new List<string>();
-                var checkCotain = card.ProductIdAndQuantity.Split(";").ToList();
-                checkCotain.ForEach(x =>
+                UserId = int.Parse(_accountService.GetAccountId());
+                var stringId = id + "@" + 1;
+                card = _cartService.GetCard(UserId);
+                if (card == null)
                 {
-                    if (x.Split("@")[0].Equals(id.ToString()))
+                    card = new Card();
+                    card.UserID = UserId;
+                    _cartService.AddToCart(card);
+                }
+                if (card.ProductIdAndQuantity != null)
+                {
+                    List<string> listproduct = new List<string>();
+                    var checkCotain = card.ProductIdAndQuantity.Split(";").ToList();
+                    checkCotain.ForEach(x =>
                     {
-                        int quatiy = int.Parse(x.Split("@")[1]) + quan;
-                        card.ProductIdAndQuantity.Split(";").ToList().Remove(x);
-                        stringId = id + "@" + quatiy;
-                        listproduct.Add(stringId);
-                    }
-                    else
-                    {
-                        listproduct.Add(x);
-                        listproduct.Add(stringId);
-                    }
-                });
-                card.ProductIdAndQuantity = String.Join(";", listproduct.Distinct());
+                        if (x.Split("@")[0].Equals(id.ToString()))
+                        {
+                            int quatiy = int.Parse(x.Split("@")[1]) + quan;
+                            card.ProductIdAndQuantity.Split(";").ToList().Remove(x);
+                            stringId = id + "@" + quatiy;
+                            listproduct.Add(stringId);
+                        }
+                        else
+                        {
+                            listproduct.Add(x);
+                            listproduct.Add(stringId);
+                        }
+                    });
+                    card.ProductIdAndQuantity = String.Join(";", listproduct.Distinct());
+                }
+                else
+                {
+                    card.ProductIdAndQuantity += stringId;
+                }
+                var message = _cartService.Update(card);
+                return new JsonResult(true);
             }
-            else
+            catch (Exception ex)
             {
-                card.ProductIdAndQuantity += stringId;
+                return new JsonResult(false);
             }
-             _cartService.Update(card);
+            
         }
     }
 }

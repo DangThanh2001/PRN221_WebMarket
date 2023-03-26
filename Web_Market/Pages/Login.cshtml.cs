@@ -19,10 +19,23 @@ namespace Web_Market.Pages.Login
         }
         public IActionResult OnPostLogin(Account account)
         {
-            var acc = _accountService.Login(account.Email, account.Password);
-            if (acc)
-                return Redirect("Index");
-            return Page();
+            try
+            {
+                var acc = _accountService.Login(account.Email, account.Password);
+                if (acc)
+                {
+                   return Redirect("Index");
+                }
+                else
+                {
+                    ViewData["error"] = "Login false";
+                    return Page();
+                }
+            }catch(Exception ex)
+            {
+                ViewData["error"] = "Login false";
+                return Page();
+            }
         }
         public IActionResult OnGetSignOut()
         {

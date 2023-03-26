@@ -11,8 +11,10 @@ namespace DataAccess
 	{
 		public Task<IEnumerable<Account>> GetAllAcount();
 		public Account? Login(string username, string password);
-		public Account GetAccountWithId(int id);
+		public Task<Account?> GetAccountWithId(int id);
 		public Task<Account> GetAccountByName(string name);
+		public Task<Account?> GetAccountByEmail(string name);
 		public int Register(Account account);
-    }
+		public int Update(Account account);
+	}
 }

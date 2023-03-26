@@ -299,7 +299,29 @@
         </nav>
     </div>
 </section>
-
+<script>
+    function sayThankyou(idProduct) {
+        $.ajax({
+            url: '/Mycart?handler=AddToCart', // URL của Razor Page handler
+            type: 'POST',  // phương thức gửi request
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("XSRF-TOKEN",
+                    $('input:hidden[name="__RequestVerificationToken"]').val());
+            },
+            data: { id: idProduct }, // dữ liệu gửi đi
+            success: function (result) {
+                if (JSON.parse(result) == true) {
+                    swal("Thank you alot!", "Your cart has been updated!", "success");
+                } else {
+                    swal("Thank you alot!", "But you must login first", "error");
+                }
+            },
+            error: function (xhr, status, error) {
+                swal("Thank you alot!", "But buy false", "error");
+            }
+        });
+    }
+</script>
 
 <section class="video-area">
     <div class="video-wrapper img-bg">

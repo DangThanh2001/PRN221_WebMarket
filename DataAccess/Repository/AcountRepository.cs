@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DocumentFormat.OpenXml.Office2010.Excel;
+using Microsoft.EntityFrameworkCore;
 using ObjectModel;
 using System;
 using System.Collections.Generic;
@@ -16,17 +17,23 @@ namespace DataAccess.Repository
 		{
 			_dbContext = dbContext;
 		}
+
+        public Task<Account?> GetAccountByEmail(string name)
+        {
+            return _dbContext.Accounts.Where(x => x.Email.Equals(name)).FirstOrDefaultAsync();
+        }
+
         public Task<Account> GetAccountByName(string name)
 		{
 			throw new NotImplementedException();
 		}
 
-		public Account GetAccountWithId(int id)
+		public Task<Account?> GetAccountWithId(int id)
 		{
-            return _dbContext.Accounts.Where(x => x.AccountId == id).FirstOrDefault();
+			return _dbContext.Accounts.Where(x => x.AccountId.ToString().Equals(id.ToString())).FirstOrDefaultAsync();
         }
-      
-        public Task<IEnumerable<Account>> GetAllAcount()
+
+		public Task<IEnumerable<Account>> GetAllAcount()
 		{
 			throw new NotImplementedException();
 		}
@@ -47,5 +54,11 @@ namespace DataAccess.Repository
 			return add;
         }
 
+        public int Update(Account account)
+        {
+            _dbContext.Update(account);
+            var add = _dbContext.SaveChanges();
+            return add;
+        }
     }
 }

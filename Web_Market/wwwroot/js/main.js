@@ -1,4 +1,4 @@
-(function () {
+﻿(function () {
     "use strict"; window.onload = function () { window.setTimeout(fadeout, 500); }
     function fadeout() { document.querySelector('.preloader').style.opacity = '0'; document.querySelector('.preloader').style.display = 'none'; }
     window.onscroll = function () {
@@ -16,7 +16,29 @@
 
 var check = false;
 
-
+function chang() {
+    const email = document.getElementById('mail').value;
+    const pass = document.getElementById('pas').value;
+    $.ajax({
+        url: '/ForgotPassword?handler=ChangePassword', // URL của Razor Page handler
+        type: 'POST',  // phương thức gửi request
+        beforeSend: function (xhr) {
+            xhr.setRequestHeader("XSRF-TOKEN",
+                $('input:hidden[name="__RequestVerificationToken"]').val());
+        },
+        data: { email: email, password = pass }, // dữ liệu gửi đi
+        success: function (result) {
+            if (JSON.parse(result) == true) {
+                swal("Your password been updated!", "success");
+            } else {
+                swal("Reset password false!", "error");
+            }
+        },
+        error: function (xhr, status, error) {
+            swal("Reset password false!", "error");
+        }
+    });
+}
 $(document).ready(function () {
 
     $(".remove").click(function () {
