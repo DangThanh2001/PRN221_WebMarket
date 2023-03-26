@@ -56,6 +56,20 @@ namespace Web_Market.Pages
 		public IActionResult OnPost(string? fname, string? lname,
 			string? address, int[]? arrayId, int[]? quantity,bool? sendOTP, string? otpUserInput)
 		{
+            if (Common.checkStringEmpty(new string[]
+           {
+                fname, lname, address,
+           }))
+            {
+                ViewData["error"] = "u must do another";
+                return Page();
+            }
+            if (arrayId.Length == 0 || arrayId == null)
+            {
+                ViewData["error"] = "u must do another";
+                return Page();
+            }
+
             if (sendOTP is not null && sendOTP == true)
             {
                 var accId = _accountService.GetAccountId();
