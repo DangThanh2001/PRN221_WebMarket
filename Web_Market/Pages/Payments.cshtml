@@ -4,55 +4,55 @@
     ViewData["Title"] = "Payments";
 }
 
-    <!--[if IE]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-        <![endif]-->
+<!--[if IE]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+    <![endif]-->
 
-    <div class="preloader">
-        <div class="loader">
-            <div class="ytp-spinner">
-                <div class="ytp-spinner-container">
-                    <div class="ytp-spinner-rotator">
-                        <div class="ytp-spinner-left">
-                            <div class="ytp-spinner-circle"></div>
-                        </div>
-                        <div class="ytp-spinner-right">
-                            <div class="ytp-spinner-circle"></div>
-                        </div>
+<div class="preloader">
+    <div class="loader">
+        <div class="ytp-spinner">
+            <div class="ytp-spinner-container">
+                <div class="ytp-spinner-rotator">
+                    <div class="ytp-spinner-left">
+                        <div class="ytp-spinner-circle"></div>
+                    </div>
+                    <div class="ytp-spinner-right">
+                        <div class="ytp-spinner-circle"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
 
 
 
-    <section class="banner-area bg_cover">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div class="banner-content">
-                        <h1 class="text-white">Payments</h1>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Payments</li>
-                            </ol>
-                        </nav>
-                    </div>
+<section class="banner-area bg_cover">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="banner-content">
+                    <h1 class="text-white">Payments</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Payments</li>
+                        </ol>
+                    </nav>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 
-    <section class="dashboard-area pb-110">
-        <div class="container">
-            <div class="row">
-                <div class="col-xl-3 col-lg-4">
-                    <div class="left-sidebar-wrapper box-style">
-                        
+<section class="dashboard-area pb-110">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-3 col-lg-4">
+                <div class="left-sidebar-wrapper box-style">
+
                     <div class="sidebar-menu">
                         <nav>
                             <ul>
@@ -89,77 +89,97 @@
                             </ul>
                         </nav>
                     </div>
-                    </div>
                 </div>
-                <div class="col-xl-9 col-lg-8">
-                    <div class="dashboard-wrapper box-style">
-                        <div class="title">
-                            <h3>Payments</h3>
-                        </div>
-                        <div class="payments-wrapper">
-                            <form action="#">
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <div class="left-wrapper box-style mb-30">
-                                            <h5 class="mb-25">Your Order</h5>
-                                            <ul class="checkout">
-                                                <li>
-                                                    <h6>Product</h6>
-                                                    <h6>Total</h6>
-                                                </li>
-                                                <li>
-                                                    <p>CCG tv Camera</p>
-                                                    <p>$340.00</p>
-                                                </li>
-                                                <li>
-                                                    <p>CCG tv Camera</p>
-                                                    <p>$340.00</p>
-                                                </li>
-                                                <li>
-                                                    <p>CCG tv Camera</p>
-                                                    <p>$340.00</p>
-                                                </li>
-                                                <li>
-                                                    <p>CCG tv Camera</p>
-                                                    <p>$340.00</p>
-                                                </li>
-                                                <li>
-                                                    <h6>SubTotal</h6>
-                                                    <p>$1220.00</p>
-                                                </li>
-                                                <li>
-                                                    <h6>Shipping</h6>
-                                                    <div class="right">
-                                                        <div class="mb-2 text-right d-block">
-                                                            <div class="form-check check-style">
-                                                                <input class="form-check-input" type="checkbox" value="none" id="flexCheckDefault1">
-                                                                <label for="flexCheckDefault1">Free Shipping</label>
-                                                            </div>
+            </div>
+            <div class="col-xl-9 col-lg-8">
+                <div class="dashboard-wrapper box-style">
+                    <div class="title">
+                        <h3>Payments</h3>
+                    </div>
+                    <div class="payments-wrapper">
+                        <form action="#">
+                            <div class="row">
+                                <div class="col-xl-6">
+                                    <div class="left-wrapper box-style mb-30">
+                                        <h5 class="mb-25">Your Order</h5>
+                                        <ul class="checkout">
+                                            @{
+
+                                                double sum = 0;
+                                                double totalFinal = 0;
+                                                double tax = 0;
+                                            }
+                                            <li>
+                                                <h6>Product</h6>
+                                                <h6>Quantity</h6>
+                                                <h6>Total</h6>
+                                            </li>
+                                            @if (Model.product != null)
+                                            {
+
+                                                @foreach (var p in Model.product)
+                                                {
+                                                    <li>
+                                                        <p>@p.ProductName</p>
+                                                        <p>@p.Quantity</p>
+                                                        <p>@p.Price</p>
+                                                    </li>
+                                            
+                                            <li>
+                                                <h6>SubTotal</h6>
+                                                @{
+                                                    var total = p.Quantity * p.Price;
+                                                    sum += total;
+                                                }
+                                                <p> $ @total</p>
+                                            </li>
+                                                    tax = Math.Floor(sum * 0.05 * 100) / 100;
+                                                    totalFinal = Math.Floor((sum + tax + 10) * 100) / 100;
+                                                }
+                                            }
+                                            <li>
+                                                <h6>Shipping</h6>
+                                                <div class="right">
+                                                    @*<div class="mb-2 text-right d-block">
+                                                        <div class="form-check check-style">
+                                                            <input class="form-check-input" type="checkbox" value="none" id="flexCheckDefault1">
+                                                            <label for="flexCheckDefault1">Free Shipping</label>
                                                         </div>
-                                                        <div class="text-right d-block">
-                                                            <div class="form-check check-style">
-                                                                <input class="form-check-input" type="checkbox" value="none" id="flexCheckDefault2">
-                                                                <label for="flexCheckDefault2">Flat Shipping: $10.00</label>
-                                                            </div>
+                                                    </div>*@
+                                                    <div class="text-right d-block">
+                                                        <div class="form-check check-style">
+                                                            <label for="flexCheckDefault2"> $10.00</label> <br />
                                                         </div>
                                                     </div>
-                                                </li>
-                                                <li>
-                                                    <h6>Total</h6>
-                                                    <p>$1230.00</p>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <h6>Tax (5%):</h6>
+                                                <div class="right">
+                                                    <div class="text-right d-block">
+                                                        <div class="form-check check-style">
+                                                            <label for="flexCheckDefault2"> $@tax</label> <br />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <h6>Total</h6>
+                                                <p>$ @sum</p>
+                                            </li>
+                                            
+                                        </ul>   
+                                    </div>
                                     <div class="box-style">
                                         <div class="mb-20 d-flex justify-content-between">
                                             <h3>Grand Total: </h3>
-                                            <h3>$1254</h3>
+                                            <h3>@totalFinal</h3>
                                         </div>
                                         <button class="main-btn btn-hover btn-block">Place Order</button>
                                     </div>
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <div class="right-wrapper box-style mb-30">
+                                </div>
+                                <div class="col-xl-6">
+                                    <div class="right-wrapper box-style mb-30">
                                         <div class="row">
                                             <div class="col-md-6 mb-3">
                                                 <label for="firstName">First name</label>
@@ -172,16 +192,10 @@
                                                 <div class="invalid-feedback"> Valid last name is required. </div>
                                             </div>
                                         </div>
-                                        <div class="mb-3">
-                                            <label for="username">Username</label>
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" id="username" placeholder="Username" required="">
-                                                <div class="invalid-feedback" style="width: 100%;"> Your username is required. </div>
-                                            </div>
-                                        </div>
+                                        
                                         <div class="mb-3">
                                             <label for="email">Email <span class="text-muted">(Optional)</span></label>
-                                            <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                                            <input type="email" class="form-control" id="email" value="@Model.account.Email" disabled>
                                             <div class="invalid-feedback"> Please enter a valid email address for shipping updates. </div>
                                         </div>
                                         <div class="mb-3">
@@ -189,11 +203,8 @@
                                             <input type="text" class="form-control" id="address" placeholder="1234 Main St" required="">
                                             <div class="invalid-feedback"> Please enter your shipping address. </div>
                                         </div>
-                                        <div class="mb-3">
-                                            <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-                                            <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-                                        </div>
-                                        <div class="row">
+                                       
+                                       @* <div class="row">
                                             <div class="col-md-5 mb-3">
                                                 <label for="country">Country</label>
                                                 <select class="form-select" id="country" required="">
@@ -215,19 +226,19 @@
                                                 <input type="text" class="form-control" id="zip" placeholder="" required="">
                                                 <div class="invalid-feedback"> Zip code required. </div>
                                             </div>
-                                        </div>
+                                        </div>*@
                                         <hr class="mb-4">
-                                        </div>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 
 
-    <a href="#" class="back-to-top btn-hover"><i class="lni lni-chevron-up"></i></a>
+<a href="#" class="back-to-top btn-hover"><i class="lni lni-chevron-up"></i></a>
