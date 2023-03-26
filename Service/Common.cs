@@ -73,5 +73,15 @@ namespace Service
             Array.Clear(argon2.GetBytes(memorySize), 0, argon2.GetBytes(memorySize).Length);
             return true;
         }
+
+        public static bool checkStringEmpty(string[] str)
+        {
+            foreach (string s in str)
+            {
+                if (string.IsNullOrEmpty(s) || string.IsNullOrWhiteSpace(s))
+                    return true;
+            }
+            return false;
+        }
     }
 }

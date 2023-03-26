@@ -104,13 +104,17 @@
                                                 <input type="text" id="title" name="title" placeholder="Title" class="px-3 py-2 mb-0 border rounded">
                                             </div>
                                             <div class="single-form mb-15">
-                                                <label for="category" class="mb-1">Categories</label>
-                                                <select name="category" id="category" class="px-3 py-2 border rounded w-100">
+                                                <span for="category" class="mb-1">Categories:</span>
+                                                <br>
+                                               
                                                 @foreach(var o in Model.listCategory)
                                                 {
-                                                    <option value="@o.CategoryId">@o.CategoryName</option>
+                                                    <div style="display: inline-block;">
+                                                        <input style="width: 2em;" type="checkbox" name="category" id="cat-@o.CategoryId" value="@o.CategoryId"/>
+                                                    <label for="cat-@o.CategoryId">@o.CategoryName</label>
+                                                    </div>
                                                 }
-                                                </select>
+                                                
                                             </div>
                                             <div class="single-form mb-15">
                                                 <label for="price" class="mb-1">Price</label>
