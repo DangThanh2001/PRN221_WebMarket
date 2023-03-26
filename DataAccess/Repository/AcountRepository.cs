@@ -21,12 +21,12 @@ namespace DataAccess.Repository
 			throw new NotImplementedException();
 		}
 
-		public Task<Account> GetAccountWithId(int id)
+		public Account GetAccountWithId(int id)
 		{
-			throw new NotImplementedException();
-		}
-
-		public Task<IEnumerable<Account>> GetAllAcount()
+            return _dbContext.Accounts.Where(x => x.AccountId == id).FirstOrDefault();
+        }
+      
+        public Task<IEnumerable<Account>> GetAllAcount()
 		{
 			throw new NotImplementedException();
 		}
@@ -46,5 +46,6 @@ namespace DataAccess.Repository
             var add =  _dbContext.SaveChanges();
 			return add;
         }
+
     }
 }
