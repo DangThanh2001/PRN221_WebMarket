@@ -41,5 +41,10 @@ namespace Service
         {
             _repository.DeleteOrder(id);
         }
+
+        public void AddOrderCheckout(string? fname, string? lname, string? address, int[]? arrayId, int[]? quantity, string accId)
+        {
+            _repository.addOrderCheckout(fname, lname, address, arrayId, quantity, accId);
+        }
     }
 }

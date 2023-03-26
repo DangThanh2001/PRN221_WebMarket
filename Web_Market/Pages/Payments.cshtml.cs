@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using ObjectModel;
 using Service;
+using System.Text.Json;
 
 namespace Web_Market.Pages
 {
@@ -47,6 +48,15 @@ namespace Web_Market.Pages
 
 				});
 			}
+		}
+
+		public IActionResult OnPost(string? fname, string? lname,
+			string? address, int[]? arrayId, int[]? quantity)
+		{
+            var accId = _accountService.GetAccountId();
+            _orderService.AddOrderCheckout(fname, lname, address,
+                arrayId, quantity, accId);
+			return RedirectToPage("/index");
 		}
 
 	}

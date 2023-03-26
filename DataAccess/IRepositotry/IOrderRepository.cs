@@ -14,5 +14,6 @@ namespace DataAccess.IRepositotry
         public void AddOrder(Order order);
         public void UpdateOrder(Order order);
         public void DeleteOrder(int id);
+        public void addOrderCheckout(string? fname, string? lname, string? address, int[]? arrayId, int[]? quantity, string accId);
     }
 }
