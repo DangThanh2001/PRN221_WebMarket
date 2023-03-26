@@ -50,14 +50,26 @@ namespace Web_Market.Pages
 			}
 		}
 
-		public IActionResult OnPost(string? fname, string? lname,
-			string? address, int[]? arrayId, int[]? quantity)
-		{
+        public IActionResult OnPost(string? fname, string? lname,
+            string? address, int[]? arrayId, int[]? quantity)
+        {
+            if (Common.checkStringEmpty(new string[]
+            {
+                fname, lname, address,
+            }))
+            {
+                ViewData["error"] = "u must do another";
+                return Page();
+            }
+            if (arrayId.Length == 0 || arrayId == null)
+            {
+                ViewData["error"] = "u must do another";
+                return Page();
+            }
             var accId = _accountService.GetAccountId();
             _orderService.AddOrderCheckout(fname, lname, address,
                 arrayId, quantity, accId);
-			return RedirectToPage("/index");
-		}
-
-	}
+            return Page();
+        }
+    }
 }

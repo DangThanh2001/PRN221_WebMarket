@@ -65,7 +65,6 @@ namespace Web_Market.Pages
                 minPrice = 0;
                 maxPrice = 0;
             }
-            listProduct = listProduct.Skip(currentpage * itemsInPage).Take(itemsInPage).ToList();
             curPage = currentpage;
         }
     }
