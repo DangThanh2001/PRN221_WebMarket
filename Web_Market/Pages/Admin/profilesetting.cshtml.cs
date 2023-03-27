@@ -13,12 +13,11 @@ namespace Web_Market.Pages.Admin
             _accountService = accountService;
         }
         public Account account { get; set; }
-        public void OnGet()
+        public void OnGet(int id)
         {
             try
             {
-                var id = _accountService.GetAccountId();
-                account = _accountService.GetAccountById(int.Parse(id));
+                account = _accountService.GetAccountById(id);
             }
             catch (Exception ex)
             {
@@ -27,13 +26,12 @@ namespace Web_Market.Pages.Admin
         }
         public IActionResult OnPostUpdateProfile(Account accountAdd)
         {
-            var id = _accountService.GetAccountId();
-            account = _accountService.GetAccountById(int.Parse(id));
+            account = _accountService.GetAccountById(accountAdd.AccountId);
             accountAdd.Balance = account.Balance;
             accountAdd.Password = account.Password;
             var update = _accountService.UpdateAccount(accountAdd);
             if (update > 0)
-                return Redirect("profile_settings");
+                return Redirect("MagermentAccount");
             return Page();
         }
     }

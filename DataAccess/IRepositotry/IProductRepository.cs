@@ -10,6 +10,7 @@ namespace DataAccess.IRepositotry
     public interface IProductRepository
     {
         public List<Product> GetAllProduct();
+        public List<Product> GetAllProductForShop();
         public Product GetProductWithId(int id);
         public List<Product> GetProductWithUserId(int id);
         public void AddProduct(Product product);

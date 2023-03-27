@@ -22,24 +22,50 @@ namespace Web_Market.Pages.Admin
         public List<Product> listProductTop;
         public List<Account> listAccount;
 
-        public void OnGet(int? account)
+        public IActionResult OnGet(int? account)
         {
-            var userID = _accountService.GetAccountId();
-            listProductTop = _productService.GetAllProducByUserId()
-                .Where(x => x.AccountId == int.Parse(userID) && x.IsActive == true && x.IsDelete == false)
-                .OrderByDescending(x => x.BuyTimes)
-                .Take(5)
-                .ToList();
-
-            listAccount = _accountService.listAllAccount()
-                .ToList();
-
-            listProduct = _productService.GetAllProduct();
-            
-            if(account != null)
+            try
             {
-                listProduct = listProduct.Where(x => x.AccountId == account).ToList();
-                ViewData["account"] = account;
+                var userID = _accountService.GetAccountId();
+
+                listAccount = _accountService.listAllAccount().Where(x => x.Type == 1)
+                    .ToList();
+
+                listProduct = _productService.listAllProduct();
+
+                if (account != null)
+                {
+                    listProduct = listProduct.Where(x => x.AccountId == account).ToList();
+                    ViewData["account"] = account;
+                }
+                return Page();
+            }
+            catch(Exception ex)
+            {
+                return Redirect("/Error403");
+            }
+        }
+        public IActionResult OnPostBand(int id)
+        {
+            try
+            {
+                _productService.Band(id);
+                return new JsonResult(true);
+            }catch(Exception ex)
+            {
+                return new JsonResult(false);
+            }
+        }
+        public IActionResult OnPostActive(int id)
+        {
+            try
+            {
+                _productService.Active(id);
+                return new JsonResult(true);
+            }
+            catch (Exception ex)
+            {
+                return new JsonResult(false);
             }
         }
     }

@@ -28,7 +28,11 @@
         <div class="row">
             <div class="col-xl-3 col-lg-4">
                 <div class="left-sidebar-wrapper box-style">
-
+                    <div class="sidebar-header">
+                        <div class="info">
+                            <h3>HEllO,Admin. Wellcome back!</h3>
+                        </div>
+                    </div>
                     <div class="sidebar-menu">
                         <nav>
                             <ul>
@@ -56,6 +60,7 @@
                     </div>
                     <div class="post-ad-form-wrapper">
                         <form method="post" asp-page-handler="UpdateProfile">
+                            <input hidden name="accountid" value="@Model.account.AccountId"/>
                             <div class="row">
                                 <div class="right-wrapper pt-50">
                                     <h5 class="mb-25">Edit Profile</h5>
@@ -86,6 +91,28 @@
                                                 <div class="form-group">
                                                     <label for="email">Email</label>
                                                     <input type="email" class="form-control" name="Email" placeholder="Enter your email" value="@Model.account.Email">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="username">Username</label>
+                                                    <input type="text" class="form-control" name="username" placeholder="username" value="@Model.account.UserName">
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
+                                                <div class="form-group">
+                                                    <label for="type">Type</label>
+                                                    <hr>
+                                                    @if(Model.account.Type == 1)
+                                                    {
+                                                        <span>Shop: </span><input type="radio" name="type" value="1" checked>
+                                                        <span>User: </span><input type="radio" name="type" value="2">
+                                                    }
+                                                    else
+                                                    {
+                                                        <span>Shop: </span><input type="radio" name="type" value="1">
+                                                        <span>User: </span><input type="radio" name="type" value="2" checked>
+                                                    }
                                                 </div>
                                             </div>
                                         </div>

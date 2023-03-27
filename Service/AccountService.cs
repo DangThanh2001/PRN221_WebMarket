@@ -88,8 +88,19 @@ namespace Service
             acc.Password = Common.HashPassword(pass);
             return _repository.Update(acc);
         }
-
-		public List<Account> listAllAccount()
+		public int DeleteAccount(int id)
+		{
+			Account acc = GetAccountById(id);
+			acc.IsActive = false;
+			return _repository.Update(acc);
+		}
+        public int Active(int id)
+        {
+            Account acc = GetAccountById(id);
+            acc.IsActive = true;
+            return _repository.Update(acc);
+        }
+        public List<Account> listAllAccount()
 		{
 			return _repository.getAll();
 		}

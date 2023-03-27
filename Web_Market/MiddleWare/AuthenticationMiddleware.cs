@@ -72,7 +72,7 @@ namespace Web_Market.MiddleWare
 
         private static string[] notLoginUrl =
         {
-            //ADMIN_BASE,
+            ADMIN_BASE,
             ADMIN_DASHBOARD,
             ADMIN_POSTADS,
             PROFILE_SETTING,
@@ -86,19 +86,13 @@ namespace Web_Market.MiddleWare
 
         private static string[] notAdminRole =
         {
-            //ADMIN_BASE,
+            ADMIN_BASE,
             ADMIN_DASHBOARD,
             ADMIN_POSTADS,
-            OFFER,
-            MY_ADS,
-            POST_ADS
         };
 
         private static string[] notModRole =
         {
-            //ADMIN_BASE,
-            ADMIN_DASHBOARD,
-            ADMIN_POSTADS,
             OFFER,
             MY_ADS,
             POST_ADS

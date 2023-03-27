@@ -9,6 +9,7 @@ namespace Web_Market.Pages
     {
         private readonly CategoryService _categoryService;
         private readonly ProductService _productService;
+        private readonly AccountService _accountService;
 
         [BindProperty]
         public Category _category { get; set; }
@@ -23,16 +24,17 @@ namespace Web_Market.Pages
 
         [BindProperty]
         public List<Category>? listCategories { get; set; }
-        public My_AdsModel(CategoryService category, ProductService productService)
+        public My_AdsModel(CategoryService category, ProductService productService, AccountService accountService)
         {
             _categoryService = category;
             _productService = productService;
+            _accountService = accountService;
         }
 
         public void OnGet(string? product_name_key, string? category_id_key, int currentpage)
         {
             listCategories = _categoryService.GetAllCategory();
-            listProduct = _productService.GetAllProduct();
+            listProduct = _productService.GetAllProducByUserId().Where(x => x.IsDelete == false).ToList();
             quanCategory = new List<int>();
             foreach (var o in listCategories)
             {

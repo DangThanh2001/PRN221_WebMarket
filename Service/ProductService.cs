@@ -49,10 +49,12 @@ namespace Service
         {
             try
             {
+                var id = _accountService.GetAccountId();
                 if(product.Image == null)
                 {
                     product.Image = "https://phutungnhapkhauchinhhang.com/wp-content/uploads/2020/06/default-thumbnail.jpg;https://phutungnhapkhauchinhhang.com/wp-content/uploads/2020/06/default-thumbnail.jpg;https://phutungnhapkhauchinhhang.com/wp-content/uploads/2020/06/default-thumbnail.jpg";
                 }
+                product.AccountId = int.Parse(id);
                 productRepository.AddProduct(product);
             }catch (Exception ex)
             {
@@ -86,10 +88,35 @@ namespace Service
             }
             
         }
-
+        public void Band(int id)
+        {
+            try
+            {
+                Product pro = GetProductWithId(id);
+                pro.IsActive = false;
+                productRepository.UpdateProduct(pro);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+        public void Active(int id)
+        {
+            try
+            {
+                Product pro = GetProductWithId(id);
+                pro.IsActive = true;
+                productRepository.UpdateProduct(pro);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
         public List<Product> listAllProduct()
         {
-            return productRepository.GetAllProduct();
+            return productRepository.GetAllProductForShop();
         }
         public void ExportToExcel(string filePath, List<Product> productList)
         {

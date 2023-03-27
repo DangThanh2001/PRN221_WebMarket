@@ -34,7 +34,7 @@ namespace Web_Market.Pages
 		public void OnGet(string? product_name_key, string? category_id_key, int currentpage)
 		{
 			listCategories = _categoryService.GetAllCategory();
-			listProduct = _productService.GetAllProduct();
+			listProduct = _productService.GetAllProduct().OrderByDescending(x => x.BuyTimes).ToList();
 			ViewData["allP"] = listProduct.Count;
 			quanCategory = new List<int>();
             foreach (var o in listCategories)
