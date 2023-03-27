@@ -16,5 +16,6 @@ namespace DataAccess
 		public Task<Account?> GetAccountByEmail(string name);
 		public int Register(Account account);
 		public int Update(Account account);
+		public List<Account> getAll();
 	}
 }

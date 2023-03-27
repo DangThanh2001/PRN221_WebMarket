@@ -89,5 +89,9 @@ namespace Service
             return _repository.Update(acc);
         }
 
+		public List<Account> listAllAccount()
+		{
+			return _repository.getAll();
+		}
     }
 }

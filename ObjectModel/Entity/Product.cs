@@ -26,5 +26,6 @@ namespace ObjectModel
         public bool IsActive { get; set; } = true;
         public bool IsDelete { get; set; } = false;
         public int AccountId { get; set; }
+        public int? BuyTimes { get; set; }
     }
 }

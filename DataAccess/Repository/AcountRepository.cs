@@ -33,7 +33,12 @@ namespace DataAccess.Repository
 			return _dbContext.Accounts.Where(x => x.AccountId.ToString().Equals(id.ToString())).FirstOrDefaultAsync();
         }
 
-		public Task<IEnumerable<Account>> GetAllAcount()
+        public List<Account> getAll()
+        {
+            return _dbContext.Accounts.Where(x => x.IsActive == true && x.IsDelete == false).ToList();
+        }
+
+        public Task<IEnumerable<Account>> GetAllAcount()
 		{
 			throw new NotImplementedException();
 		}
