@@ -8,17 +8,17 @@
 
   <ItemGroup>
     <Compile Remove="Service\**" />
+    <Compile Remove="wwwroot\img\**" />
     <Content Remove="Service\**" />
+    <Content Remove="wwwroot\img\**" />
     <EmbeddedResource Remove="Service\**" />
+    <EmbeddedResource Remove="wwwroot\img\**" />
     <None Remove="Service\**" />
+    <None Remove="wwwroot\img\**" />
   </ItemGroup>
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\css\custom.css" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\img\" />
   </ItemGroup>
 
   <ItemGroup>
