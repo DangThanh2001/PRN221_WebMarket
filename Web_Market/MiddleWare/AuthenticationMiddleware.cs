@@ -41,7 +41,7 @@ namespace Web_Market.MiddleWare
                 context.Response.Redirect(StaticURL.ERROR_403);
             }
             else if (type == 2 &&
-                StaticURL.checkUrlNotModRole(path)
+                StaticURL.checkUrlNotModRole(path) || StaticURL.checkUrlNotAdminRole(path)
                 )
             {
                 context.Response.Redirect(StaticURL.ERROR_403);
