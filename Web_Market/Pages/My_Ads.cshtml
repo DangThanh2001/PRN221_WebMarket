@@ -154,14 +154,21 @@
                                             @name.Trim()
                                         </td>
                                         <td>
-                                            <span class="status-btn">@(o.IsActive ? "On sale" : "Off sale")</span>
+                                            @if (!o.IsActive)
+                                            {
+                                                <span class="badge rounded-pill bg-danger">Banded</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge rounded-pill bg-success">Active</span>
+                                            }
                                         </td>
                                         <td>
                                             <p>$@o.Price</p>
                                         </td>
                                         <td>
                                             <div class="action-btns">
-                                                <a asp-page="product_detail" class="eye-btn"><i class="lni lni-eye"></i></a>
+                                                <a asp-page="product_detail" class="eye-btn" asp-route-id="@o.ProductId"><i class="lni lni-eye"></i></a>
                                                 <a asp-page="editproduct" asp-route-id="@o.ProductId" class="edit-btn"><i class="lni lni-pencil"></i></a>
                                                 <a onclick="sayThankyou(@o.ProductId)" class="delete-btn"><i class="lni lni-trash"></i></a>
                                             </div>

@@ -35,7 +35,7 @@ namespace DataAccess.Repository
 
         public List<Account> getAll()
         {
-            return _dbContext.Accounts.Where(x => x.IsActive == true && x.IsDelete == false).ToList();
+            return _dbContext.Accounts.Where(x => x.IsDelete == false).ToList();
         }
 
         public Task<IEnumerable<Account>> GetAllAcount()
@@ -46,7 +46,7 @@ namespace DataAccess.Repository
 		public Account? Login(string username, string password)
 		{
 			return _dbContext.Accounts
-                .Where(x => x.Email.Equals(username) || x.UserName.Equals(username)).FirstOrDefault();
+                .Where(x => (x.Email.Equals(username) || x.UserName.Equals(username)) && x.IsDelete == false && x.IsActive == true).FirstOrDefault();
         }
 
         public int Register(Account account)

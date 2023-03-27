@@ -1,4 +1,217 @@
 ﻿@page
 @model Web_Market.Pages.Admin.MagermentAccountModel
 @{
+    Layout = "_Layout";
 }
+<div class="preloader">
+    <div class="loader">
+        <div class="ytp-spinner">
+            <div class="ytp-spinner-container">
+                <div class="ytp-spinner-rotator">
+                    <div class="ytp-spinner-left">
+                        <div class="ytp-spinner-circle"></div>
+                    </div>
+                    <div class="ytp-spinner-right">
+                        <div class="ytp-spinner-circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="banner-area bg_cover">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="banner-content">
+                    <h1 class="text-white">
+                        Home
+                    </h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="homadmin">Managerment Account</a></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="dashboard-area pb-110">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-3 col-lg-4">
+
+                <div class="left-sidebar-wrapper box-style">
+                    <div class="sidebar-header">
+                        <div class="info">
+                            <h3>HEllO,Admin. Wellcome back!</h3>
+                        </div>
+                    </div>
+                    <div class="sidebar-menu">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a asp-page="/admin/dashboard"><i class="lni lni-dashboard"></i>Dashboard</a>
+                                </li>
+                                <li>
+                                    <a asp-page="/admin/managerproduct"><i class="lni lni-layers"></i>Manager Product</a>
+                                </li>
+                                <li>
+                                    <a asp-page="/admin/magermentaccount" class="active"><i class="lni lni-users"></i>Manager Account</a>
+                                </li>
+                                <li>
+                                    <a asp-page="login" asp-page-handler="signout"><i class="lni lni-exit"></i>Sign Out</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-9 col-lg-8">
+                <div class="dashboard-wrapper box-style">
+                    <div class="title">
+                        <h3>Account Managerment</h3>
+                        <a asp-page="MagermentAccount" class="btn btn-success">Refresh</a>
+                    </div>
+                    <div class="table text-start align-middle table-bordered  mb-0">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope ="col">
+                                        UserName
+                                    </th>
+                                    <th scope="col">
+                                        Full Name
+                                    </th>
+                                    <th scope="col">
+                                        Money
+                                    </th>
+                                    <th scope="col">
+                                        Phone
+                                    </th>
+                                    <th scope="col">
+                                        Address
+                                    </th>
+                                    <th scope="col">
+                                        Role
+                                    </th>
+                                    <th scope="col">
+                                        Active
+                                    </th>
+                                    <th scope="col">
+                                        Action
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var p in Model.account)
+                                {
+                                    <tr>
+                                        <td scope="row">
+                                            @p.UserName
+                                        </td>
+                                        <td scope="row">
+                                            @{
+                                                var name = p.FirstName + "" + p.LastName;
+                                            }
+                                            @name
+                                        </td>
+                                        <td scope ="row">
+                                            @p.Balance
+                                        </td>
+                                        <td scope="row">
+                                            @p.PhoneNumber
+                                        </td>
+                                        <td scope="row">
+                                            @p.Address
+                                        </td>
+                                        <td scope="row">
+                                            @if(p.Type == 2)
+                                            {
+                                                <span class="badge rounded-pill bg-primary">User</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge rounded-pill bg-warning text-dark">Shop</span>
+                                            }
+                                        </td>
+                                        <td scope="row">
+                                            @if (!p.IsActive)
+                                            {
+                                                <span class="badge rounded-pill bg-danger">BAND</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="badge rounded-pill bg-success">ACTIVE</span>
+                                            }
+                                        </td>
+                                        <td scope="row">
+                                            <div class="action-btns">
+                                                <a asp-page="profilesetting" asp-page-handler="UpdateProfile" asp-route-id="@p.AccountId" class="edit-btn"><i class="lni lni-pencil"></i></a>
+                                                @if (p.IsActive)
+                                                {
+                                                    <a onclick="sayThankyou(@p.AccountId)" class="delete-btn"><i class="lni lni-trash"></i></a>
+                                                }
+                                                else
+                                                {
+                                                    <a onclick="sayThankyouActive(@p.AccountId)" class="active"><i class="lni lni-checkmark"></i></a>
+                                                }
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function sayThankyou(idAcc) {
+        $.ajax({
+            url: '/admin/MagermentAccount?handler=band', // URL của Razor Page handler
+            type: 'POST',  // phương thức gửi request
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("XSRF-TOKEN",
+                    $('input:hidden[name="__RequestVerificationToken"]').val());
+            },
+            data: { id: idAcc }, // dữ liệu gửi đi
+            success: function (result) {
+                if (JSON.parse(result) == true) {
+                    swal("Thank you alot!", "Account Has Band", "success");
+                } else {
+                    swal("Thank you alot!", "But you must login first", "error");
+                }
+            },
+            error: function (xhr, status, error) {
+                swal("Thank you alot!", "Band False", "error");
+            }
+        });
+    }
+    function sayThankyouActive(idAcc) {
+        $.ajax({
+            url: '/admin/MagermentAccount?handler=Active', // URL của Razor Page handler
+            type: 'POST',  // phương thức gửi request
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("XSRF-TOKEN",
+                    $('input:hidden[name="__RequestVerificationToken"]').val());
+            },
+            data: { id: idAcc }, // dữ liệu gửi đi
+            success: function (result) {
+                if (JSON.parse(result) == true) {
+                    swal("Thank you alot!", "Account Has Active", "success");
+                } else {
+                    swal("Thank you alot!", "But you must login first", "error");
+                }
+            },
+            error: function (xhr, status, error) {
+                swal("Thank you alot!", "Band False", "error");
+            }
+        });
+    }
+</script>

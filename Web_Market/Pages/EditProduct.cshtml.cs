@@ -29,7 +29,7 @@ namespace Web_Market.Pages
         public List<Category> categories { get; set; } = default!;
         public void OnGet(int id)
         {
-            Product = _productService.GetAllProduct().FirstOrDefault(x => x.ProductId == id);
+            Product = _productService.GetProductWithId(id);
             companies = _companyService.GetAllCompany().ToList();
             categories = _categoryService.GetAllCategory().ToList();
             SelectedCategories = Product.ProductCategory.Split(';').ToList();

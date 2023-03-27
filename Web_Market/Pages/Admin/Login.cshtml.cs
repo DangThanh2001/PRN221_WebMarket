@@ -25,7 +25,7 @@ namespace Web_Market.Pages.Admin
                 var acc = _accountService.Login(emailorUsername, account.Password);
                 if (acc)
                 {
-                    return Redirect("homeadmin");
+                    return Redirect("Index");
                 }
                 else
                 {
@@ -42,7 +42,7 @@ namespace Web_Market.Pages.Admin
         public IActionResult OnGetSignOut()
         {
             _accountService.SignOut();
-            return Redirect("Index");
+            return Redirect("/Index");
         }
     }
 }

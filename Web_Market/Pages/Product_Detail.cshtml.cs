@@ -20,10 +20,10 @@ namespace Web_Market.Pages
         {
             _product_DetailService = product_Detail;
         }
-        public void OnGet(string productId)
+        public void OnGet(int id)
         {
 
-            product = _product_DetailService.GetProductById(int.Parse(productId));
+            product = _product_DetailService.GetProductById(id);
 
             string cate_notcut = product.ProductCategory;
             var cate_cut = cate_notcut.Split(';').ToList();

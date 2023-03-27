@@ -20,7 +20,7 @@ namespace DataAccess.Repository
         public List<Product> GetAllProduct()
         {
             return _dbContext.Products
-                .Where(x => x.IsActive == true && x.IsDelete == false)
+                .Where(x => x.IsDelete == false && x.IsActive == true)
                 .ToList();
         }
         public Product GetProductWithId(int id)
@@ -86,7 +86,14 @@ namespace DataAccess.Repository
         public List<Product> GetProductWithUserId(int id)
         {
             return _dbContext.Products
-                .Where(x => x.IsActive == true && x.IsDelete == false && x.AccountId == id)
+                .Where(x => x.IsDelete == false && x.AccountId == id)
+                .ToList();
+        }
+
+        public List<Product> GetAllProductForShop()
+        {
+            return _dbContext.Products
+                .Where(x => x.IsDelete == false)
                 .ToList();
         }
     }

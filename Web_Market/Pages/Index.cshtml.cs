@@ -35,7 +35,7 @@ namespace Web_Market.Pages
 
         public void OnGet(string? keyword, int? category, int? company, int currentPage)
         {
-            listProduct = _product.listAllProduct().OrderByDescending(x => x.ImportDay).Take(itemsInPage).ToList();
+            listProduct = _product.GetAllProduct().OrderByDescending(x => x.BuyTimes).Take(itemsInPage).ToList();
             listCategories = _category.GetAllCategory();
             listCompanies = _company.GetAllCompany();
             if (!string.IsNullOrWhiteSpace(keyword) && !string.IsNullOrEmpty(keyword))
