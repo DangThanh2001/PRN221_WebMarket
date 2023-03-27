@@ -56,19 +56,19 @@ namespace Web_Market.Pages
 		public IActionResult OnPost(string? fname, string? lname,
 			string? address, int[]? arrayId, int[]? quantity,bool? sendOTP, string? otpUserInput)
 		{
-            if (Common.checkStringEmpty(new string[]
-           {
-                fname, lname, address,
-           }))
-            {
-                ViewData["error"] = "u must do another";
-                return Page();
-            }
-            if (arrayId.Length == 0 || arrayId == null)
-            {
-                ViewData["error"] = "u must do another";
-                return Page();
-            }
+           // if (Common.checkStringEmpty(new string[]
+           //{
+           //     fname, lname, address,
+           //}))
+           // {
+           //     ViewData["error"] = "u must do another";
+           //     return Page();
+           // }
+           // if (arrayId.Length == 0 || arrayId == null)
+           // {
+           //     ViewData["error"] = "u must do another";
+           //     return Page();
+           // }
 
             if (sendOTP is not null && sendOTP == true)
             {
@@ -117,20 +117,20 @@ namespace Web_Market.Pages
             using (var client = new SmtpClient("smtp.gmail.com", 587))
             {
                 client.EnableSsl = true;
-                client.Credentials = new NetworkCredential("fireflower208@gmail.com", "usxrdbtzafucskdh");
+                client.Credentials = new NetworkCredential("traicvhe153014@fpt.edu.vn", "0362351671");
 
                 var message = new MailMessage
                 {
-                    From = new MailAddress("fireflower208@gmail.com"),
+                    From = new MailAddress("traicvhe153014@fpt.edu.vn"),
                     To = { recipient },
                     Subject = subject,
                     Body = body
-                };
+                };  
                 message.BodyEncoding = System.Text.Encoding.UTF8;
                 message.SubjectEncoding = System.Text.Encoding.UTF8;
                 message.IsBodyHtml = true;
-                message.ReplyToList.Add(new MailAddress("fireflower208@gmail.com"));
-                message.Sender = new MailAddress("fireflower208@gmail.com");
+                message.ReplyToList.Add(new MailAddress("traicvhe153014@fpt.edu.vn"));
+                message.Sender = new MailAddress("traicvhe153014@fpt.edu.vn");
 
                 try
                 {
