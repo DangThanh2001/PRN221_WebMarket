@@ -30,6 +30,6 @@ namespace ObjectModel
         public DateTime DayPayedDone { get; set; }
         public bool IsDelete { get; set; } = false;
         public string Address { get; set; }
-
+        public bool Shipped { get; set; } = false;
     }
 }

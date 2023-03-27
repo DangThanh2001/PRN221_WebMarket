@@ -101,7 +101,7 @@ namespace Web_Market.Pages
                 {
                     _orderService.AddOrderCheckout(fname, lname, address,
                         arrayId, quantity, accId);
-                    return RedirectToPage("/index");
+                    return RedirectToPage("/OrderDetail");
                 }
                 else
                 {

@@ -34,13 +34,13 @@ namespace Web_Market.MiddleWare
                 //await next(context);
                 context.Response.Redirect(StaticURL.LOGIN);
             }
-            else if (type == 0 &&
+            else if (type == 1 &&
                 StaticURL.checkUrlNotAdminRole(path)
                 )
             {
                 context.Response.Redirect(StaticURL.ERROR_403);
             }
-            else if (type == 1 &&
+            else if (type == 2 &&
                 StaticURL.checkUrlNotModRole(path)
                 )
             {
@@ -61,10 +61,10 @@ namespace Web_Market.MiddleWare
         public static readonly string ADMIN_DASHBOARD = "/admin/dashboard";
         public static readonly string ADMIN_POSTADS = "/admin/dashboard";
         public static readonly string FAVORITE = "/favorites";
-        public static readonly string MY_ADS = "/my_ads";
+        public static readonly string MY_ADS = "/My_Ads";
         public static readonly string OFFER = "/offer";
         public static readonly string PAYMENTS = "/payments";
-        public static readonly string POST_ADS = "/post_ads";
+        public static readonly string POST_ADS = "/Post_ads";
         public static readonly string PRODUCT_DETAIL = "/product_detail";
         public static readonly string MY_CART = "/mycart";
         public static readonly string PROFILE_SETTING = "/Profile_Settings";
@@ -72,7 +72,7 @@ namespace Web_Market.MiddleWare
 
         private static string[] notLoginUrl =
         {
-            ADMIN_BASE,
+            //ADMIN_BASE,
             ADMIN_DASHBOARD,
             ADMIN_POSTADS,
             PROFILE_SETTING,
@@ -86,20 +86,22 @@ namespace Web_Market.MiddleWare
 
         private static string[] notAdminRole =
         {
-            ADMIN_BASE,
+            //ADMIN_BASE,
             ADMIN_DASHBOARD,
             ADMIN_POSTADS,
             OFFER,
-            MY_ADS
+            MY_ADS,
+            POST_ADS
         };
 
         private static string[] notModRole =
         {
-            ADMIN_BASE,
+            //ADMIN_BASE,
             ADMIN_DASHBOARD,
             ADMIN_POSTADS,
             OFFER,
-            MY_ADS
+            MY_ADS,
+            POST_ADS
         };
 
         public static bool checkUrlNotLogin(string path)

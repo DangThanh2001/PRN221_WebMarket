@@ -18,12 +18,26 @@ namespace Web_Market.Pages
         public void OnGet()
         {
             listCategory = new List<Category>();
-
             listCategory = _categoryService.GetAllCategory();
         }
-        public void OnPostAddProduct(Product product)
+        public IActionResult OnPostAddProduct(Product product, int[]? ProductCategory)
         {
-            _productService.AddProduct(product);
+            try
+            {
+                product.ProductCategory = String.Join(";", ProductCategory.ToList());
+                _productService.AddProduct(product);
+                ViewData["message"] = "Add Done";
+                listCategory = new List<Category>();
+                listCategory = _categoryService.GetAllCategory();
+                return Page();
+            }catch(Exception ex)
+            {
+                ViewData["error"] = "Add False";
+                listCategory = new List<Category>();
+                listCategory = _categoryService.GetAllCategory();
+                return Page();
+            }
+            
         }
     }
 }

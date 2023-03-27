@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace Web_Market.Pages
+namespace Web_Market.Pages.Admin
 {
-    public class OrderDetailModel : PageModel
+    public class HomeAdminModel : PageModel
     {
         public void OnGet()
         {

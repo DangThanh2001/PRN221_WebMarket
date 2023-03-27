@@ -47,17 +47,44 @@ namespace Service
 
         public void AddProduct(Product product)
         {
-            productRepository.AddProduct(product);
+            try
+            {
+                if(product.Image == null)
+                {
+                    product.Image = "https://phutungnhapkhauchinhhang.com/wp-content/uploads/2020/06/default-thumbnail.jpg;https://phutungnhapkhauchinhhang.com/wp-content/uploads/2020/06/default-thumbnail.jpg;https://phutungnhapkhauchinhhang.com/wp-content/uploads/2020/06/default-thumbnail.jpg";
+                }
+                productRepository.AddProduct(product);
+            }catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public void UpdateCategory(Product product)
         {
-            productRepository.UpdateProduct(product);
+            try
+            {
+                productRepository.UpdateProduct(product);
+            }
+            catch(Exception ex)
+            {
+                throw;
+            }
         }
 
         public void DeleteCategory(int id)
         {
-            productRepository.DeleteProduct(id);
+            try
+            {
+                Product pro = GetProductWithId(id);
+                pro.IsDelete = true;
+                productRepository.UpdateProduct(pro);
+            }
+            catch(Exception ex)
+            {
+                throw;
+            }
+            
         }
 
         public List<Product> listAllProduct()

@@ -1,8 +1,8 @@
 ﻿@page
 @model Web_Market.Pages.OrderDetailModel
 @{
+    Layout = "_Layout";
 }
-
 <div class="preloader">
     <div class="loader">
         <div class="ytp-spinner">
@@ -20,16 +20,21 @@
     </div>
 </div>
 
+
+
+
 <section class="banner-area bg_cover">
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
                 <div class="banner-content">
-                    <h1 class="text-white">All Categories</h1>
+                    <h1 class="text-white">
+                        My Ads
+                    </h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a asp-page="/index">Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Order Details</li>
+                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Ads</li>
                         </ol>
                     </nav>
                 </div>
@@ -42,7 +47,6 @@
         <div class="row">
             <div class="col-xl-3 col-lg-4">
                 <div class="left-sidebar-wrapper box-style">
-
                     <div class="sidebar-menu">
                         <nav>
                             <ul>
@@ -56,10 +60,10 @@
                                     <a asp-page="post_ads"><i class="lni lni-cog"></i>Post Ad</a>
                                 </li>
                                 <li>
-                                    <a asp-page="my_ads"><i class="lni lni-layers"></i>My Ads</a>
+                                    <a asp-page="my_ads" class="active"><i class="lni lni-layers"></i>My Ads</a>
                                 </li>
                                 <li>
-                                    <a asp-page="mycart" class="active"><i class="lni lni-layers"></i>My Cart</a>
+                                    <a asp-page="mycart"><i class="lni lni-layers"></i>My Cart</a>
                                 </li>
                                 <li>
                                     <a asp-page="offer"><i class="lni lni-envelope"></i>Offers / Message</a>
@@ -74,72 +78,97 @@
                                     <a asp-page="privacy"><i class="lni lni-star"></i>Privacy Settings</a>
                                 </li>
                                 <li>
-                                    <a asp-page="login" asp-page-handler="signout">
-                                        <i class="lni lni-exit"></i>Sign
-                                        Out
-                                    </a>
+                                    <a asp-page="login" asp-page-handler="signout"><i class="lni lni-exit"></i>Sign Out</a>
                                 </li>
                             </ul>
                         </nav>
                     </div>
                 </div>
             </div>
-
             <div class="col-xl-9 col-lg-8">
                 <div class="dashboard-wrapper box-style">
                     <div class="title">
-                        <h3>Your order detail</h3>
+                        <h3>Order Detail</h3>
                     </div>
+                    <div class="card border-top border-bottom border-3" style="border-color: #f37a27 !important;">
+          <div class="card-body p-5">
 
-                    <div>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>
-                                        Photo
-                                    </th>
-                                    <th>
-                                        Title
-                                    </th>
-                                    <th>
-                                        Category
-                                    </th>
-                                    <th>
-                                        Ad Status
-                                    </th>
-                                    <th>
-                                        Price
-                                    </th>
-                                    
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <div class="image">
-                                            <div class="form-check check-style">
-                                                
-                                            </div>
-                                            <img src="~/images/product/product-thumb-1.jpg" width="100" alt="">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <h6>8 GB DDR4 Ram, 4th Gen</h6>
-                                        <span class="ad-id">Ad ID: ng3D5hAMHPajQrM</span>
-                                    </td>
-                                    <td>
-                                        <span class="category">Ram & Laptop</span>
-                                    </td>
-                                    <td>
-                                        <span class="status-btn">ACTIVE</span>
-                                    </td>
-                                    <td>
-                                        <p>$20.99</p>
-                                    </td>
-                                    
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+            <p class="lead fw-bold mb-5" style="color: #f37a27;">Purchase Reciept</p>
+
+            <div class="row">
+              <div class="col mb-3">
+                <p class="small text-muted mb-1">Date</p>
+                <p>10 April 2021</p>
+              </div>
+              <div class="col mb-3">
+                <p class="small text-muted mb-1">Order No.</p>
+                <p>012j1gvs356c</p>
+              </div>
             </div>
+
+            <div class="mx-n5 px-5 py-4" style="background-color: #f2f2f2;">
+              <div class="row">
+                <div class="col-md-8 col-lg-9">
+                  <p>BEATS Solo 3 Wireless Headphones</p>
+                </div>
+                <div class="col-md-4 col-lg-3">
+                  <p>£299.99</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-8 col-lg-9">
+                  <p class="mb-0">Shipping</p>
+                </div>
+                <div class="col-md-4 col-lg-3">
+                  <p class="mb-0">£33.00</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="row my-4">
+              <div class="col-md-4 offset-md-8 col-lg-3 offset-lg-9">
+                <p class="lead fw-bold mb-0" style="color: #f37a27;">£262.99</p>
+              </div>
+            </div>
+
+            <p class="lead fw-bold mb-4 pb-2" style="color: #f37a27;">Tracking Order</p>
+
+            <div class="row">
+              <div class="col-lg-12">
+
+                <div class="horizontal-timeline">
+
+                  <ul class="list-inline items d-flex justify-content-between">
+                    <li class="list-inline-item items-list">
+                      <p class="py-1 px-2 rounded text-white" style="background-color: #f37a27;">Ordered</p
+                        class="py-1 px-2 rounded text-white" style="background-color: #f37a27;">
+                    </li>
+                    <li class="list-inline-item items-list">
+                      <p class="py-1 px-2 rounded text-white" style="background-color: #f37a27;">Shipped</p
+                        class="py-1 px-2 rounded text-white" style="background-color: #f37a27;">
+                    </li>
+                    <li class="list-inline-item items-list">
+                      <p class="py-1 px-2 rounded text-white" style="background-color: #f37a27;">On the way
+                      </p>
+                    </li>
+                    <li class="list-inline-item items-list text-end" style="margin-right: 8px;">
+                      <p style="margin-right: -8px;">Delivered</p>
+                    </li>
+                  </ul>
+
+                </div>
+
+              </div>
+            </div>
+
+            <p class="mt-4 pt-2 mb-0">Want any help? <a href="#!" style="color: #f37a27;">Please contact
+                us</a></p>
+
+          </div>
+        </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</section>

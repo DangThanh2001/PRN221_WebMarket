@@ -26,18 +26,26 @@ namespace Service
 
 		public bool Login (string username, string password)
 		{
-			var account = _repository.Login(username, password);
-			if(account == null)
+			try
+			{
+                var account = _repository.Login(username, password);
+                if (account == null)
+                {
+                    return false;
+                }
+                if (Common.VerifyPassword(password, account.Password))
+                {
+                    _token = _tokenService.BuildToken(account);
+                    _memoryCache.Set("Token", _token);
+                    return true;
+                }
+				return false;
+			}
+			catch(Exception ex)
 			{
 				return false;
 			}
-			if(Common.VerifyPassword(password, account.Password))
-			{
-                _token = _tokenService.BuildToken(account);
-                _memoryCache.Set("Token", _token);
-                return true;
-			}
-            return false;
+			
 		}
 		
 		public string GetAccountId()
