@@ -30,7 +30,7 @@ namespace Web_Market.Pages
 		public void OnGet()
         {
 			UserId = int.Parse(_accountService.GetAccountId());
-			account = _accountService.GetAccountWithId(UserId);
+			account = _accountService.GetAccountById(UserId);
 			card = _cartService.GetCard(UserId);
 			if (card == null)
 			{
@@ -73,7 +73,7 @@ namespace Web_Market.Pages
             if (sendOTP is not null && sendOTP == true)
             {
                 var accId = _accountService.GetAccountId();
-                Account acc = _accountService.GetAccountWithId(int.Parse(accId));
+                Account acc = _accountService.GetAccountById(int.Parse(accId));
 
                 Random random = new Random();
                 string result = "";

@@ -69,7 +69,6 @@ namespace Web_Market.MiddleWare
         public static readonly string MY_CART = "/mycart";
         public static readonly string PROFILE_SETTING = "/Profile_Settings";
         public static readonly string ERROR_403 = "/Error403";
-        public static readonly string MY_CART = "/mycart";
 
         private static string[] notLoginUrl =
         {
