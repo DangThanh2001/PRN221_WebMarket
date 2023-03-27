@@ -48,7 +48,7 @@
                         <nav>
                             <ul>
                                 <li>
-                                    <a asp-page="/admin/dashboard" ><i class="lni lni-dashboard"></i>Dashboard</a>
+                                    <a asp-page="/admin/dashboard"><i class="lni lni-dashboard"></i>Dashboard</a>
                                 </li>
                                 <li>
                                     <a asp-page="/admin/managerproduct"><i class="lni lni-layers"></i>Manager Product</a>
@@ -67,54 +67,90 @@
             <div class="col-xl-9 col-lg-8">
                 <div class="dashboard-wrapper box-style">
                     <div class="title">
-                        <h3>My Ads</h3>
+                        <h3>Account Managerment</h3>
                         <a asp-page="my_ads" class="btn btn-success">Refresh</a>
                     </div>
                     <div class="table-wrapper table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>
-                                        Photo
+                                    <th scope ="col">
+                                        UserName
                                     </th>
-                                    <th width="20%">
-                                        Name
+                                    <th scope="col">
+                                        Full Name
                                     </th>
-                                    <th width="30%">
-                                        Category
+                                    <th scope="col">
+                                        Money
                                     </th>
-                                    <th>
-                                        Ad Status
+                                    <th scope="col">
+                                        Phone
                                     </th>
-                                    <th>
-                                        Price
+                                    <th scope="col">
+                                        Address
                                     </th>
-                                    <th>
+                                    <th scope="col">
+                                        Role
+                                    </th>
+                                    <th scope="col">
+                                        Active
+                                    </th>
+                                    <th scope="col">
                                         Action
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>
-                                        
-                                    </td>
-                                    <td width="20%">
-                                    </td>
-                                    <td width="30%">
-                                    </td>
-                                    <td>
-                                    </td>
-                                    <td>
-                                    </td>
-                                    <td>
-                                        <div class="action-btns">
-                                            <a asp-page="product_detail" class="eye-btn"><i class="lni lni-eye"></i></a>
-                                            <a asp-page="editproduct" asp-route-id="" class="edit-btn"><i class="lni lni-pencil"></i></a>
-                                            <a onclick="sayThankyou()" class="delete-btn"><i class="lni lni-trash"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
+                                @foreach (var p in Model.account)
+                                {
+                                    <tr>
+                                        <td scope="row">
+                                            @p.UserName
+                                        </td>
+                                        <td scope="row">
+                                            @{
+                                                var name = p.FirstName + "" + p.LastName;
+                                            }
+                                            @name
+                                        </td>
+                                        <td scope ="row">
+                                            @p.Balance
+                                        </td>
+                                        <td scope="row">
+                                            @p.PhoneNumber
+                                        </td>
+                                        <td scope="row">
+                                            @p.Address
+                                        </td>
+                                        <td scope="row">
+                                            @if(p.Type == 1)
+                                            {
+                                                <span class="status-btn">User</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="status-btn bg-secondary">Shop</span>
+                                            }
+                                        </td>
+                                        <td scope="row">
+                                            @if (p.IsDelete)
+                                            {
+                                                <span class="status-btn bg-light text-dark">INACTIVE</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="status-btn">ACTIVE</span>
+                                            }
+                                        </td>
+                                        <td scope="row">
+                                            <div class="action-btns">
+                                                <a asp-page="profilesetting" asp-page-handler="UpdateProfile"><i class="lni lni-eye"></i></a>
+                                                <a asp-page="profilesetting" asp-page-handler="UpdateProfile" class="edit-btn"><i class="lni lni-pencil"></i></a>
+                                                <a onclick="sayThankyou()" class="delete-btn"><i class="lni lni-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                }
                             </tbody>
                         </table>
                     </div>
