@@ -41,7 +41,7 @@ namespace DataAccess.Repository
 		public Account? Login(string username, string password)
 		{
 			return _dbContext.Accounts
-                .Where(x => x.Email.Equals(username)).FirstOrDefault();
+                .Where(x => x.Email.Equals(username) || x.UserName.Equals(username)).FirstOrDefault();
         }
 
         public int Register(Account account)

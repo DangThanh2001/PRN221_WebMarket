@@ -79,6 +79,9 @@ namespace DataAccess.Migrations
                     b.Property<int>("Type")
                         .HasColumnType("int");
 
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("AccountId");
 
                     b.ToTable("Accounts");
@@ -207,6 +210,9 @@ namespace DataAccess.Migrations
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
+
+                    b.Property<bool>("Shipped")
+                        .HasColumnType("bit");
 
                     b.Property<int>("Success")
                         .HasColumnType("int");

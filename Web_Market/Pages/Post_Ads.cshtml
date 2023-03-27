@@ -1,6 +1,7 @@
 ﻿@page
 @model Web_Market.Pages.Post_AdsModel
 @{
+    Layout = "_Layout";
 }
     <!--[if IE]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
@@ -88,20 +89,21 @@
                         </div>
                     </div>
                 </div>
+            
                 <div class="col-xl-9 col-lg-8">
                     <div class="post-ad-wrapper box-style">
                         <div class="title">
                             <h3>Post Ad</h3>
                         </div>
                         <div class="post-ad-form-wrapper">
-                            <form action="#">
+                        <form asp-page-handler="addproduct" method="post">
                                 <div class="row">
                                     <div class="col-xl-7">
                                         <div class="left-wrapper pt-50">
                                             <h5 class="mb-25">Ad Details</h5>
                                             <div class="single-form mb-15">
                                                 <label for="title" class="mb-1">Project Title</label>
-                                                <input type="text" id="title" name="title" placeholder="Title" class="px-3 py-2 mb-0 border rounded">
+                                            <input type="text" id="title" name="ProductName" placeholder="Title" class="px-3 py-2 mb-0 border rounded">
                                             </div>
                                             <div class="single-form mb-15">
                                                 <span for="category" class="mb-1">Categories:</span>
@@ -110,7 +112,7 @@
                                                 @foreach(var o in Model.listCategory)
                                                 {
                                                     <div style="display: inline-block;">
-                                                        <input style="width: 2em;" type="checkbox" name="category" id="cat-@o.CategoryId" value="@o.CategoryId"/>
+                                                    <input style="width: 2em;" type="checkbox" name="ProductCategory" id="cat-@o.CategoryId" value="@o.CategoryId" />
                                                     <label for="cat-@o.CategoryId">@o.CategoryName</label>
                                                     </div>
                                                 }
@@ -128,7 +130,7 @@
                                             </div>
                                             <div class="single-form mb-15">
                                                 <label for="description" class="mb-1">Description</label>
-<textarea name="description" id="description" rows="5" placeholder="Description" class="px-3 py-2 mb-0 border rounded"></textarea>
+<textarea name="ProductDescription" id="description" rows="5" placeholder="Description" class="px-3 py-2 mb-0 border rounded"></textarea>
                                             </div>
                                             <div class="single-form">
                                                 <div class="upload-input">
@@ -153,7 +155,21 @@
                                                     <label for="flexCheckDefault4">I agree to all Terms of Use & Posting Rules</label>
                                                 </div>
                                             </div>
-                                            <button class="main-btn btn-hover">Post Ad</button>
+                                            <button class="main-btn btn-hover" type="submit">Post Ad</button>
+                                        @{
+                                            if (ViewBag.message != null)
+                                            {
+                                                <span class="text-success">
+                                                    Thank you alot!Add product done
+                                                </span>
+                                            }
+                                            if (ViewBag.error != null)
+                                            {
+                                                <span class="text-danger">
+                                                    Thank you alot!,But Add false
+                                                </span>
+                                            }
+                                        }
                                         </div>
                                     </div>
                                 </div>

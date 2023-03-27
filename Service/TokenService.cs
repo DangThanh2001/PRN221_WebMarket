@@ -86,9 +86,9 @@ namespace Service
                 }, 
                 out SecurityToken validatedToken);
 
-            var claimsList = claims.Claims.Skip(1).First();
+            var claimsList = claims.Claims.Skip(2).First();
             var a = claimsList.Value;
-            return a == "Admin" ? 0 : a == "Mod" ? 1 : 2;
+            return a.ToString().ToLower().Equals("admin") ? 0 : a.ToString().ToLower().Equals("mod") ? 1 : 2;
         }
         public string GetUserId(string jwt)
         {

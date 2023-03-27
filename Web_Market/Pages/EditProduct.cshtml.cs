@@ -47,7 +47,6 @@ namespace Web_Market.Pages
 
             _productService.UpdateCategory(pro);
 
-
             return RedirectToPage("./Index");
         }
     }

@@ -82,30 +82,37 @@ namespace DataAccess.Repository
 
         public void addOrderCheckout(string? fname, string? lname, string? address, int[]? arrayId, int[]? quantity, string accId)
         {
-            List<Order> list = new List<Order>(); 
-            for (var i = 0; i < arrayId.Length; i++)
+            try
             {
-                Product p = _dbContext.Products.FirstOrDefault( x => 
-                x.ProductId == int.Parse(arrayId[i] + ""));
-                Order or = new Order()
+                List<Order> list = new List<Order>();
+                for (var i = 0; i < arrayId.Length; i++)
                 {
-                    ProductId = arrayId[i],
-                    AccountId = int.Parse(accId),
-                    DayCreated = DateTime.Now,
-                    ModifiedDate = DateTime.Now,
-                    Quantity = quantity[i],
-                    TotalPrice = quantity[i] * p.Price,
-                    Payed = 0,
-                    IsDelete = false,
-                    Address = address,
-                };
-                list.Add(or);
-            }
-            var cart = _dbContext.Cards.FirstOrDefault(x => x.UserID == int.Parse(accId));
-            cart.ProductIdAndQuantity = null;
-            _dbContext.Cards.Update(cart);
-            _dbContext.Orders.AddRange(list);
-            _dbContext.SaveChanges();
+                    Product p = _dbContext.Products.FirstOrDefault(x =>
+                    x.ProductId == int.Parse(arrayId[i] + ""));
+                    Order or = new Order()
+                    {
+                        ProductId = arrayId[i],
+                        AccountId = int.Parse(accId),
+                        DayCreated = DateTime.Now,
+                        ModifiedDate = DateTime.Now,
+                        Quantity = quantity[i],
+                        TotalPrice = quantity[i] * p.Price,
+                        Payed = 0,
+                        IsDelete = false,
+                        Address = address,
+                    };
+                    list.Add(or);
+                }
+                var cart = _dbContext.Cards.FirstOrDefault(x => x.UserID == int.Parse(accId));
+                cart.ProductIdAndQuantity = null;
+                _dbContext.Cards.Update(cart);
+                _dbContext.Orders.AddRange(list);
+                _dbContext.SaveChanges();
+            }catch(Exception ex)
+            {
+                throw new Exception("Order false!");
+            };
+            
         }
     }
 }
