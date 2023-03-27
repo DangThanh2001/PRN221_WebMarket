@@ -34,7 +34,7 @@ namespace DataAccess.Repository
                 Product p = GetProductWithId(product.ProductId);
                 if (p == null)
                 {
-                    _dbContext.Products.Add(p);
+                    _dbContext.Products.Add(product);
                     _dbContext.SaveChanges();
                 }
             }

@@ -1,0 +1,26 @@
+﻿@page
+@model Web_Market.Pages.Admin.LoginModel
+@{
+    Layout = "_Layout";
+}
+<section class="login-area pt-70 pb-70">
+    <div class="container">
+        <form asp-page-handler="login" method="post">
+            <div class="row h-100 align-items-center justify-content-center" style="min-height: 100vh;">
+                <div class="col-12 col-sm-8 col-md-6 col-lg-5 col-xl-4">
+                    <div class="bg-secondary rounded p-4 p-sm-5 my-4 mx-3">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingText" placeholder="jhondoe" name="username">
+                            <label for="floatingText">Username</label>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+                            <label for="floatingPassword">Password</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary py-3 w-100 mb-4">Log In</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

@@ -67,5 +67,17 @@ namespace Web_Market.Pages
             }
             curPage = currentpage;
         }
+        public JsonResult OnPostDelete(int id)
+        {
+            try
+            {
+                _productService.DeleteCategory(id);
+                return new JsonResult(true);
+            }catch (Exception ex)
+            {
+                return new JsonResult(false);
+            }
+            
+        }
     }
 }

@@ -1,0 +1,86 @@
+﻿@page
+@model Web_Market.Pages.Admin.HomeAdminModel
+@{
+    Layout = "_Layout";
+}
+
+<div class="preloader">
+    <div class="loader">
+        <div class="ytp-spinner">
+            <div class="ytp-spinner-container">
+                <div class="ytp-spinner-rotator">
+                    <div class="ytp-spinner-left">
+                        <div class="ytp-spinner-circle"></div>
+                    </div>
+                    <div class="ytp-spinner-right">
+                        <div class="ytp-spinner-circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<section class="banner-area bg_cover">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="banner-content">
+                    <h1 class="text-white">
+                        Home
+                    </h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="homadmin">Home</a></li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class="dashboard-area pb-110">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-3 col-lg-4">
+                <div class="left-sidebar-wrapper box-style">
+                    <div class="sidebar-menu">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a asp-page="/admin/dashboard" class="active"><i class="lni lni-dashboard"></i>Dashboard</a>
+                                </li>
+                                <li>
+                                    <a asp-page="/admin/managerproduct"><i class="lni lni-cog"></i>Manager Product</a>
+                                </li>
+                                <li>
+                                    <a asp-page="/admin/magermentaccount"><i class="lni lni-layers"></i>Manager Account</a>
+                                </li>
+                                <li>
+                                    <a asp-page="login" asp-page-handler="signout"><i class="lni lni-exit"></i>Sign Out</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-9 col-lg-8">
+                <div class="dashboard-wrapper box-style">
+                    <div class="title">
+                        <h3>My Ads</h3>
+                    </div>
+                    <div class="table-wrapper table-responsive">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<a href="#" class="back-to-top btn-hover"><i class="lni lni-chevron-up"></i></a>
