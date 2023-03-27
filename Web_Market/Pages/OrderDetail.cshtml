@@ -1,0 +1,145 @@
+﻿@page
+@model Web_Market.Pages.OrderDetailModel
+@{
+}
+
+<div class="preloader">
+    <div class="loader">
+        <div class="ytp-spinner">
+            <div class="ytp-spinner-container">
+                <div class="ytp-spinner-rotator">
+                    <div class="ytp-spinner-left">
+                        <div class="ytp-spinner-circle"></div>
+                    </div>
+                    <div class="ytp-spinner-right">
+                        <div class="ytp-spinner-circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="banner-area bg_cover">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="banner-content">
+                    <h1 class="text-white">All Categories</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a asp-page="/index">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Order Details</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="dashboard-area pb-110">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-3 col-lg-4">
+                <div class="left-sidebar-wrapper box-style">
+
+                    <div class="sidebar-menu">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a asp-page="/admin/dashboard"><i class="lni lni-dashboard"></i>Dashboard</a>
+                                </li>
+                                <li>
+                                    <a asp-page="profile_settings"><i class="lni lni-cog"></i>Profile Settings</a>
+                                </li>
+                                <li>
+                                    <a asp-page="post_ads"><i class="lni lni-cog"></i>Post Ad</a>
+                                </li>
+                                <li>
+                                    <a asp-page="my_ads"><i class="lni lni-layers"></i>My Ads</a>
+                                </li>
+                                <li>
+                                    <a asp-page="mycart" class="active"><i class="lni lni-layers"></i>My Cart</a>
+                                </li>
+                                <li>
+                                    <a asp-page="offer"><i class="lni lni-envelope"></i>Offers / Message</a>
+                                </li>
+                                <li>
+                                    <a asp-page="payments"><i class="lni lni-paypal"></i>Payments</a>
+                                </li>
+                                <li>
+                                    <a asp-page="favorites"><i class="lni lni-heart"></i>My Favorites</a>
+                                </li>
+                                <li>
+                                    <a asp-page="privacy"><i class="lni lni-star"></i>Privacy Settings</a>
+                                </li>
+                                <li>
+                                    <a asp-page="login" asp-page-handler="signout">
+                                        <i class="lni lni-exit"></i>Sign
+                                        Out
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-9 col-lg-8">
+                <div class="dashboard-wrapper box-style">
+                    <div class="title">
+                        <h3>Your order detail</h3>
+                    </div>
+
+                    <div>
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Photo
+                                    </th>
+                                    <th>
+                                        Title
+                                    </th>
+                                    <th>
+                                        Category
+                                    </th>
+                                    <th>
+                                        Ad Status
+                                    </th>
+                                    <th>
+                                        Price
+                                    </th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="image">
+                                            <div class="form-check check-style">
+                                                
+                                            </div>
+                                            <img src="~/images/product/product-thumb-1.jpg" width="100" alt="">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <h6>8 GB DDR4 Ram, 4th Gen</h6>
+                                        <span class="ad-id">Ad ID: ng3D5hAMHPajQrM</span>
+                                    </td>
+                                    <td>
+                                        <span class="category">Ram & Laptop</span>
+                                    </td>
+                                    <td>
+                                        <span class="status-btn">ACTIVE</span>
+                                    </td>
+                                    <td>
+                                        <p>$20.99</p>
+                                    </td>
+                                    
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>

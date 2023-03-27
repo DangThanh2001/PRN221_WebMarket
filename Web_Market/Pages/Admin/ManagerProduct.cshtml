@@ -1,0 +1,166 @@
+﻿@page
+@model Web_Market.Pages.Admin.ManagerProductModel
+@{
+}
+<div class="preloader">
+    <div class="loader">
+        <div class="ytp-spinner">
+            <div class="ytp-spinner-container">
+                <div class="ytp-spinner-rotator">
+                    <div class="ytp-spinner-left">
+                        <div class="ytp-spinner-circle"></div>
+                    </div>
+                    <div class="ytp-spinner-right">
+                        <div class="ytp-spinner-circle"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="banner-area bg_cover">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="banner-content">
+                    <h1 class="text-white">All Categories</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a asp-page="/index">Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Product Manager</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="dashboard-area pb-110">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-3 col-lg-4">
+                <div class="left-sidebar-wrapper box-style">
+
+                    <div class="sidebar-menu">
+                        <nav>
+                            <ul>
+                                <li>
+                                    <a asp-page="/admin/dashboard"><i class="lni lni-dashboard"></i>Dashboard</a>
+                                </li>
+                                <li>
+                                    <a asp-page="profile_settings"><i class="lni lni-cog"></i>Profile Settings</a>
+                                </li>
+                                <li>
+                                    <a asp-page="post_ads"><i class="lni lni-cog"></i>Post Ad</a>
+                                </li>
+                                <li>
+                                    <a asp-page="my_ads"><i class="lni lni-layers"></i>My Ads</a>
+                                </li>
+                                <li>
+                                    <a asp-page="mycart" class="active"><i class="lni lni-layers"></i>My Cart</a>
+                                </li>
+                                <li>
+                                    <a asp-page="offer"><i class="lni lni-envelope"></i>Offers / Message</a>
+                                </li>
+                                <li>
+                                    <a asp-page="payments"><i class="lni lni-paypal"></i>Payments</a>
+                                </li>
+                                <li>
+                                    <a asp-page="favorites"><i class="lni lni-heart"></i>My Favorites</a>
+                                </li>
+                                <li>
+                                    <a asp-page="privacy"><i class="lni lni-star"></i>Privacy Settings</a>
+                                </li>
+                                <li>
+                                    <a asp-page="login" asp-page-handler="signout">
+                                        <i class="lni lni-exit"></i>Sign
+                                        Out
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-9 col-lg-8">
+                <div class="dashboard-wrapper box-style">
+                    <div class="title">
+                        <h3>My top sale</h3>
+                    </div>
+
+                    <table class="table text-start align-middle table-bordered table-hover mb-0">
+                        <thead>
+                            <tr class="">
+                                <th>Product name</th>
+                                <th>Import date</th>
+                                <th>Price</th>
+                                <th>Quantity left</th>
+                                <th>Buy times</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var o in Model.listProductTop)
+                            {
+                                <tr>
+                                    <td>@o.ProductName</td>
+                                    <td>@o.ImportDay</td>
+                                    <td>@o.Price</td>
+                                    <td>@o.Quantity</td>
+                                    <td><span class="fw-bold">@o.BuyTimes<span /></td>
+                                    <td>@(o.IsActive ? "On sale" : "Off sale")</td>
+                                    <td><a class="" href="">Detail</a></td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+
+                    <div class="title mt-5">
+                        <h3>My all products</h3>
+                    </div>
+                    <form method="get">
+                        <select name="account">
+                            @foreach (var o in Model.listAccount)
+                            {
+                                <option value="@o.AccountId">@o.FirstName &nbsp; @o.LastName</option>
+                            }
+                        </select>
+                    </form>
+
+                    <table class="table text-start align-middle table-bordered table-hover mb-0">
+                        <thead>
+                            <tr class="">
+                                <th>Product name</th>
+                                <th>Import date</th>
+                                <th>Price</th>
+                                <th>Quantity left</th>
+                                <th>Buy times</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var o in Model.listProduct)
+                            {
+                                <tr>
+                                    <td width="40%">@o.ProductName</td>
+                                    <td>@o.ImportDay</td>
+                                    <td>@o.Price</td>
+                                    <td>@o.Quantity</td>
+                                    <td><span class="fw-bold">@o.BuyTimes<span /></td>
+                                    <td>@(o.IsActive ? "On sale" : "Off sale")</td>
+                                    <td><a class="" href="">Detail</a></td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
