@@ -26,7 +26,7 @@ function chang() {
             xhr.setRequestHeader("XSRF-TOKEN",
                 $('input:hidden[name="__RequestVerificationToken"]').val());
         },
-        data: { email: email, password = pass }, // dữ liệu gửi đi
+        data: { email: email, password : pass }, // dữ liệu gửi đi
         success: function (result) {
             if (JSON.parse(result) == true) {
                 swal("Your password been updated!", "success");
